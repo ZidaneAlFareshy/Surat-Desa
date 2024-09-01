@@ -33,17 +33,18 @@
 <div>
 	<table width="100%">
 		<tr><img src="../../../../assets/img/logo-cirebon-90x90.png" alt="" class="logo"></tr>
-		<div class="header">
+		<div class="header" style="padding-bottom: 10px;">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH <?php echo $rows['kota']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-			<h4 class="kop" style="text-transform: uppercase">KEPALA DESA <?php echo $rows['nama_desa']; ?></h4>
-			<h5 class="kop2" style="text-transform: capitalize;"><?php echo $rows['alamat'] . " Telp. " . $rows['no_telpon'] . " Kode Pos " . $rows['kode_pos']; ?></h5>
-			<div style="text-align: center;">
+			<h4 class="kop" style="text-transform: uppercase">KANTOR KUWU <?php echo $rows['nama_desa']; ?></h4>
+			<h5 class="kop2" style="text-transform: capitalize;">Alamat: <?php echo $rows['alamat']; ?></h5>
+			<h5 class="kop2" style="margin-top: 10px;">Website: www.grogolkapetakan.desa.cirebonkab.go.id E-mail: ds.grogol@hotmail.com</h5>
+			<div style="text-align: center; padding-top: 5px;">
 				<hr>
 			</div>
 		</div>
 		<br>
-		<div align="center"><u><h4 class="kop">SURAT KETERANGAN USAHA</h4></u></div>
+		<div align="center" style="padding-top: 20px;"><u><h3>SURAT KETERANGAN USAHA</h3></u></div>
 		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
 	<br>
@@ -51,7 +52,7 @@
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, menerangkan dengan sesungguhnya bahwa :
 				</td>
 			</tr>
 		</table>
@@ -61,11 +62,6 @@
 				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td width="2%">:</td>
 				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
-				<td>:</td>
-				<td><?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -93,9 +89,24 @@
 				<td><?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
+				<td class="indentasi">NIK</td>
+				<td>:</td>
+				<td><?php echo $row['nik']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Jenis Kelamin</td>
+				<td>:</td>
+				<td><?php echo $row['jenis_kelamin']; ?></td>
+			</tr>
+			<tr>
 				<td class="indentasi">Agama</td>
 				<td>:</td>
 				<td><?php echo $row['agama']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Status Perkawinan</td>
+				<td>:</td>
+				<td><?php echo $row['status_perkawinan']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Pekerjaan</td>
@@ -103,68 +114,31 @@
 				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">NIK</td>
+				<td class="indentasi">Kewarganegaraan</td>
 				<td>:</td>
-				<td><?php echo $row['nik']; ?></td>
+				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Alamat</td>
 				<td>:</td>
 				<td><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
 			</tr>
-			<tr>
-				<td class="indentasi">Kewarganegaraan</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
-			</tr>
 		</table>
-		<br>
+		
+		<br><br>
 		<table width="100%">
 			<tr>
-				<td><b><u>MENERANGKAN BAHWA :</u></b></td>
+				<td class="indentasi">Bahwa benar orang tersebut di atas adalah Penduduk Desa kami, dan menurut pengetahuan kami hingga sekarang dikeluarkan surat keterangan ini yang bersangkutan benar mempunyai usaha:</td>
+			</tr>
+		</table><br>
+		<table width="100%" style="text-transform: capitalize;">
+			<tr>
+				<td class="indentasi" style="text-align:center;"><b><u><?php echo $row['usaha']; ?></u></b></td>
 			</tr>
 		</table><br>
 		<table width="100%">
 			<tr>
-				<td width="3%"></td>
-				<td width="3%">-</td>
-				<td width="94%">Nama tersebut di atas benar-benar warga desa kami alamat tersebut di atas.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>-</td>
-				<td>Nama tersebut di atas benar-benar mempunyai usaha di <a style="text-transform: capitalize;"><?php echo $row['alamat_usaha']; ?></a>.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>-</td>
-				<td>Usahanya berupa :</td>
-			</tr>
-		</table>
-		<table width="100%">
-			<tr>
-				<td class="indentasi" style="text-align:center; text-transform: uppercase;"><b><u><?php echo '"' . $row['usaha'] . '"'; ?></u></b></td>
-			</tr>
-		</table>
-		<table width="100%">
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
-			<tr>
-				<td width="3%"></td>
-				<td width="3%">-</td>
-				<td width="94%">Surat Keterangan ini dipergunakan untuk :</td>
-			</tr>
-		</table>
-		<table width="100%">
-			<tr>
-				<td class="indentasi" style="text-align:center; text-transform: uppercase;"><b><u><?php echo '"' . $row['keperluan'] . '"'; ?></u></b></td>
-			</tr>
-		</table><br>
-		<table width="100%">
-			<tr>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
-				</td>
+				<td class="indentasi">Demikian surat keterangan usaha ini kami buat dengan sebenar-benarnya dan untuk dapat dipergunakan sesuai dengan keperluannya.</td>
 			</tr>
 		</table>
 	</div>
@@ -207,7 +181,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td align="center">TTD. bersangkutan</td>
+			<td></td>
 			<td></td>
 			<td align="center"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
 		</tr>
@@ -253,9 +227,9 @@
 		<tr></tr>
 		<tr>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $row['nama']; ?></u></b></td>
 			<td></td>
-			<td align="center" style="text-transform: uppercase;"><b><u><?php echo $rowss['nama_pejabat_desa']; ?></u></b></td>
+			<td></td>
+			<td align="center" style="text-transform: uppercase;"><u><b><?php echo $rowss['nama_pejabat_desa']; ?></b></u></td>
 		</tr>
 	</table>
 </div>

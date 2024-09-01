@@ -2,7 +2,7 @@
     include ('../../config/koneksi.php');
 
     if (isset($_POST['submit'])){
-        $jenis_surat = "Surat Keterangan Berkelakuan Baik";
+        $jenis_surat = "Surat Pengantar Kelakuan Baik";
         $nik = $_POST['fnik'];
         $keperluan = addslashes($_POST['fkeperluan']);
         $status_surat = "PENDING";

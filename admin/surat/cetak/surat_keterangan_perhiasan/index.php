@@ -33,17 +33,18 @@
 <div>
 	<table width="100%">
 		<tr><img src="../../../../assets/img/logo-cirebon-90x90.png" alt="" class="logo"></tr>
-		<div class="header">
+		<div class="header" style="padding-bottom: 10px; text-align: center;">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH <?php echo $rows['kota']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-			<h4 class="kop" style="text-transform: uppercase">KEPALA DESA <?php echo $rows['nama_desa']; ?></h4>
-			<h5 class="kop2" style="text-transform: capitalize;"><?php echo $rows['alamat'] . " Telp. " . $rows['no_telpon'] . " Kode Pos " . $rows['kode_pos']; ?></h5>
-			<div style="text-align: center;">
+			<h4 class="kop" style="text-transform: uppercase">kANTOR KUWU <?php echo $rows['nama_desa']; ?></h4>
+			<h5 class="kop2" style="text-transform: capitalize;">Alamat: <?php echo $rows['alamat']; ?></h5>
+			<h5 class="kop2" style="margin-top: 10px;">Website: www.grogolkapetakan.desa.cirebonkab.go.id E-mail: ds.grogol@hotmail.com</h5>
+			<div style="text-align: center; padding-top: 7px;">
 				<hr>
 			</div>
 		</div>
 		<br>
-		<div align="center"><u><h4 class="kop">SURAT KETERANGAN PERHIASAN</h4></u></div>
+		<div align="center" style="padding-top: 20px;"><u><h3>SURAT KETERANGAN KEHILANGAN</h3></u></div>
 		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
 	<br>
@@ -51,7 +52,7 @@
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, dengan ini menerangkan bahwa :
 				</td>
 			</tr>
 		</table>
@@ -61,11 +62,6 @@
 				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td width="2%">:</td>
 				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
-				<td>:</td>
-				<td><?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -93,24 +89,29 @@
 				<td><?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Agama</td>
+				<td class="indentasi">NIK</td>
 				<td>:</td>
-				<td><?php echo $row['agama']; ?></td>
+				<td><?php echo $row['nik']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Jenis Kelamin</td>
+				<td>:</td>
+				<td><?php echo $row['jenis_kelamin']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Status Perkawinan</td>
+				<td>:</td>
+				<td style="text-transform: capitalize;"><?php echo $row['status_perkawinan']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Kewarganegaraan</td>
+				<td>:</td>
+				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Pekerjaan</td>
 				<td>:</td>
 				<td><?php echo $row['pekerjaan']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Status</td>
-				<td>:</td>
-				<td style="text-transform: capitalize;"><?php echo $row['status_perkawinan']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">NIK</td>
-				<td>:</td>
-				<td><?php echo $row['nik']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Alamat</td>
@@ -119,7 +120,7 @@
 			</tr>
 		</table>
 		<br>
-		<table width="100%">
+		<!-- <table width="100%">
 			<tr>
 				<td><b><u>MENERANGKAN BAHWA :</u></b></td>
 			</tr>
@@ -157,6 +158,22 @@
 			<tr>
 				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
 				</td>
+			</tr>
+		</table>
+	</div> -->
+	<table width="100%">
+			<tr>
+				<td class="indentasi">Bahwa benar orang tersebut di atas adalah warga penduduk Desa kami, yang mengaku telah kehilangan sebuah <b><?php echo $row['barang']; ?></b> a/n pelapor, di ketahui hilang di <b style="text-transform: capitalize;"><?php echo $row['lokasi']; ?></b> pada hari Sabtu, tanggal 25 Januari 2020.</td>
+			</tr>
+		</table><br>
+		<table width="100%">
+			<tr>
+				<td class="indentasi">Surat Keterangan ini dibuat untuk <b style="text-transform: capitalize;"><?php echo $row['keperluan']; ?></b></td>
+			</tr>
+		</table><br>
+		<table width="100%">
+			<tr>
+				<td class="indentasi">Demikian surat keterangan kehilangan ini kami buat dengan sebenar-benarnya dan untuk dapat dipergunakan seperlunya.</td>
 			</tr>
 		</table>
 	</div>
@@ -199,9 +216,9 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td align="center"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
 			<td></td>
-			<td align="center">T.T Bersangkutan</td>
+			<td></td>
+			<td align="center"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
 		</tr>
 		<tr></tr>
 		<tr></tr>
@@ -245,9 +262,9 @@
 		<tr></tr>
 		<tr>
 			<td></td>
-			<td align="center" style="text-transform: uppercase;"><b><u><?php echo $rowss['nama_pejabat_desa']; ?></u></b></td>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $row['nama']; ?></u></b></td>
+			<td></td>
+			<td align="center" style="text-transform: uppercase;"><u><b><?php echo $rowss['nama_pejabat_desa']; ?></b></u></td>
 		</tr>
 	</table>
 </div>

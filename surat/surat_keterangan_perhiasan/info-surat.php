@@ -117,65 +117,27 @@
 						  	</div>
 						</div>
 						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Informasi Perhiasan</h6><hr width="97%">
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
 						<div class="row">
-						  	<div class="col-sm-6">
+						  	<div class="col-sm-12">
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Perhiasan</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Barang Hilang</label>
 						           	<div class="col-sm-12">
-			                        	<select name="fjenis_perhiasan" class="form-control" required>
-			                          		<option value="">-- Jenis Perhiasan --</option>
-			                          		<option value="Emas">Emas</option>
-			                          		<option value="Berlian">Berlian</option>
-			                          		<option value="Mutiara">Mutiara</option>
-			                          		<option value="Etnik">Etnik</option>
-			                        	</select>
-			                      	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Nama Perhiasan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_perhiasan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Perhiasan" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Berat (Dalam Satuan Gram)</label>
-						           	<div class="col-sm-12">
-						           		<script>
-				                          	function hanyaAngka(evt){
-				                            	var charCode = (evt.which) ? evt.which : event.keyCode
-				                            	if (charCode > 31 && (charCode < 48 || charCode > 57))
-				                            	return false;
-				                            	return true;
-				                          	}
-				                        </script>
-						               	<input type="text" name="fberat" class="form-control" maxlength="5" onkeypress="return hanyaAngka(event)" style="text-transform: capitalize;" placeholder="Masukkan Berat (Dalam Satuan Gram)" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Toko Perhiasan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="ftoko_perhiasan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Toko Perhiasan" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Lokasi Toko Perhiasan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="flokasi_toko_perhiasan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Lokasi Toko Perhiasan" required>
+						               	<input type="text" name="fbarang" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Barang Hilang" required>
 						           	</div>
 						        </div>
 						  	</div>
 						</div>
-						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
+						<div class="row">
+						  	<div class="col-sm-12">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Lokasi Hilang</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="flokasi" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Lokasi Barang Hilang" required>
+						           	</div>
+						        </div>
+						  	</div>
+						</div>
 						<div class="row">
 						  	<div class="col-sm-12">
 						      	<div class="form-group">

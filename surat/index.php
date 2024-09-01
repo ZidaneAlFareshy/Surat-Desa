@@ -62,7 +62,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN</h5><br><br>
+		        		<h5 class="card-title">SURAT KETERANGAN KTP SEMENTARA</h5><br><br>
 		        		<a href="surat_keterangan/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
@@ -98,7 +98,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN PERHIASAN</h5><br>
+		        		<h5 class="card-title">SURAT KETERANGAN KEHILANGAN</h5><br>
 		        		<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>

@@ -123,11 +123,11 @@
                       <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"></i><b> <?php echo $row['status_surat']; ?></b></a></td>
                       <td>
                         <?php  
-                          if($row['jenis_surat']=="Surat Keterangan"){
+                          if($row['jenis_surat']=="Surat Keterangan KTP Sementara"){
                         ?>
                         <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php
-                          } else if($row['jenis_surat']=="Surat Keterangan Berkelakuan Baik"){
+                          } else if($row['jenis_surat']=="Surat Pengantar Kelakuan Baik"){
                         ?>
                         <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_berkelakuan_baik/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php
@@ -139,7 +139,7 @@
                         ?>
                         <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_kepemilikan_kendaraan_bermotor/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php
-                          } else if($row['jenis_surat']=="Surat Keterangan Perhiasan"){
+                          } else if($row['jenis_surat']=="Surat Keterangan Kehilangan"){
                         ?>
                         <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_perhiasan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php

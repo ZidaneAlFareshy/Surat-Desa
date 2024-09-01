@@ -207,48 +207,6 @@
                   </div>
                 </div>
               </div>
-              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Perhiasan</b></h5>
-              <br><hr style="border-bottom: 1px solid #DCDCDC;">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Jenis Perhiasan</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fjenis_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['jenis_perhiasan']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Berat</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fberat" style="text-transform: capitalize;" value="<?php echo $row['berat'] . " Gram"; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Lokasi Toko Perhiasan</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="flokasi_toko_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['lokasi_toko_perhiasan']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Nama Perhiasan</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fnama_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['nama_perhiasan']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Toko Perhiasan</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="ftoko_perhiasan" style="text-transform: capitalize;" value="<?php echo $row['toko_perhiasan']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
@@ -258,6 +216,26 @@
                       <label class="col-sm-3 control-label">Keperluan</label>
                       <div class="col-sm-9">
                         <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Barang Hilang</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fbarang" style="text-transform: capitalize;" value="<?php echo $row['barang']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Lokasi Hilang</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="flokasi" style="text-transform: capitalize;" value="<?php echo $row['lokasi']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
