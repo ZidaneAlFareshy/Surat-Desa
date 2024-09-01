@@ -163,7 +163,38 @@
 	</div> -->
 	<table width="100%">
 			<tr>
-				<td class="indentasi">Bahwa benar orang tersebut di atas adalah warga penduduk Desa kami, yang mengaku telah kehilangan sebuah <b><?php echo $row['barang']; ?></b> a/n pelapor, di ketahui hilang di <b style="text-transform: capitalize;"><?php echo $row['lokasi']; ?></b> pada hari Sabtu, tanggal 25 Januari 2020.</td>
+			<?php
+			function tgl_indo($tanggal){
+				$bulan = array(
+        			1 => 'Januari',
+        			'Februari',
+					'Maret',
+					'April',
+					'Mei',
+					'Juni',
+					'Juli',
+					'Agustus',
+					'September',
+					'Oktober',
+					'November',
+					'Desember'
+				);
+				$hari = array(
+					'Sunday' => 'Minggu',
+					'Monday' => 'Senin',
+					'Tuesday' => 'Selasa',
+					'Wednesday' => 'Rabu',
+					'Thursday' => 'Kamis',
+					'Friday' => 'Jumat',
+					'Saturday' => 'Sabtu'
+				);
+				
+				$pecahkan = explode('-', $tanggal);
+				$nama_hari = date('l', strtotime($tanggal));
+				return $hari[$nama_hari] . ', ' . $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+			}
+			?>
+				<td class="indentasi">Bahwa benar orang tersebut di atas adalah warga penduduk Desa kami, yang mengaku telah kehilangan sebuah <b><?php echo $row['barang']; ?></b> a/n pelapor, diketahui hilang di <b style="text-transform: capitalize;"><?php echo $row['lokasi']; ?></b> pada hari <b style="text-transform: capitalize;"><?php echo tgl_indo($row['tanggal']); ?>.</b></td>
 			</tr>
 		</table><br>
 		<table width="100%">

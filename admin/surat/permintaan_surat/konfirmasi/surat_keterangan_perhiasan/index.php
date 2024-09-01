@@ -241,6 +241,16 @@
                   </div>
                 </div>
                 <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tanggal Kehilangan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftanggal" value="<?php echo date('d-m-Y', strtotime($row['tanggal'])); ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
                   <div class="box-body pull-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
                   </div>

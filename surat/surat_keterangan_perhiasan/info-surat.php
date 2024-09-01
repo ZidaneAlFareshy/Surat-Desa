@@ -139,6 +139,17 @@
 						  	</div>
 						</div>
 						<div class="row">
+    						<div class="col-sm-12">
+        						<div class="form-group">
+            						<label class="col-sm-12" style="font-weight: 500;">Tanggal Kehilangan</label>
+            						<div class="col-sm-12">
+                						<input type="date" name="ftanggal" class="form-control" placeholder="Pilih Tanggal Kehilangan" required>
+            						</div>
+        						</div>
+    						</div>
+						</div>
+
+						<div class="row">
 						  	<div class="col-sm-12">
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Keperluan Surat</label>
