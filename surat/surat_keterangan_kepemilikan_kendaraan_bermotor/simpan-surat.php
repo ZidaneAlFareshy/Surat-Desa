@@ -2,24 +2,20 @@
     include ('../../config/koneksi.php');
 
     if (isset($_POST['submit'])){
-        $jenis_surat = "Surat Keterangan Kepemilikan Kendaraan Bermotor";
+        $jenis_surat = "Surat Keterangan Tidak Mampu";
         $nik = $_POST['fnik'];
-        $merk_type = $_POST['fmerk_type'];
-        $jenis_model = $_POST['fjenis_model'];
-        $tahun_pembuatan = $_POST['ftahun_pembuatan'];
-        $cc = $_POST['fcc'];
-        $warna_cat = $_POST['fwarna_cat'];
-        $no_rangka = $_POST['fno_rangka'];
-        $no_mesin = $_POST['fno_mesin'];
-        $no_polisi = $_POST['fno_polisi'];
-        $no_bpkb = $_POST['fno_bpkb'];
-        $atas_nama_pemilik = addslashes($_POST['fatas_nama_pemilik']);
-        $alamat_pemilik = addslashes($_POST['falamat_pemilik']);
-        $keperluan = addslashes($_POST['fkeperluan']);
+        $nama_second = addslashes($_POST['fnama_second']);
+        $agama_second = $_POST['fagama_second'];
+        $nik_second = $_POST['fnik_second'];
+        $jenis_kelamin_second = $_POST['fjenis_kelamin_second'];
+        $tempat_lahir_second = addslashes($_POST['ftempat_lahir_second']);
+        $pekerjaan_second = $_POST['fpekerjaan_second'];
+        $tanggal_lahir_second = $_POST['ftanggal_lahir_second'];
+        $alamat_second = addslashes($_POST['falamat_second']);
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 
-        $qTambahSurat = "INSERT INTO surat_keterangan_kepemilikan_kendaraan_bermotor (jenis_surat, nik, merk_type, jenis_model, tahun_pembuatan, cc, warna_cat, no_rangka, no_mesin, no_polisi, no_bpkb, atas_nama_pemilik, alamat_pemilik, keperluan, status_surat, id_profil_desa) VALUES('$jenis_surat', '$nik', '$merk_type', '$jenis_model', '$tahun_pembuatan', '$cc', '$warna_cat', '$no_rangka', '$no_mesin', '$no_polisi', '$no_bpkb', '$atas_nama_pemilik', '$alamat_pemilik', '$keperluan', '$status_surat', '$id_profil_desa')";
+        $qTambahSurat = "INSERT INTO surat_keterangan_kepemilikan_kendaraan_bermotor (jenis_surat, nik, nama_second, agama_second, nik_second, jenis_kelamin_second, tempat_lahir_second, pekerjaan_second, tanggal_lahir_second, alamat_second, status_surat, id_profil_desa) VALUES('$jenis_surat', '$nik', '$nama_second', '$agama_second', '$nik_second', '$jenis_kelamin_second', '$tempat_lahir_second', '$pekerjaan_second', '$tanggal_lahir_second', '$alamat_second', '$status_surat', '$id_profil_desa')";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
         header("location:../index.php?pesan=berhasil");
     }

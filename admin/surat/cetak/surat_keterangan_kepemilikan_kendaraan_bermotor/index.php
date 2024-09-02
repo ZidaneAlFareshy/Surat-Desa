@@ -33,23 +33,25 @@
 <div>
 	<table width="100%">
 		<tr><img src="../../../../assets/img/logo-cirebon-90x90.png" alt="" class="logo"></tr>
-		<div class="header">
+		<div class="header" style="padding-bottom: 10px;">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH <?php echo $rows['kota']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-			<h4 class="kop" style="text-transform: uppercase">KEPALA DESA <?php echo $rows['nama_desa']; ?></h4>
-			<h5 class="kop2" style="text-transform: capitalize;"><?php echo $rows['alamat'] . " Telp. " . $rows['no_telpon'] . " Kode Pos " . $rows['kode_pos']; ?></h5>
-			<div style="text-align: center;">
+			<h4 class="kop" style="text-transform: uppercase">KANTOR KUWU <?php echo $rows['nama_desa']; ?></h4>
+			<h5 class="kop2" style="text-transform: capitalize;">Alamat: <?php echo $rows['alamat']; ?></h5>
+			<h5 class="kop2" style="margin-top: 10px;">Website: www.grogolkapetakan.desa.cirebonkab.go.id E-mail: ds.grogol@hotmail.com</h5>
+			<div style="text-align: center; padding-top: 5px;">
 				<hr>
 			</div>
 		</div>
-		<div align="center"><u><h4 class="kop3">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</h4></u></div>
+		<br>
+		<div align="center" style="padding-top: 20px;"><u><h3>SURAT KETERANGAN TIDAK MAMPU</h3></u></div>
 		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
 	<div class="clear"></div>
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, menerangkan dengan sesungguhnya bahwa :
 				</td>
 			</tr>
 		</table>
@@ -58,11 +60,6 @@
 				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td width="2%">:</td>
 				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
-				<td>:</td>
-				<td><?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<?php
 				$tgl_lhr = date($row['tgl_lahir']);
@@ -90,9 +87,19 @@
 				<td><?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
 			</tr>
 			<tr>
+				<td class="indentasi">NIK</td>
+				<td>:</td>
+				<td><?php echo $row['nik']; ?></td>
+			</tr>
+			<tr>
 				<td class="indentasi">Agama</td>
 				<td>:</td>
 				<td><?php echo $row['agama']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Jenis Kelamin</td>
+				<td>:</td>
+				<td><?php echo $row['jenis_kelamin']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Pekerjaan</td>
@@ -100,33 +107,94 @@
 				<td><?php echo $row['pekerjaan']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">NIK</td>
-				<td>:</td>
-				<td><?php echo $row['nik']; ?></td>
-			</tr>
-			<tr>
 				<td class="indentasi">Alamat</td>
 				<td>:</td>
 				<td><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Kewarganegaraan</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
 			</tr>
 		</table>
 		<br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Bahwa sesuai dengan pengakuan orang tersebut diatas serta bukti-bukti yang ditunjukkan kepada kami, adalah benar yang menguasai kendaraan BERMOTOR roda <?php echo $row['roda']; ?> dengan ciri-ciri sebagai berikut :
+				<td>Adalah Orang Tua dari:
 				</td>
 			</tr>
 		</table>
+		<table width="100%" style="text-transform: capitalize;">
+			<tr>
+				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_second']; ?></td>
+			</tr>
+			<?php
+				$tgl_lhr = date($row['tanggal_lahir_second']);
+				$tgl = date('d ', strtotime($tgl_lhr));
+				$bln = date('F', strtotime($tgl_lhr));
+				$thn = date(' Y', strtotime($tgl_lhr));
+				$blnIndo = array(
+				    'January' => 'Januari',
+				    'February' => 'Februari',
+				    'March' => 'Maret',
+				    'April' => 'April',
+				    'May' => 'Mei',
+				    'June' => 'Juni',
+				    'July' => 'Juli',
+				    'August' => 'Agustus',
+				    'September' => 'September',
+				    'October' => 'Oktober',
+				    'November' => 'November',
+				    'December' => 'Desember'
+				);
+			?>
+			<tr>
+				<td class="indentasi">Tempat/Tgl. Lahir</td>
+				<td>:</td>
+				<td><?php echo $row['tempat_lahir_second'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">NIK</td>
+				<td>:</td>
+				<td><?php echo $row['nik_second']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Agama</td>
+				<td>:</td>
+				<td><?php echo $row['agama_second']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Jenis Kelamin</td>
+				<td>:</td>
+				<td><?php echo $row['jenis_kelamin_second']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Pekerjaan</td>
+				<td>:</td>
+				<td><?php echo $row['pekerjaan_second']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Alamat</td>
+				<td>:</td>
+				<td><?php echo $row['alamat_second']; ?></td>
+			</tr>
+		</table>
+		<br>
 		<table width="100%">
 			<tr>
-				<td width="35%" class="indentasi">Merk / Type</td>
+				<td class="indentasi">Berdasarkan hasil pengamatan kami, benar bahwa orang tersebut adalah warga masyarakat Desa kami yang keadaan ekonominnya lemah dan termasuk Keluarga Tidak mampu (Pra KS). 
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table width="100%">
+			<tr>
+				<td class="indentasi">Demikian surat keterangan ini kami buat dengan sebenar-benarnya dan untuk dapat dipergunakan sesuai dengan keperluannya.
+				</td>
+			</tr>
+		</table>
+		<!-- <table width="100%">
+			<tr>
+				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td width="2%">:</td>
-				<td width="63%" style="text-transform: uppercase;"><?php echo $row['merk_type']; ?></td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_second']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Jenis Model</td>
@@ -185,16 +253,24 @@
 				<td>:</td>
 				<td style="text-transform: capitalize;"><b><?php echo $row['keperluan']; ?></b></td>
 			</tr>
-		</table><br>
-		<table width="100%">
+		</table><br> -->
+		<!-- <table width="100%">
 			<tr>
 				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
 				</td>
 			</tr>
-		</table>
+		</table> -->
 	</div>
 	<br>
 	<table width="100%" style="text-transform: capitalize;">
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
 		<tr>
 			<td width="10%"></td>
 			<td width="30%"></td>
@@ -224,7 +300,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td align="center">T.T Bersangkutan</td>
+			<td></td>
 			<td></td>
 			<td align="center"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
 		</tr>
@@ -270,9 +346,9 @@
 		<tr></tr>
 		<tr>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $row['nama']; ?></u></b></td>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $rowss['nama_pejabat_desa']; ?></u></b></td>
+			<td></td>
+			<td align="center" style="text-transform: uppercase;"><u><b><?php echo $rowss['nama_pejabat_desa']; ?></b></u></td>
 		</tr>
 	</table>
 </div>

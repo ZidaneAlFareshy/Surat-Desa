@@ -75,7 +75,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Perhiasan</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan Kehilangan</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>

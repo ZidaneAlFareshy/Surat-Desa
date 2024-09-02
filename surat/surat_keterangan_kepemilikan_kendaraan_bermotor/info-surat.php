@@ -21,7 +21,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</b></h5></a>
+							<a class="col-sm-6"><h5><b>SURAT KETERANGAN TIDAK MAMPU</b></h5></a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
@@ -117,107 +117,75 @@
 							</div>
 						</div>
 						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Informasi Kendaraan</h6><hr width="97%">
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Informasi Anak / Ortu</h6><hr width="97%">
 						<div class="row">
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Merk / Type</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Nama</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fmerk_type" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Merk / Type" required>
+						               	<input type="text" name="fnama_second" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama" required>
 						           	</div>
 						        </div>
 						    </div>
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Jenis Model</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Agama</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fjenis_model" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Jenis Model" required>
+						               	<input type="text" name="fagama_second" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Agama" required>
 						           	</div>
 						        </div>
 						  	</div>
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Tahun Pembuatan</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">NIK</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="ftahun_pembuatan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Tahun Pembuatan" required>
+						               	<input type="number" name="fnik_second" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan NIK" required>
+						           	</div>
+						        </div>
+						  	</div>
+						  	<div class="col-sm-6">
+      							<div class="form-group">
+           							<label class="col-sm-12" style="font-weight: 500;">Jenis Kelamin</label>
+           							<div class="col-sm-12">
+               							<select name="fjenis_kelamin_second" class="form-control" required>
+											<option value="">Pilih Jenis Kelamin</option>
+											<option value="Laki-laki">Laki-laki</option>
+											<option value="Perempuan">Perempuan</option>
+               							</select>
+           							</div>
+        						</div>
+  							</div>
+						  	<div class="col-sm-6">
+						      	<div class="form-group">
+						           	<label class="col-sm-12" style="font-weight: 500;">Tempat Lahir</label>
+						           	<div class="col-sm-12">
+						               	<input type="text" name="ftempat_lahir_second" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Tempat Lahir" required>
 						           	</div>
 						        </div>
 						  	</div>
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">CC</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Pekerjaan</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fcc" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan CC" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Warna Cat</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fwarna_cat" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Warna Cat" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">No. Rangka</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fno_rangka" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan No. Rangka" required>
+						               	<input type="text" name="fpekerjaan_second" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Pekerjaan" required>
 						           	</div>
 						        </div>
 						  	</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">No. Mesin</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fno_mesin" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan No. Mesin" required>
-						           	</div>
-						        </div>
-						  	</div>
+      							<div class="form-group">
+           							<label class="col-sm-12" style="font-weight: 500;">Tanggal Lahir</label>
+           							<div class="col-sm-12">
+               							<input type="date" name="ftanggal_lahir_second" class="form-control" required>
+           							</div>
+       		 					</div>
+  							</div>
 						  	<div class="col-sm-6">
 						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">No. POLISI</label>
+						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fno_polisi" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan No. POLISI" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">No. B P K B</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fno_bpkb" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan No. B P K B" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Atas Nama Pemilik</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fatas_nama_pemilik" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Atas Nama Pemilik" required>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Alamat Pemilik</label>
-						           	<div class="col-sm-12">
-						               	<textarea type="text" name="falamat_pemilik" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Alamat Pemilik" required></textarea>
-						           	</div>
-						        </div>
-						  	</div>
-						</div>
-						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
-						<div class="row">
-							<div class="col-sm-12">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Keperluan Surat</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fkeperluan" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Keperluan Surat" required>
+						               	<input type="text" name="falamat_second" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Alamat" required>
 						           	</div>
 						        </div>
 						  	</div>

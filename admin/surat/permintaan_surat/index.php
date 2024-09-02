@@ -135,7 +135,7 @@
                         ?>
                         <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_domisili/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php
-                          } else if($row['jenis_surat']=="Surat Keterangan Kepemilikan Kendaraan Bermotor"){
+                          } else if($row['jenis_surat']=="Surat Keterangan Tidak Mampu"){
                         ?>
                         <a class="btn btn-success btn-sm" href='konfirmasi/surat_keterangan_kepemilikan_kendaraan_bermotor/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php

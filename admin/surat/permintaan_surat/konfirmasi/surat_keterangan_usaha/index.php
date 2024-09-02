@@ -215,26 +215,12 @@
                         <input type="text" name="fusaha" style="text-transform: uppercase;" value="<?php echo $row['usaha']; ?>" class="form-control" readonly>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Alamat Usaha</label>
-                      <div class="col-sm-9">
-                        <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['alamat_usaha']; ?></textarea>
-                      </div>
-                    </div>
                     <div>
                       <input type="hidden" name="id" value="<?php echo $row['id_sku']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Keperluan</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                  </div>
                   <div class="box-body pull-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
                   </div>

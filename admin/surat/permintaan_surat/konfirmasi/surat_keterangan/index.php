@@ -75,7 +75,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan KTP Sementara</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -209,17 +209,7 @@
               </div>
               <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
-              <!-- <div class="row">
-                <div class="col-md-6">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Keperluan</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fkeperluan" style="text-transform: capitalize;" value="<?php echo $row['keperluan']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
+              <div class="row">
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">

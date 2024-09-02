@@ -21,7 +21,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN</b></h5></a>
+							<a class="col-sm-6"><h5><b>SURAT KETERANGAN KTP SEMENTARA</b></h5></a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>

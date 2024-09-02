@@ -71,7 +71,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN BERKELAKUAN BAIK</h5><br>
+		        		<h5 class="card-title">SURAT PENGANTAR KELAKUAN BAIK</h5><br>
 		        		<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>
@@ -89,7 +89,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KETERANGAN KEPEMILIKAN KENDARAAN BERMOTOR</h5>
+		        		<h5 class="card-title">SURAT KETERANGAN TIDAK MAMPU</h5>
 		        		<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>

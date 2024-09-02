@@ -21,7 +21,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<a class="col-sm-6"><h5><b>SURAT KETERANGAN BERKELAKUAN BAIK</b></h5></a>
+							<a class="col-sm-6"><h5><b>SURAT PENGANTAR KELAKUAN BAIK</b></h5></a>
 							<a class="col-sm-6"><h5><b>NOMOR SURAT : -</b></h5></a>
 						</div>
 					</div>
