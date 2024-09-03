@@ -127,7 +127,7 @@
 		<br><br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Benar bahwa Nama orang tersebut di atas adalah warga masyarakat desa kami sampai surat keterangan ini dibuat yang bersangkutan masih berdomisili di Dusun <a style="text-transform: capitalize;"><?php echo $row['dusun']; ?>, Desa <?php echo $rows['nama_desa']; ?></a> <a style="text-transform: capitalize;"><b><u><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></u></b></a>.</td>
+				<td class="indentasi">Benar bahwa Nama orang tersebut di atas adalah warga masyarakat desa kami sampai surat keterangan ini dibuat yang bersangkutan masih berdomisili di Dusun <a style="text-transform: capitalize;"><?php echo $row['dusun']; ?>, Desa <?php echo $rows['nama_desa']; ?></a> <a style="text-transform: capitalize;"><b><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></b></a>.</td>
 			</tr>
 		</table><br>
 		<table width="100%">

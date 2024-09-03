@@ -116,6 +116,17 @@
 						        </div>
 							</div>
 						</div>
+						<br>
+						<div class="row">
+    						<div class="col-sm-12">
+        						<div class="form-group">
+            						<label class="col-sm-12" style="font-weight: 500;">Nomor Telepon</label>
+            						<div class="col-sm-12">
+                						<input type="number" name="ftelepon" class="form-control" placeholder="Masukkan Nomor Telepon" required>
+            						</div>
+        						</div>
+    						</div>
+						</div>
 						<hr width="97%">
 						<div class="container-fluid">
 		                	<input type="reset" class="btn btn-warning" value="Batal">

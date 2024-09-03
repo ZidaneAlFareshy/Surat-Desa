@@ -117,7 +117,7 @@
 						  	</div>
 						</div>
 						<br>
-						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Kehilangan</h6><hr width="97%">
 						<div class="row">
 						  	<div class="col-sm-12">
 						      	<div class="form-group">
@@ -148,7 +148,18 @@
         						</div>
     						</div>
 						</div>
-
+						<br>
+						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
+						<div class="row">
+    						<div class="col-sm-12">
+        						<div class="form-group">
+            						<label class="col-sm-12" style="font-weight: 500;">Nomor Telepon</label>
+            						<div class="col-sm-12">
+                						<input type="number" name="ftelepon" class="form-control" placeholder="Masukkan Nomor Telepon" required>
+            						</div>
+        						</div>
+    						</div>
+						</div>
 						<div class="row">
 						  	<div class="col-sm-12">
 						      	<div class="form-group">

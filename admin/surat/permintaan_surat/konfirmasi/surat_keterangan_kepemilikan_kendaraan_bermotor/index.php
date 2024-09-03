@@ -204,7 +204,7 @@
                   </div>
                 </div>
               </div>
-              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Kendaraan</b></h5>
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Anak / Ortu</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
                 <div class="col-md-6">
@@ -259,6 +259,12 @@
                       <label class="col-sm-3 control-label">Alamat</label>
                       <div class="col-sm-9">
                         <input type="text" name="falamat_second" style="text-transform: uppercase;" value="<?php echo $row['alamat_second']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nomor Telepon</label>
+                      <div class="col-sm-9">
+                        <input type="number" name="ftelepon" value="<?php echo $row['telepon']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
