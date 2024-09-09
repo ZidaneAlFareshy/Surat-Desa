@@ -24,7 +24,7 @@
       if($filter == '1'){
         echo '
           <div class="header">
-            <div align="center" style="font-size: 14pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Kedawong</b></div>
+            <div align="center" style="font-size: 14pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Grogol</b></div>
             <hr>
           </div><br>
         ';
@@ -41,7 +41,7 @@
         $tgl = date('d-m-y', strtotime($_GET['tanggal']));
         echo '
           <div class="header">
-            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Kedawong</b></div>
+            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Grogol</b></div>
             <div align="center" style="font-size: 12pt;"><b>Tanggal '.$tgl.'</b></div>
             <hr>
           </div><br>
@@ -59,7 +59,7 @@
         $nama_bulan = array('', 'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
         echo '
           <div class="header">
-            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Kedawong</b></div>
+            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Grogol</b></div>
             <div align="center" style="font-size: 12pt;"><b>Bulan '.$nama_bulan[$_GET['bulan']].' '.$_GET['tahun'].'</b></div>
             <hr>
           </div><br>
@@ -76,7 +76,7 @@
       }else if($filter == '4'){
         echo '
           <div class="header">
-            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Kedawong</b></div>
+            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Grogol</b></div>
             <div align="center" style="font-size: 12pt;"><b>Tahun '.$_GET['tahun'].'</b></div>
             <hr>
           </div><br>
@@ -94,7 +94,7 @@
     }else{
       echo '
           <div class="header">
-            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Kedawong</b></div>
+            <div align="center" style="font-size: 12pt;"><b>Laporan Surat Administrasi Desa - Surat Keluar Desa Grogol</b></div>
             <hr>
           </div><br>
         ';

@@ -47,6 +47,12 @@ include ('../part/header.php');
          <a href="../surat/permintaan_surat/"><i class="fa fa-circle-notch"></i> Permintaan Surat</a>
        </li>
        <li>
+         <a href="../surat/tolak_surat/"><i class="fa fa-circle-notch"></i> Surat Tertolak</a>
+       </li>
+       <li>
+        <a href="../surat/surat_belum_selesai/"><i class="fa fa-circle-notch"></i> Surat Belum Selesai</a>
+      </li>
+       <li>
          <a href="../surat/surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai</a>
        </li>
      </ul>
@@ -120,10 +126,60 @@ include ('../part/header.php');
      </div>
    </div>
    <div class="col-lg-4 col-xs-6">
-    <div class="small-box bg-yellow">
+    <div class="small-box bg-red">
       <div class="inner">
        <h3>
         <?php
+        $qTolak = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='tolak' 
+        UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='tolak' 
+        UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='tolak'
+        UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='tolak'
+        UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='tolak'
+        UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='tolak'
+        UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='tolak'
+        UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='tolak'");
+        $jumlahSuratTertolak = mysqli_num_rows($qTolak);
+        echo $jumlahSuratTertolak;
+        ?>
+      </h3>
+      <p>Surat Tertolak</p>
+    </div>
+    <div class="icon">
+      <i class="fas fa-times-circle" style="font-size:70px"></i>
+    </div>
+   <a href="../surat/tolak_surat/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+ </div>
+</div>
+<div class="col-lg-4 col-xs-6">
+  <div class="small-box bg-orange">
+    <div class="inner">
+      <h3>
+        <?php
+        $qBelumSelesai = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='belum selesai' 
+        UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='belum selesai' 
+        UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='belum selesai'
+        UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='belum selesai'
+        UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='belum selesai'
+        UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='belum selesai'
+        UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='belum selesai'
+        UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='belum selesai'");
+        $jumlahSuratBelumSelesai = mysqli_num_rows($qBelumSelesai);
+        echo $jumlahSuratBelumSelesai;
+        ?>
+      </h3>
+      <p>Surat Belum Selesai</p>
+    </div>
+    <div class="icon">
+      <i class="fas fa-hourglass-half" style="font-size:70px"></i>
+    </div>
+    <a href="../surat/surat_belum_selesai/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<div class="col-lg-4 col-xs-6">
+  <div class="small-box bg-yellow">
+    <div class="inner">
+      <h3>
+      <?php
         $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='selesai' 
           UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
           UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='selesai'
@@ -140,9 +196,9 @@ include ('../part/header.php');
     </div>
     <div class="icon">
      <i class="fas fa-envelope" style="font-size:70px"></i>
-   </div>
-   <a href="../surat/surat_selesai/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
- </div>
+    </div>
+    <a href="../surat/surat_selesai/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+  </div>
 </div>
 <?php 
 } else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){

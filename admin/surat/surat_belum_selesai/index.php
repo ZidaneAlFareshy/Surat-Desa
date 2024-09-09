@@ -48,13 +48,13 @@
               <i class="fa fa-circle-notch"></i> Surat Tertolak
             </a>
           </li>
-          <li>
-            <a href="../../surat/surat_belum_selesai/">
-              <i class="fa fa-circle-notch"></i> Surat Belum Selesai
+          <li class="active">
+            <a href="#"><i class="fa fa-circle-notch"></i> Surat Belum Selesai
             </a>
           </li>
-          <li class="active">
-            <a href="#"><i class="fa fa-circle-notch"></i> Surat Selesai
+          <li>
+            <a href="../../surat/surat_selesai/">
+              <i class="fa fa-circle-notch"></i> Surat Selesai
             </a>
           </li>
         </ul>
@@ -69,10 +69,10 @@
 </aside>
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Surat Selesai</h1>
+    <h1>Surat Belum Selesai</h1>
     <ol class="breadcrumb">
       <li><a href="../../dashboard/"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-      <li class="active">Surat Selesai</li>
+      <li class="active">Surat Belum Selesai</li>
     </ol>
   </section>
   <section class="content">      
@@ -89,6 +89,7 @@
               <th><strong>Nomor Telepon</strong></th>
               <th><strong>Jenis Surat</strong></th>
               <th><strong>Status</strong></th>
+              <th><strong>Cetak</strong></th>
               <th><strong>Aksi</strong></th>
             </tr>
           </thead>
@@ -101,56 +102,56 @@
     SELECT penduduk.nama, surat_keterangan.id_sk, surat_keterangan.no_surat, surat_keterangan.nik, surat_keterangan.jenis_surat, surat_keterangan.telepon, surat_keterangan.status_surat, surat_keterangan.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik 
-    WHERE surat_keterangan.status_surat='selesai' 
+    WHERE surat_keterangan.status_surat='belum selesai' 
 
     UNION 
 
     SELECT penduduk.nama, surat_keterangan_berkelakuan_baik.id_skbb AS id_sk, surat_keterangan_berkelakuan_baik.no_surat, surat_keterangan_berkelakuan_baik.nik, surat_keterangan_berkelakuan_baik.jenis_surat, surat_keterangan_berkelakuan_baik.telepon, surat_keterangan_berkelakuan_baik.status_surat, surat_keterangan_berkelakuan_baik.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_berkelakuan_baik ON surat_keterangan_berkelakuan_baik.nik = penduduk.nik 
-    WHERE surat_keterangan_berkelakuan_baik.status_surat='selesai' 
+    WHERE surat_keterangan_berkelakuan_baik.status_surat='belum selesai' 
 
     UNION 
 
     SELECT penduduk.nama, surat_keterangan_domisili.id_skd AS id_sk, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.nik, surat_keterangan_domisili.jenis_surat, surat_keterangan_domisili.telepon, surat_keterangan_domisili.status_surat, surat_keterangan_domisili.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik 
-    WHERE surat_keterangan_domisili.status_surat='selesai' 
+    WHERE surat_keterangan_domisili.status_surat='belum selesai' 
 
     UNION 
 
     SELECT penduduk.nama, surat_keterangan_kepemilikan_kendaraan_bermotor.id_skkkb AS id_sk, surat_keterangan_kepemilikan_kendaraan_bermotor.no_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.nik, surat_keterangan_kepemilikan_kendaraan_bermotor.jenis_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.telepon, surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat, surat_keterangan_kepemilikan_kendaraan_bermotor.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_kepemilikan_kendaraan_bermotor ON surat_keterangan_kepemilikan_kendaraan_bermotor.nik = penduduk.nik 
-    WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat='selesai'
+    WHERE surat_keterangan_kepemilikan_kendaraan_bermotor.status_surat='belum selesai'
 
     UNION 
 
     SELECT penduduk.nama, surat_keterangan_perhiasan.id_skp AS id_sk, surat_keterangan_perhiasan.no_surat, surat_keterangan_perhiasan.nik, surat_keterangan_perhiasan.jenis_surat, surat_keterangan_perhiasan.telepon, surat_keterangan_perhiasan.status_surat, surat_keterangan_perhiasan.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_perhiasan ON surat_keterangan_perhiasan.nik = penduduk.nik 
-    WHERE surat_keterangan_perhiasan.status_surat='selesai'
+    WHERE surat_keterangan_perhiasan.status_surat='belum selesai'
 
     UNION 
 
     SELECT penduduk.nama, surat_keterangan_usaha.id_sku AS id_sk, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.nik, surat_keterangan_usaha.jenis_surat, surat_keterangan_usaha.telepon, surat_keterangan_usaha.status_surat, surat_keterangan_usaha.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik 
-    WHERE surat_keterangan_usaha.status_surat='selesai'
+    WHERE surat_keterangan_usaha.status_surat='belum selesai'
 
     UNION 
 
     SELECT penduduk.nama, surat_lapor_hajatan.id_slh AS id_sk, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, NULL AS telepon, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik 
-    WHERE surat_lapor_hajatan.status_surat='selesai' 
+    WHERE surat_lapor_hajatan.status_surat='belum selesai' 
 
     UNION 
 
     SELECT penduduk.nama, surat_pengantar_skck.id_sps AS id_sk, surat_pengantar_skck.no_surat, surat_pengantar_skck.nik, surat_pengantar_skck.jenis_surat, NULL AS telepon, surat_pengantar_skck.status_surat, surat_pengantar_skck.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_pengantar_skck ON surat_pengantar_skck.nik = penduduk.nik 
-    WHERE surat_pengantar_skck.status_surat='selesai'
+    WHERE surat_pengantar_skck.status_surat='belum selesai'
 ");
 
               foreach($qTampil as $row){
@@ -182,7 +183,7 @@
               <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
               <td><?php echo $row['telepon']; ?></td>
               <td><?php echo $row['jenis_surat']; ?></td>
-              <td><a class="btn btn-success btn-sm" href='#'><i class="fa fa-check"></i><b> <?php echo $row['status_surat']; ?></b></a></td>
+              <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"></i><b> <?php echo $row['status_surat']; ?></b></a></td>
               <td>
                 <?php  
                   if($row['jenis_surat']=="Surat Keterangan KTP Sementara"){
@@ -220,6 +221,8 @@
                   }
                 ?>
               </td>
+              <td><a class="btn btn-success btn-sm" href="update_status.php?id=<?php echo $row['id_sk']; ?>&status=selesai&jenis_surat=<?php echo $row['jenis_surat']; ?>"><i class="fa fa-check"></i><b> SELESAIKAN</b></a></td>
+
             </tr>
             <?php
               }
@@ -230,6 +233,7 @@
     </div>
   </section>
 </div>
+
 
 <?php 
   include ('../part/footer.php');

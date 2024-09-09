@@ -82,40 +82,6 @@
 						        </div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Pekerjaan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fpekerjaan" class="form-control" style="text-transform: capitalize;" value="<?php echo $data['pekerjaan']; ?>" readonly>
-						           	</div>
-						        </div>
-							</div>
-							<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">NIK</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fnik" class="form-control" value="<?php echo $data['nik']; ?>" readonly>
-						           	</div>
-						        </div>
-						  	</div>
-						  	<div class="col-sm-6">
-						      	<div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Alamat</label>
-						           	<div class="col-sm-12">
-						               	<textarea type="text" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $data['jalan'] . ", RT" . $data['rt'] . "/RW" . $data['rw'] . ", Dusun " . $data['dusun'] . ",\nDesa " . $data['desa'] . ", Kecamatan " . $data['kecamatan'] . ", " . $data['kota']; ?></textarea>
-						           	</div>
-						        </div>
-						  	</div>
-							<div class="col-sm-6">
-							    <div class="form-group">
-						           	<label class="col-sm-12" style="font-weight: 500;">Kewarganegaraan</label>
-						           	<div class="col-sm-12">
-						               	<input type="text" name="fkewarganegaraan" class="form-control" style="text-transform: uppercase;" value="<?php echo $data['kewarganegaraan']; ?>" readonly>
-						           	</div>
-						        </div>
-							</div>
-						</div>
 						<br>
 						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Surat</h6><hr width="97%">
 						<div class="row">
@@ -134,6 +100,7 @@
                 						<input type="number" name="ftelepon" class="form-control" placeholder="Masukkan Nomor Telepon" required>
             						</div>
         						</div>
+								<input type="hidden" name="fnik" value="<?php echo $data['nik']; ?>">
     						</div>
 						</div>
 						<hr width="97%">

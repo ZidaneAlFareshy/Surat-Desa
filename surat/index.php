@@ -52,7 +52,7 @@
 			<?php 
    	        	if(isset($_GET['pesan'])){
                    	if($_GET['pesan']=="berhasil"){
-                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan ambil surat di Kantor Desa dalam 2-3 hari kerja!</center></div>";
+                  		echo "<div class='alert alert-success'><center>Berhasil membuat surat. Silahkan tunggu pesan dari kami dalam 2-3 hari kerja!</center></div>";
               		}
               	}
            	?>
@@ -125,7 +125,7 @@
 		    	<div class="card">
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT PENGANTAR SKCK</h5><br><br>
+		        		<h5 class="card-title">SURAT KEMATIAN</h5><br><br>
 		        		<a href="surat_pengantar_skck/" class="btn btn-info">BUAT SURAT</a>
 		      		</div>
 		    	</div>

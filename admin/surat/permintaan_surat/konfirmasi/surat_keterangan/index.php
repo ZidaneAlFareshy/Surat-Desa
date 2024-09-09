@@ -49,6 +49,15 @@
             </a>
           </li>
           <li>
+            <a href="../../../tolak_surat/">
+              <i class="fa fa-circle-notch"></i> Surat Tertolak
+            </a>
+          </li>
+          <li>
+            <a href="../../../surat_belum_selesai/"><i class="fa fa-circle-notch"></i> Surat Belum Selesai
+            </a>
+          </li>
+          <li>
             <a href="../../../surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai
             </a>
           </li>
@@ -223,6 +232,11 @@
                 <div class="col-md-6">
                   <div class="box-body pull-right">
                     <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body pull-right">
+                    <input type="submit" name="submit" class="btn btn-danger" value="Tolak">
                   </div>
                 </div>
               </div>
