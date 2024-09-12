@@ -84,6 +84,9 @@
 						</div>
 						<br>
 						<h6 class="container-fluid" align="right"><i class="fas fa-edit"></i> Formulir Informasi Anak / Ortu</h6><hr width="97%">
+						<div class="alert alert-warning" role="alert">
+							<strong>Perhatian:</strong> Jika yang mengajukan adalah anak maka isi formulir data orang tua dan sebaliknya jika yang mengajukan adalah orang tua maka isi formulir data anak.
+						</div>
 						<div class="row">
 						  	<div class="col-sm-6">
 						      	<div class="form-group">

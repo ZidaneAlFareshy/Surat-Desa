@@ -229,12 +229,18 @@
                 
                 <div class="col-md-6">
                   <div class="box-body pull-right">
-                    <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
+                    <input type="submit" name="konfirmasi" class="btn btn-success" value="Konfirmasi">
                   </div>
                   <div>
                     <input type="hidden" name="id" value="<?php echo $row['id_skd']; ?>" class="form-control">
                   </div>
                 </div>
+                <div class="col-md-6">
+                  <div class="box-body pull-right">
+                    <input type="submit" name="tolak" class="btn btn-danger" value="Tolak" onclick="return confirmReject()">
+                  </div>
+                </div>
+                <input type="hidden" id="reasonInput" name="alasan_tolak" value="">
               </div>
             </form>
           </div>
@@ -245,6 +251,19 @@
     </div>
   </section>
 </div>
+
+<script>
+function confirmReject() {
+    var reason = prompt("Masukkan alasan penolakan surat:");
+    if (reason == null || reason == "") {
+        return false; // Jika tidak ada alasan yang diisi, pembatalan aksi form
+    } else {
+        // Simpan alasan penolakan ke dalam input hidden
+        document.getElementById('reasonInput').value = reason;
+        return true; // Lanjutkan pengiriman form
+    }
+}
+</script>
 
 <?php
   }

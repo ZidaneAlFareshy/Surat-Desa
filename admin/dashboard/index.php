@@ -130,14 +130,14 @@ include ('../part/header.php');
       <div class="inner">
        <h3>
         <?php
-        $qTolak = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='tolak' 
-        UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='tolak' 
-        UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='tolak'
-        UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='tolak'
-        UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='tolak'
-        UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='tolak'
-        UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='tolak'
-        UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='tolak'");
+        $qTolak = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='tertolak' 
+        UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='tertolak' 
+        UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='tertolak'
+        UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='tertolak'
+        UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='tertolak'
+        UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='tertolak'
+        UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='tertolak'
+        UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='tertolak'");
         $jumlahSuratTertolak = mysqli_num_rows($qTolak);
         echo $jumlahSuratTertolak;
         ?>
@@ -200,6 +200,31 @@ include ('../part/header.php');
     <a href="../surat/surat_selesai/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div>
+<div class="col-lg-4 col-xs-6">
+      <div class="small-box bg-blue">
+        <div class="inner">
+          <h3>
+            <?php
+            $qTampil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='selesai' 
+              UNION SELECT tanggal_surat FROM surat_keterangan_berkelakuan_baik WHERE status_surat='selesai' 
+              UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='selesai'
+              UNION SELECT tanggal_surat FROM surat_keterangan_kepemilikan_kendaraan_bermotor WHERE status_surat='selesai'
+              UNION SELECT tanggal_surat FROM surat_keterangan_perhiasan WHERE status_surat='selesai'
+              UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
+              UNION SELECT tanggal_surat FROM surat_lapor_hajatan WHERE status_surat='selesai'
+              UNION SELECT tanggal_surat FROM surat_pengantar_skck WHERE status_surat='selesai'");
+            $jumlahLaporanSurat = mysqli_num_rows($qTampil);
+            echo $jumlahLaporanSurat;
+            ?>
+          </h3>
+          <p>Laporan Surat Keluar</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-file-alt" style="font-size:70px"></i>
+        </div>
+        <a href="../laporan/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
 <?php 
 } else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
   ?>
