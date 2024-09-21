@@ -31,9 +31,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="../">HOME</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link" href="../surat">BUAT SURAT</a>
-					</li>
+					</li> -->
 					<li class="nav-item active">
 						<a class="nav-link" href="#"><i class="fas fa-info-circle"></i>&nbsp;TENTANG <b>e-SuratDesa</b></a>
 					</li>
