@@ -6,7 +6,7 @@ if (isset($_SESSION['admin'])) {
 } else if (isset($_SESSION['kades'])) {
     header('location:../admin/dashboard/');
 } else if (isset($_SESSION['user'])) {
-    header('location:../admin/dashboard/');
+    header('location:../index.php');
 }
 ?>
 

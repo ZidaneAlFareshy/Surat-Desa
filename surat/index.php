@@ -63,7 +63,26 @@
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN KTP SEMENTARA</h5><br><br>
-		        		<a href="surat_keterangan/" class="btn btn-info">BUAT SURAT</a>
+		        		<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_keterangan/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_keterangan/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -72,7 +91,26 @@
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT PENGANTAR KELAKUAN BAIK</h5><br>
-		        		<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_keterangan_berkelakuan_baik/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -81,7 +119,26 @@
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN DOMISILI</h5><br>
-		        		<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_keterangan_domisili/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_keterangan_domisili/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -90,7 +147,26 @@
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN TIDAK MAMPU</h5>
-		        		<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_keterangan_kepemilikan_kendaraan_bermotor/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -99,7 +175,26 @@
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN KEHILANGAN</h5><br>
-		        		<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_keterangan_perhiasan/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -109,6 +204,26 @@
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
 		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_keterangan_usaha/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>

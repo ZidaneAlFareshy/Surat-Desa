@@ -37,6 +37,11 @@
           <i class="fa fa-users"></i><span>&nbsp;Data Penduduk</span>
         </a>
       </li>
+      <li>
+        <a href="../../../verifikasi/">
+          <i class="fa fa-check-circle"></i> <span>Verifikasi Akun</span>
+        </a>
+      </li>
       <li class="active treeview">
         <a href="#">
           <i class="fas fa-envelope-open-text"></i> <span>&nbsp;&nbsp;Surat</span>
@@ -226,7 +231,6 @@
                     </div>
                   </div>
                 </div>
-                
                 <div class="col-md-6">
                   <div class="box-body pull-right">
                     <input type="submit" name="konfirmasi" class="btn btn-success" value="Konfirmasi">

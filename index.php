@@ -48,20 +48,30 @@
 						<a style="color: black" class="nav-link" href="#"><i class="fas fa-home"></i>&nbsp;HOME</a>
 					</li>
 					<li class="nav-item">
-						<a style="color: black" class="nav-link" href="surat/">BUAT SURAT</a>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['username'])) {
+							echo '<a style="color: black" class="nav-link" href="surat/">BUAT SURAT</a>';
+						}
+						?>
 					</li>
 					<li class="nav-item">
 						<a style="color: black" class="nav-link" href="tentang/">TENTANG </a>
 					</li>
 					<li class="nav-item active ml-5">
 						<?php
-						session_start();
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
 
 						if(empty($_SESSION['username'])){
 							echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
 						}else if(isset($_SESSION['lvl'])){
-							echo '<a class="btn btn-transparent text-light" href="admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
-							echo '<a class="btn btn-transparent text-light" href="login/logout.php"><i class="fas fa-power-off"></i></a>';
+							echo '<a class="btn btn-transparent text-black" href="admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							echo '<a class="btn btn-transparent text-black" href="login/logout.php"><i class="fas fa-power-off"></i></a>';
 						}
 						?>
 					</li>

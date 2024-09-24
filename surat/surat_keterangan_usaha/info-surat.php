@@ -2,15 +2,23 @@
 	include ('../../config/koneksi.php');
 	include ('../part/header.php');
 		 
-	$nik = $_POST['fnik'];
-	 
-	$qCekNik = mysqli_query($connect,"SELECT * FROM penduduk WHERE nik = '$nik'");
-	$row = mysqli_num_rows($qCekNik);
-	 
-	if($row > 0){
-		$data = mysqli_fetch_assoc($qCekNik);
-		if($data['nik']==$nik){
-			$_SESSION['nik'] = $nik;
+	if (session_status() == PHP_SESSION_NONE) {
+        session_start(); // Mulai session hanya jika belum dimulai
+    }
+
+    // Cek apakah NIK dikirim dari form di halaman sebelumnya
+    if (isset($_POST['fnik'])) {
+        $nik = $_POST['fnik']; // Ambil NIK dari form POST
+
+        // Simpan NIK di session agar bisa digunakan di halaman lain (jika diperlukan)
+        $_SESSION['nik'] = $nik;
+
+        // Query untuk mendapatkan data penduduk berdasarkan NIK
+        $qCekNik = mysqli_query($connect, "SELECT * FROM penduduk WHERE nik = '$nik'");
+        $row = mysqli_num_rows($qCekNik);
+
+        if ($row > 0) {
+            $data = mysqli_fetch_assoc($qCekNik);
 ?>
 <body class="bg-light">
 	<div class="container" style="max-height:cover; padding-top:30px;  padding-bottom:60px; position:relative; min-height: 100%;">
@@ -150,10 +158,11 @@
 </body>
 
 <?php 
-		}
-	}else{
-		header("location:index.php?pesan=gagal");
-	}
-
-	include ('../part/footer.php');
+    } else {
+        header("location:index.php?pesan=gagal");
+    }
+} else {
+    header("location:../login/index.php");
+}
+include ('../part/footer.php');
 ?>

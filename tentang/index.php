@@ -31,15 +31,25 @@
 					<li class="nav-item">
 						<a class="nav-link" href="../">HOME</a>
 					</li>
-					<!-- <li class="nav-item">
-						<a class="nav-link" href="../surat">BUAT SURAT</a>
-					</li> -->
+					<li class="nav-item">
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['username'])) {
+							echo '<a class="nav-link" href="../surat/">BUAT SURAT</a>';
+						}
+						?>
+					</li>
 					<li class="nav-item active">
 						<a class="nav-link" href="#"><i class="fas fa-info-circle"></i>&nbsp;TENTANG <b>e-SuratDesa</b></a>
 					</li>
 					<li class="nav-item active ml-5">
 						<?php
-						session_start();
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
 
 						if(empty($_SESSION['username'])){
 							echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';

@@ -47,6 +47,11 @@
           <i class="fa fa-users"></i> <span>Data Penduduk</span>
         </a>
       </li>
+      <li>
+        <a href="../verifikasi/">
+          <i class="fa fa-check-circle"></i> <span>Verifikasi Akun</span>
+        </a>
+      </li>
       <?php
         if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
       ?>

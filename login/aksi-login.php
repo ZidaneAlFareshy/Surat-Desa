@@ -31,10 +31,10 @@ if($row > 0){
             $_SESSION['lvl'] = "Kepala Desa";
             header("location:../admin/");
         } else if($login['level'] == "user"){
-            // Pengguna level "user" berhasil login
             $_SESSION['username'] = $username;
             $_SESSION['lvl'] = "User";
-            header("location:../admin/"); // Ganti dengan halaman yang sesuai untuk pengguna
+            $_SESSION['nik'] = $login['nik'];  // Simpan NIK pengguna ke session
+            header("location:../index.php");  // Arahkan ke halaman info-surat user
         } else {
             header("location:index.php?pesan=login-gagal");
         }
