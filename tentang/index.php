@@ -20,7 +20,7 @@
 </head>
 <body class="bg-light">
 	<div>
-		<nav class="navbar navbar-expand-lg navbar-dark ">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light ">
 			<a class="navbar-brand ml-4 mt-1" href="../"><img src="../assets/img/logo-surat.png"></a>
 			<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -52,10 +52,10 @@
 						}
 
 						if(empty($_SESSION['username'])){
-							echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+							echo '<a class="btn btn-dark" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
 						}else if(isset($_SESSION['lvl'])){
-							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
-							echo '<a class="btn btn-transparent text-light" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
+							echo '<a class="btn btn-transparent text-black" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							echo '<a class="btn btn-transparent text-black" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
 						}
 						?>
 					</li>
@@ -102,8 +102,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="footer bg-dark text-center">
-			<span class="text-light"><strong>Copyright &copy; 2023 <a href="../" class="text-decoration-none text-white">e-SuratDesa</a>.</strong> All rights reserved.</span>
+		<div class="footer text-center">
+			<span class="text-black"><strong>Copyright &copy; 2024 <a href="#" class="text-decoration-none">Universitas Ahmad Dahlan</a>.</strong>
 		</div>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

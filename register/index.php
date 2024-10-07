@@ -34,12 +34,18 @@
         .card-header {
             text-align: center;
             margin-bottom: 1rem;
+            background-color: white;
         }
 
         .card-header h3 {
             font-size: 1.5rem;
             margin: 0;
             font-weight: 600;
+        }
+
+        .card-header img {
+            width: 100px; /* Ukuran logo */
+            margin-bottom: 1rem;
         }
 
         .form-group {
@@ -99,7 +105,8 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Register</h3>
+                <img src="../assets/img/logo-cirebon.png" alt="Logo">
+                <h3>Daftar <span class="text-primary">SUKET-ON</span></h3>
             </div>
             <div class="card-body">
                 <form method="post" action="aksi-register.php" enctype="multipart/form-data">

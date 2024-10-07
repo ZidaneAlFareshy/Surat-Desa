@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<h5 class="card-header"><i class="fas fa-envelope"></i> INFORMASI SURAT</h5>
+					<h5 class="card-header bg-white"><i class="fas fa-envelope"></i> INFORMASI SURAT</h5>
 					<br>
 					<div class="container-fluid">
 						<div class="row">

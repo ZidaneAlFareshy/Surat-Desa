@@ -11,10 +11,70 @@
 		.navbar {
 			background-color: #00A658;
 		}
+
+		/* Card Styling */
+		.card {
+			border: none;
+			border-radius: 15px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			transition: transform 0.2s ease-in-out;
+		}
+
+		.card:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		}
+
+		.card img {
+			border-top-left-radius: 15px;
+			border-top-right-radius: 15px;
+		}
+
+		.card-body {
+			padding: 20px;
+		}
+
+		.card-title {
+			font-size: 1.25rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			color: #333;
+		}
+
+		.card-text {
+			font-size: 0.95rem;
+			color: #555;
+		}
+
+		.btn {
+			border-radius: 25px;
+			padding: 10px 20px;
+			background-color: #00A658;
+			color: white;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn:hover {
+			background-color: #007F45;
+			color: white;
+		}
+
+		/* Responsive Styling */
+		@media (max-width: 576px) {
+			.card-title {
+				font-size: 1rem;
+			}
+			.card-body {
+				padding: 15px;
+			}
+			.btn {
+				padding: 8px 15px;
+			}
+		}
 	</style>
 </head>
 <body class="bg-light">
-	<nav class="navbar navbar-expand-lg navbar-dark">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  	<a class="navbar-brand ml-4 mt-1" href="../"><img src="../assets/img/logo-surat.png"></a>
 	  	<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 	    	<span class="navbar-toggler-icon"></span>
@@ -38,14 +98,15 @@
 						if(empty($_SESSION['username'])){
 						    echo '<a class="btn btn-light text-info" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
 						}else if(isset($_SESSION['lvl'])){
-							echo '<a class="btn btn-transparent text-light" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
-							echo '<a class="btn btn-transparent text-light" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
+							echo '<a class="btn btn-transparent text-black" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							echo '<a class="btn btn-transparent text-black" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
 						}
 					?>
 	      		</li>
 	    	</ul>
 	  	</div>
 	</nav>
+	
 <div class="container-fluid">
 	<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 		<div>
@@ -203,7 +264,6 @@
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
 		        		<h5 class="card-title">SURAT KETERANGAN USAHA</h5><br>
-		        		<a href="surat_keterangan_usaha/" class="btn btn-info">BUAT SURAT</a>
 						<?php
 						if (session_status() == PHP_SESSION_NONE) {
 							session_start(); // Mulai session hanya jika belum dimulai
@@ -248,8 +308,8 @@
 		</div>
 	</div>
 </div>
-<div class="footer bg-dark text-center">
-    <span class="text-light"><strong>Copyright &copy; 2024 <a href="../" class="text-decoration-none text-white">Universitas Ahmad Dahlan</a>.</strong>
+<div class="footer text-center">
+	<span class="text-black"><strong>Copyright &copy; 2024 <a href="#" class="text-decoration-none">Universitas Ahmad Dahlan</a>.</strong>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

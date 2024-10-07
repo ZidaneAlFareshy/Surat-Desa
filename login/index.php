@@ -45,12 +45,18 @@ if (isset($_SESSION['admin'])) {
         .card-header {
             text-align: center;
             margin-bottom: 1rem;
+            background-color: white;
         }
 
         .card-header h3 {
             font-size: 1.5rem;
             margin: 0;
             font-weight: 600;
+        }
+
+        .card-header img {
+            width: 100px; /* Ukuran logo */
+            margin-bottom: 1rem;
         }
 
         .input-group {
@@ -110,7 +116,8 @@ if (isset($_SESSION['admin'])) {
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3>Login</h3>
+                <img src="../assets/img/logo-cirebon.png" alt="Logo">
+                <h3>Masuk <span class="text-primary">SUKET-ON</span></h3>
             </div>
             <div class="card-body">
                 <form method="post" action="aksi-login.php">
@@ -145,6 +152,12 @@ if (isset($_SESSION['admin'])) {
             </div>
             <div class="card-footer">
                 <span>Belum punya akun? <a href="../register/index.php">Daftar disini</a></span>
+            </div>
+            <br>
+            <div class="text-center">
+                <a href="../index.php" class="back-to-login">
+                    <i class="fas fa-arrow-left"></i> Kembali ke halaman utama
+                </a>
             </div>
         </div>
     </div>

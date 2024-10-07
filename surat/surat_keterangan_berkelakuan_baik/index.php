@@ -3,10 +3,10 @@
 ?>
 
 <div class="container" style="max-height:cover; padding-top:60px; position:relative; min-height: 100%;" align="center">
-  	<div class="card col-md-4">
+  	<div class="card col-md-4" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-raidus: 10px;">
         <div class="card-content">
             <div class="card-body">
-                <form action="info-surat.php" method="post"> 
+                <form action="info-surat.php" method="post" > 
     	            <?php 
                     if(isset($_GET['pesan'])){
                       if($_GET['pesan']=="gagal"){
