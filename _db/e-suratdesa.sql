@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Sep 2024 pada 20.46
+-- Waktu pembuatan: 13 Okt 2024 pada 09.05
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -67,8 +67,9 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`id`, `nama`, `username`, `email`, `password`, `level`, `nik`, `whatsapp`, `ktp`, `status_verifikasi`, `otp`, `waktu`) VALUES
 (1, 'Administrator', 'admin', 'admin@e-suratdesa.com', '21232f297a57a5a743894a0e4a801fc3', 'admin', '', '', '', 1, '', 0),
-(2, 'Kepala Desa', 'kades', 'kepaladesa@desa.id', '0cfa66469d25bd0d9e55d7ba583f9f2f', 'kades', '', '', '', 0, '', 0),
-(40, 'Yuki Setsuna', '3212101201020004', '', '1bbd886460827015e5d605ed44252251', 'user', '3212101201020004', '6285266690013', '9274447.png', 0, '385261', 1726723371);
+(2, 'Kepala Desa', 'kades', 'kepaladesa@desa.id', '0cfa66469d25bd0d9e55d7ba583f9f2f', 'kades', '', '', '', 1, '', 0),
+(48, 'Yuki Setsuna', '3212101201020004', '', 'bae5e3208a3c700e3db642b6631e95b9', 'user', '3212101201020004', '6289608183742', 'Use case (1).png', 1, '', 0),
+(49, 'Mohammad Jindan Dubbay Al Fare', '3212101201020002', '', '1bbd886460827015e5d605ed44252251', 'user', '3212101201020002', '6289608183742', 'Use case (1).png', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -181,7 +182,12 @@ CREATE TABLE `surat_keterangan` (
 INSERT INTO `surat_keterangan` (`id_sk`, `jenis_surat`, `no_surat`, `nik`, `telepon`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `id_profil_desa`, `alasan_tolak`) VALUES
 (192, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020002', '12121', '2024-09-11 22:55:39', 1, 'selesai', 1, ''),
 (193, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020002', '111', '2024-09-12 06:49:38', 1, 'TERTOLAK', 1, 'nomor tidak sesuai'),
-(194, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020002', '222', '2024-09-12 06:49:47', 1, 'selesai', 1, '');
+(194, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020002', '222', '2024-09-12 06:49:47', 1, 'selesai', 1, ''),
+(195, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020004', '', '2024-09-22 19:33:18', 1, 'selesai', 1, ''),
+(196, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020002', '', '2024-09-22 19:34:27', 1, 'selesai', 1, ''),
+(197, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020004', '', '2024-09-22 19:35:41', 1, 'selesai', 1, ''),
+(198, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020002', '', '2024-09-24 02:39:40', 1, 'selesai', 1, ''),
+(199, 'Surat Keterangan KTP Sementara', '01/323/12', '3212101201020004', '', '2024-09-26 10:26:32', 1, 'BELUM SELESAI', 1, '');
 
 -- --------------------------------------------------------
 
@@ -209,7 +215,8 @@ CREATE TABLE `surat_keterangan_berkelakuan_baik` (
 
 INSERT INTO `surat_keterangan_berkelakuan_baik` (`id_skbb`, `jenis_surat`, `no_surat`, `nik`, `keperluan`, `telepon`, `tanggal_surat`, `id_pejabat_desa`, `status_surat`, `alasan_tolak`, `id_profil_desa`) VALUES
 (40, 'Surat Pengantar Kelakuan Baik', '01/323/12', '3212101201020002', 'mengajukan surat keterangan', '333', '2024-09-12 06:49:57', 1, 'selesai', '', 1),
-(41, 'Surat Pengantar Kelakuan Baik', '01/323/12', '3212101201020002', 'mengajukan surat keterangan', '3333', '2024-09-12 06:50:07', 1, 'TERTOLAK', 'keperluan masih kurang', 1);
+(41, 'Surat Pengantar Kelakuan Baik', '01/323/12', '3212101201020002', 'mengajukan surat keterangan', '3333', '2024-09-12 06:50:07', 1, 'TERTOLAK', 'keperluan masih kurang', 1),
+(42, 'Surat Pengantar Kelakuan Baik', '01/323/12', '3212101201020002', 'Masuk perguruan tinggi', '0979878', '2024-09-22 07:20:45', 1, 'TERTOLAK', 'jjjj', 1);
 
 -- --------------------------------------------------------
 
@@ -252,7 +259,8 @@ INSERT INTO `surat_keterangan_domisili` (`id_skd`, `jenis_surat`, `no_surat`, `n
 (31, 'Surat Keterangan Domisili', '01/323/12', '3212101201020004', '354546', '2024-09-12 07:02:16', 1, 'selesai', '', 1),
 (32, 'Surat Keterangan Domisili', '01/323/12', '3212101201020002', '798889889', '2024-09-12 07:02:22', 1, 'selesai', '', 1),
 (33, 'Surat Keterangan Domisili', '01/323/12', '3212101201020004', '435643564', '2024-09-12 07:02:27', 1, 'selesai', '', 1),
-(34, 'Surat Keterangan Domisili', '09383', '3212101201020004', '356654646', '2024-09-12 07:02:33', 1, 'selesai', '', 1);
+(34, 'Surat Keterangan Domisili', '09383', '3212101201020004', '356654646', '2024-09-12 07:02:33', 1, 'selesai', '', 1),
+(35, 'Surat Keterangan Domisili', '01/323/12', '3212101201020004', '000090', '2024-09-22 07:19:50', 1, 'selesai', '', 1);
 
 -- --------------------------------------------------------
 
@@ -520,7 +528,7 @@ ALTER TABLE `dusun`
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT untuk tabel `pejabat_desa`
@@ -532,7 +540,7 @@ ALTER TABLE `pejabat_desa`
 -- AUTO_INCREMENT untuk tabel `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id_penduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT untuk tabel `profil_desa`
@@ -544,19 +552,19 @@ ALTER TABLE `profil_desa`
 -- AUTO_INCREMENT untuk tabel `surat_keterangan`
 --
 ALTER TABLE `surat_keterangan`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_keterangan_berkelakuan_baik`
 --
 ALTER TABLE `surat_keterangan_berkelakuan_baik`
-  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_skbb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_keterangan_domisili`
 --
 ALTER TABLE `surat_keterangan_domisili`
-  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_skd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_keterangan_kepemilikan_kendaraan_bermotor`
