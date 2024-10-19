@@ -4,11 +4,15 @@
     if (isset($_POST['submit'])){
         $jenis_surat = "Surat Keterangan KTP Sementara";
         $nik = $_POST['fnik'];
-        $telepon = $_POST['ftelepon'];
         $status_surat = "PENDING";
         $id_profil_desa = "1";
 
-        $qTambahSurat = "INSERT INTO surat_keterangan (jenis_surat, nik, telepon, status_surat, id_profil_desa) VALUES('$jenis_surat', '$nik', '$telepon', '$status_surat', '$id_profil_desa')";
+        $query = "SELECT whatsapp FROM login WHERE nik = '$nik'";
+        $result = mysqli_query($connect, $query);
+        $row = mysqli_fetch_assoc($result);
+        $whatsapp = $row['whatsapp'];
+
+        $qTambahSurat = "INSERT INTO surat_keterangan (jenis_surat, nik, whatsapp, status_surat, id_profil_desa) VALUES('$jenis_surat', '$nik', '$whatsapp', '$status_surat', '$id_profil_desa')";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
         header("location:../index.php?pesan=berhasil");
     }

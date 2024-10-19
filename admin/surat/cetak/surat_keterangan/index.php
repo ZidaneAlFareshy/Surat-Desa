@@ -128,11 +128,6 @@
 				<td class="indentasi">Benar nama tersebut diatas adalah warga masyarakat Desa kami yang telah menghadap kepemerintah Desa untuk memohon surat keterangan KTP sementara dikarenakan yang aslinya telah hilang dan dalam proses penyelesaian, belum cukup umur.</td>
 			</tr>
 		</table><br>
-		<!-- <table width="100%">
-			<tr>
-				<td class="indentasi">Surat keterangan ini dipergunakan untuk <a style="text-transform: capitalize;"><u><b><?php echo $row['keperluan']; ?>.</a></u></b></td>
-			</tr>
-		</table><br> -->
 		<table width="100%">
 			<tr>
 				<td class="indentasi">Demikian surat keterangan ini kami buat dengan sebenar-benarnya dan untuk dapat dipergunakan sebagai mana mestinya </td>

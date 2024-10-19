@@ -3,8 +3,6 @@ session_start();
 
 if (isset($_SESSION['admin'])) {
     header('location:../admin/dashboard/');
-} else if (isset($_SESSION['kades'])) {
-    header('location:../admin/dashboard/');
 } else if (isset($_SESSION['user'])) {
     header('location:../index.php');
 }

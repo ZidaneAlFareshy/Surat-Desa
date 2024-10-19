@@ -1,3 +1,9 @@
+<?php
+if (isset($_SESSION['pesan'])) {
+    echo "<script>alert('" . $_SESSION['pesan'] . "');</script>";
+    unset($_SESSION['pesan']); // Hapus pesan setelah ditampilkan
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,10 +132,13 @@
                         <input type="text" class="form-control" name="whatsapp" id="whatsapp" placeholder="Nomor WhatsApp" required>
                         <small id="whatsappError" class="text-danger" style="display:none;">Nomor WhatsApp harus diawali dengan 62</small>
                     </div>
-
                     <div class="form-group">
                         <label for="ktp" class="form-label">Upload Foto KTP</label>
                         <input type="file" class="form-control-file" name="ktp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kk" class="form-label">Upload Foto KK</label>
+                        <input type="file" class="form-control-file" name="kk" required>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Register" class="btn register_btn">
@@ -165,6 +174,53 @@
                     icon: 'error',
                     title: 'NIK Sudah Terdaftar',
                     text: 'NIK sudah terdaftar, silakan login atau gunakan NIK lain.'
+                });
+            <?php elseif($_GET['pesan'] == 'tipe-file-ktp-tidak-valid'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tipe File Tidak Falid',
+                    text: 'Gunakan tipe file jpg, jpeg atau png',
+                    timer: 3000,
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php elseif($_GET['pesan'] == 'tipe-file-kk-tidak-valid'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tipe File Tidak Falid',
+                    text: 'Gunakan tipe file jpg, jpeg atau png',
+                    timer: 3000,
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php elseif($_GET['pesan'] == 'file-ktp-bukan-gambar'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tipe File Bukan Gambar',
+                    text: 'Gunakan file gambar jpg, jpeg atau png',
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php elseif($_GET['pesan'] == 'file-kk-bukan-gambar'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tipe File Bukan Gambar',
+                    text: 'Gunakan file gambar jpg, jpeg atau png',
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php elseif($_GET['pesan'] == 'whatsapp-sudah-terdaftar'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Nomor Whatsapp Sudah Terdaftar',
+                    text: 'Gunakan nomor whatsapp yang belum terdaftar',
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
                 });
             <?php endif; ?>
 

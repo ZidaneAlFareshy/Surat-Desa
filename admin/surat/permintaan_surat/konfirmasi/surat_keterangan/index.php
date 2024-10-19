@@ -221,17 +221,13 @@
                   </div>
                 </div>
               </div>
-              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
-              <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
                 <div class="col-md-6">
                   <div class="box-body pull-right">
-                    <input type="submit" name="konfirmasi" class="btn btn-success" value="Konfirmasi">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="box-body pull-right">
                     <input type="submit" name="tolak" class="btn btn-danger" value="Tolak" onclick="return confirmReject()">
+                  </div>
+                  <div class="box-body pull-right">
+                    <input type="submit" name="konfirmasi" class="btn btn-success" value="Konfirmasi">
                   </div>
                 </div>
                 <input type="hidden" id="reasonInput" name="alasan_tolak" value="">

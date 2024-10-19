@@ -142,6 +142,12 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label">Gambar KK</label>
+                <div class="col-sm-10">
+                  <img src="../../register/uploads/<?php echo $data['kk']; ?>" alt="KK" style="max-width: 300px;" class="zoom">
+                </div>
+              </div>
+              <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" formaction="proses_konfirmasi.php" class="btn btn-success">Konfirmasi</button>
                   <a href="proses_tolak.php?nik=<?php echo $data['nik']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menolak akun ini?')">Tolak</a>

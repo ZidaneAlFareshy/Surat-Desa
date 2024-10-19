@@ -7,6 +7,7 @@
 	<title>SuratDesaOnline</title>
   	<link rel="stylesheet" href="../assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<style>
 		.navbar {
 			background-color: #00A658;
@@ -159,11 +160,11 @@
 
 						if (isset($_SESSION['lvl'])) {
 							if ($_SESSION['lvl'] == 'Administrator') {
-								echo '<a href="surat_keterangan_berkelakuan_baik/" class="btn btn-info">BUAT SURAT</a>';
+								echo '<a href="surat_pengantar_kelakuan_baik/" class="btn btn-info">BUAT SURAT</a>';
 							} elseif ($_SESSION['lvl'] == 'User') {
 								// Menyertakan NIK yang ada di session jika sudah login
 								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
-								echo '<form action="surat_keterangan_berkelakuan_baik/info-surat.php" method="post">';
+								echo '<form action="surat_pengantar_kelakuan_baik/info-surat.php" method="post">';
 								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
 								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
 								echo '</form>';
@@ -215,11 +216,11 @@
 
 						if (isset($_SESSION['lvl'])) {
 							if ($_SESSION['lvl'] == 'Administrator') {
-								echo '<a href="surat_keterangan_kepemilikan_kendaraan_bermotor/" class="btn btn-info">BUAT SURAT</a>';
+								echo '<a href="surat_keterangan_tidak_mampu/" class="btn btn-info">BUAT SURAT</a>';
 							} elseif ($_SESSION['lvl'] == 'User') {
 								// Menyertakan NIK yang ada di session jika sudah login
 								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
-								echo '<form action="surat_keterangan_kepemilikan_kendaraan_bermotor/info-surat.php" method="post">';
+								echo '<form action="surat_keterangan_tidak_mampu/info-surat.php" method="post">';
 								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
 								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
 								echo '</form>';
@@ -243,11 +244,11 @@
 
 						if (isset($_SESSION['lvl'])) {
 							if ($_SESSION['lvl'] == 'Administrator') {
-								echo '<a href="surat_keterangan_perhiasan/" class="btn btn-info">BUAT SURAT</a>';
+								echo '<a href="surat_keterangan_kehilangan/" class="btn btn-info">BUAT SURAT</a>';
 							} elseif ($_SESSION['lvl'] == 'User') {
 								// Menyertakan NIK yang ada di session jika sudah login
 								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
-								echo '<form action="surat_keterangan_perhiasan/info-surat.php" method="post">';
+								echo '<form action="surat_keterangan_kehilangan/info-surat.php" method="post">';
 								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
 								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
 								echo '</form>';
@@ -291,8 +292,27 @@
 		    	<div class="card">
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT LAPOR HAJATAN</h5><br><br>
-		        		<a href="surat_lapor_hajatan/" class="btn btn-info">BUAT SURAT</a>
+					  <h5 class="card-title">SURAT KELAHIRAN</h5><br>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_lapor_hajatan/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_lapor_hajatan/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -300,8 +320,27 @@
 		    	<div class="card">
 		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
 		      		<div class="card-body text-center">
-		        		<h5 class="card-title">SURAT KEMATIAN</h5><br><br>
-		        		<a href="surat_pengantar_skck/" class="btn btn-info">BUAT SURAT</a>
+					  <h5 class="card-title">SURAT KETERANGAN WALI MURID</h5><br>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_keterangan_wali_murid/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_keterangan_wali_murid/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
 		      		</div>
 		    	</div>
 		  	</div>
@@ -312,6 +351,36 @@
 	<span class="text-black"><strong>Copyright &copy; 2024 <a href="#" class="text-decoration-none">Universitas Ahmad Dahlan</a>.</strong>
 </div>
 </body>
+<script>
+        <?php if(isset($_GET['pesan'])): ?>
+            <?php if($_GET['pesan'] == 'tipe-file-tidak-valid'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tipe File Tidak Falid',
+                    text: 'Gunakan tipe file jpg, jpeg atau png',
+                    timer: 3000,
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php elseif($_GET['pesan'] == 'ukuran-file-terlalu-besar'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ukuran Gambar Terlalu Besar',
+                    text: 'Ukuran gambar maksimal 2mb',
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php endif; ?>
+
+            // Menghapus parameter 'pesan' dari URL setelah alert ditampilkan
+            if (typeof window.history.replaceState == 'function') {
+                var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState(null, null, newURL);
+            }
+        <?php endif; ?>
+    </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

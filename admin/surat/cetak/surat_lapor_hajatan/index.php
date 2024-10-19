@@ -2,6 +2,14 @@
 	include ('../../permintaan_surat/konfirmasi/part/akses.php');
   	include ('../../../../config/koneksi.php');
 
+	// Ubah format tanggal menjadi format Indonesia
+	function formatTanggalIndonesia($tanggal) {
+		// Mengambil bagian tahun, bulan, dan hari dari tanggal
+		$tanggalExplode = explode('-', $tanggal);
+		// Mengembalikan format DD-MM-YYYY
+		return $tanggalExplode[2] . '-' . str_pad($tanggalExplode[1], 2, '0', STR_PAD_LEFT) . '-' . $tanggalExplode[0];
+	}
+
   	$id = $_GET['id'];
   	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_lapor_hajatan.* FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.id_slh='$id'");
   	while($row = mysqli_fetch_array($qCek)){
@@ -31,76 +39,105 @@
 </head>
 <body>
 <div>
-	<table width="100%">
+<table width="100%">
 		<tr><img src="../../../../assets/img/logo-cirebon-90x90.png" alt="" class="logo"></tr>
-		<div class="header">
+		<div class="header" style="padding-bottom: 10px;">
 			<h4 class="kop" style="text-transform: uppercase">PEMERINTAH <?php echo $rows['kota']; ?></h4>
 			<h4 class="kop" style="text-transform: uppercase">KECAMATAN <?php echo $rows['kecamatan']; ?></h4>
-			<h4 class="kop" style="text-transform: uppercase">KEPALA DESA <?php echo $rows['nama_desa']; ?></h4>
-			<h5 class="kop2" style="text-transform: capitalize;"><?php echo $rows['alamat'] . " Telp. " . $rows['no_telpon'] . " Kode Pos " . $rows['kode_pos']; ?></h5>
-			<div style="text-align: center;">
+			<h4 class="kop" style="text-transform: uppercase">KANTOR KUWU <?php echo $rows['nama_desa']; ?></h4>
+			<h5 class="kop2" style="text-transform: capitalize;">Alamat: <?php echo $rows['alamat']; ?></h5>
+			<h5 class="kop2" style="margin-top: 10px;">Website: www.grogolkapetakan.desa.cirebonkab.go.id E-mail: ds.grogol@hotmail.com</h5>
+			<div style="text-align: center; padding-top: 5px;">
 				<hr>
 			</div>
 		</div>
 		<br>
-		<div align="center"><u><h4 class="kop">SURAT LAPOR HAJATAN</h4></u></div>
+		<div align="center" style="padding-top: 20px;"><u><h3>SURAT KELAHIRAN</h3></u></div>
 		<div align="center"><h4 class="kop3">Nomor :&nbsp;&nbsp;&nbsp;<?php echo $row['no_surat']; ?></h4></div>
 	</table>
-	<br>
 	<div class="clear"></div>
 	<div id="isi3">
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Yang bertanda tangan di bawah ini, <a style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?>, Kecamatan <?php echo $rows['kecamatan']; ?>, <?php echo $rows['kota']; ?></a>, menerangkan dengan sebenarnya bahwa :
+				<td class="indentasi">Yang bertanda tangan di bawah ini, menerangkan
 				</td>
+			</tr>
+			<tr>
+				<td>Bahwa pada :</td>
+			</tr>
+		</table>
+		<table width="100%" style="text-transform: capitalize;">
+			<tr>
+				<td width="30%" class="indentasi">Hari</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase;"><?php echo $row['hari_lahir']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Tanggal</td>
+				<td>:</td>
+				<td><?php echo formatTanggalIndonesia($row['tanggal_lahir_anak']); ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Di</td>
+				<td>:</td>
+				<td><?php echo $row['alamat_lahir']; ?></td>
 			</tr>
 		</table>
 		<br>
+		<table width="100%">
+			<tr>
+				<td>Telah Lahir Seorang Anak Laki Laki / Perempuan :
+				</td>
+			</tr>
+		</table>
+		<table width="100%" style="text-transform: capitalize;">
+			<tr>
+				<td width="30%" class="indentasi">Bernama</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_anak']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Anak Ke</td>
+				<td>:</td>
+				<td><?php echo $row['nomor_anak']; ?></td>
+			</tr>
+		</table>
+		<br>
+		<table width="100%">
+			<tr>
+				<td>Dari Seorang Ibu :
+				</td>
+			</tr>
+		</table>
 		<table width="100%" style="text-transform: capitalize;">
 			<tr>
 				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td width="2%">:</td>
-				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama']; ?></td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ibu']; ?></td>
 			</tr>
-			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
-				<td>:</td>
-				<td><?php echo $row['jenis_kelamin']; ?></td>
-			</tr>
-			<?php
-				$tgl_lhr = date($row['tgl_lahir']);
-				$tgl = date('d ', strtotime($tgl_lhr));
-				$bln = date('F', strtotime($tgl_lhr));
-				$thn = date(' Y', strtotime($tgl_lhr));
-				$blnIndo = array(
-				    'January' => 'Januari',
-				    'February' => 'Februari',
-				    'March' => 'Maret',
-				    'April' => 'April',
-				    'May' => 'Mei',
-				    'June' => 'Juni',
-				    'July' => 'Juli',
-				    'August' => 'Agustus',
-				    'September' => 'September',
-				    'October' => 'Oktober',
-				    'November' => 'November',
-				    'December' => 'Desember'
-				);
-			?>
-			<tr>
-				<td class="indentasi">Tempat/Tgl. Lahir</td>
-				<td>:</td>
-				<td><?php echo $row['tempat_lahir'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
-			</tr>
-			<?php 
-				$tgl_lahir = new DateTime($row['tgl_lahir']);
-			    $tgl_hari_ini = new DateTime();
-			    $umur = $tgl_hari_ini->diff($tgl_lahir);
-			?>
 			<tr>
 				<td class="indentasi">Umur</td>
 				<td>:</td>
-				<td><?php echo $umur->y; echo " Tahun"; ?></td>
+				<td><?php echo $row['umur_ibu']; ?> Tahun</td>
+			</tr>
+		</table>
+		<br>
+		<table width="100%">
+			<tr>
+				<td>Istri Dari :
+				</td>
+			</tr>
+		</table>
+		<table width="100%" style="text-transform: capitalize;">
+			<tr>
+				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
+				<td width="2%">:</td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ayah']; ?></td>
+			</tr>
+			<tr>
+				<td class="indentasi">Umur</td>
+				<td>:</td>
+				<td><?php echo $row['umur_ayah']; ?> Tahun</td>
 			</tr>
 			<tr>
 				<td class="indentasi">Agama</td>
@@ -110,106 +147,38 @@
 			<tr>
 				<td class="indentasi">Pekerjaan</td>
 				<td>:</td>
-				<td><?php echo $row['pekerjaan']; ?></td>
+				<td><?php echo $row['pekerjaan_ayah']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Alamat</td>
 				<td>:</td>
-				<td><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Kewarganegaraan</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><?php echo $row['kewarganegaraan']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Surat Bukti Diri</td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="indentasi">KTP</td>
-				<td>:</td>
-				<td><?php echo $row['bukti_ktp']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">KK</td>
-				<td>:</td>
-				<td><?php echo $row['bukti_kk']; ?></td>
+				<td><?php echo $row['alamat']; ?></td>
 			</tr>
 		</table>
 		<br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Orang tersebut akan punya hajat : <a style="text-transform: uppercase;"><?php echo $row['jenis_hajat']; ?></a> yang dilaksanakan pada :
-				</td>
-			</tr>
-		</table><br>
-		<table width="100%" style="text-transform: capitalize;" style="text-transform: capitalize;">
-			<tr>
-				<td width="25%" class="indentasi">Hari</td>
-				<td width="2%">:</td>
-				<td width="73%"><?php echo $row['hari']; ?></td>
-			</tr>
-			<?php
-				$tgl_lhr = date($row['tanggal']);
-				$tgl = date('d ', strtotime($tgl_lhr));
-				$bln = date('F', strtotime($tgl_lhr));
-				$thn = date(' Y', strtotime($tgl_lhr));
-				$blnIndo = array(
-				    'January' => 'Januari',
-				    'February' => 'Februari',
-				    'March' => 'Maret',
-				    'April' => 'April',
-				    'May' => 'Mei',
-				    'June' => 'Juni',
-				    'July' => 'Juli',
-				    'August' => 'Agustus',
-				    'September' => 'September',
-				    'October' => 'Oktober',
-				    'November' => 'November',
-				    'December' => 'Desember'
-				);
-			?>
-			<tr>
-				<td class="indentasi">Tanggal</td>
-				<td>:</td>
-				<td><?php echo $tgl . $blnIndo[$bln] . $thn; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Jenis Hiburan</td>
-				<td>:</td>
-				<td><?php echo $row['jenis_hiburan']; ?></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Pemilik</td>
-				<td>:</td>
-				<td style="text-transform: uppercase;"><b><?php echo $row['pemilik']; ?></b></td>
-			</tr>
-			<tr>
-				<td class="indentasi">Alamat</td>
-				<td>:</td>
-				<td><?php echo $row['alamat_pemilik']; ?></td>
-			</tr>
-		</table><br>
-		<table width="100%">
-			<tr>
-				<td class="indentasi">Demikian Surat Lapor Hajatan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
+				<td class="indentasi">Surat Keterangan Ini Di Buat Atas Dasar Yang Sebenarnya.
 				</td>
 			</tr>
 		</table>
+		<br>
 	</div>
 	<br>
-	<table width="100%">
+	<table width="100%" style="text-transform: capitalize;">
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
 		<tr></tr>
 		<tr></tr>
 		<tr></tr>
 		<tr></tr>
 		<tr>
-			<td width="40%"><b>PERHATIAN :</b></td>
-			<td width="0%"></td>
 			<td width="10%"></td>
-			<td align="center" style="text-transform: capitalize;">
+			<td width="30%"></td>
+			<td width="10%"></td>
+			<td align="center">
 				<?php echo $rows['nama_desa']; ?>, 
 				<?php
 					$tanggal = date('d F Y');
@@ -233,16 +202,56 @@
 			</td>
 		</tr>
 		<tr>
-			<td>1. Mohon tidak ditempati main judi dalam bentuk apapun.<br>2. Mohon tidak digunakan minum minuman keras jenis apapun.<br>3. Bila ketentuan ini diabaikan maka Surat Laporan ini di cabut dan diajukan kepada yang berwenang.</td>
 			<td></td>
 			<td></td>
-			<td align="center" style="text-transform: capitalize;"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
+			<td></td>
+			<td align="center"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
 		</tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
 		<tr>
 			<td></td>
 			<td></td>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $rowss['nama_pejabat_desa']; ?></u></b></td>
+			<td align="center" style="text-transform: uppercase;"><u><b><?php echo $rowss['nama_pejabat_desa']; ?></b></u></td>
 		</tr>
 	</table>
 </div>

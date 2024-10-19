@@ -135,17 +135,9 @@
 						           	</div>
 						        </div>
 						  	</div>
-							<div class="col-sm-12">
-        						<div class="form-group">
-            						<label class="col-sm-12" style="font-weight: 500;">Nomor Telepon</label>
-            						<div class="col-sm-12">
-                						<input type="number" name="ftelepon" class="form-control" placeholder="Masukkan Nomor Telepon" required>
-            						</div>
-        						</div>
-								<input type="hidden" name="fnik" value="<?php echo $data['nik']; ?>">
-    						</div>
 						</div>
 						<hr width="97%">
+						<input type="hidden" name="fnik" value="<?php echo $data['nik']; ?>">
 						<div class="container-fluid">
 		                	<input type="reset" class="btn btn-warning" value="Batal">
 		                	<input type="submit" name="submit" class="btn btn-info" value="Submit">

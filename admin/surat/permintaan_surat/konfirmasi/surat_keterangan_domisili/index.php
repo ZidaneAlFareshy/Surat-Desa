@@ -218,23 +218,11 @@
                   </div>
                 </div>
               </div>
-              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Surat</b></h5>
-              <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Nomor Telepon</label>
-                      <div class="col-sm-9">
-                        <input type="number" name="ftelepon" value="<?php echo $row['telepon']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="box-body pull-right">
+                  <!-- <div class="box-body pull-right">
                     <input type="submit" name="konfirmasi" class="btn btn-success" value="Konfirmasi">
-                  </div>
+                  </div> -->
                   <div>
                     <input type="hidden" name="id" value="<?php echo $row['id_skd']; ?>" class="form-control">
                   </div>
@@ -242,6 +230,9 @@
                 <div class="col-md-6">
                   <div class="box-body pull-right">
                     <input type="submit" name="tolak" class="btn btn-danger" value="Tolak" onclick="return confirmReject()">
+                  </div>
+                  <div class="box-body pull-right">
+                    <input type="submit" name="konfirmasi" class="btn btn-success" value="Konfirmasi">
                   </div>
                 </div>
                 <input type="hidden" id="reasonInput" name="alasan_tolak" value="">

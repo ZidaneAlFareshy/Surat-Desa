@@ -13,20 +13,20 @@ if (isset($_GET['id']) && isset($_GET['status']) && isset($_GET['jenis_surat']))
             $id_column = 'id_sk';
             break;
         case 'Surat Pengantar Kelakuan Baik':
-            $table = 'surat_keterangan_berkelakuan_baik';
-            $id_column = 'id_skbb';
+            $table = 'surat_pengantar_kelakuan_baik';
+            $id_column = 'id_spkb';
             break;
         case 'Surat Keterangan Domisili':
             $table = 'surat_keterangan_domisili';
             $id_column = 'id_skd';
             break;
         case 'Surat Keterangan Tidak Mampu':
-            $table = 'surat_keterangan_kepemilikan_kendaraan_bermotor';
-            $id_column = 'id_skkkb';
+            $table = 'surat_keterangan_tidak_mampu';
+            $id_column = 'id_sktm';
             break;
         case 'Surat Keterangan Kehilangan':
-            $table = 'surat_keterangan_perhiasan';
-            $id_column = 'id_skp';
+            $table = 'surat_keterangan_kehilangan';
+            $id_column = 'id_skk';
             break;
         case 'Surat Keterangan Usaha':
             $table = 'surat_keterangan_usaha';
@@ -36,9 +36,9 @@ if (isset($_GET['id']) && isset($_GET['status']) && isset($_GET['jenis_surat']))
             $table = 'surat_lapor_hajatan';
             $id_column = 'id_slh';
             break;
-        case 'Surat Pengantar SKCK':
-            $table = 'surat_pengantar_skck';
-            $id_column = 'id_sps';
+        case 'Surat Keterangan Wali Murid':
+            $table = 'surat_keterangan_wali_murid';
+            $id_column = 'id_skwm';
             break;
         default:
             $table = '';

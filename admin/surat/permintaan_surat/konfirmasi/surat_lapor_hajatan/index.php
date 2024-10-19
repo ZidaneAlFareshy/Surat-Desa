@@ -8,6 +8,53 @@
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
+<style>
+  .zoom {
+    transition: transform .2s; /* Animasi untuk zoom */
+    max-width: 300px; /* Lebar default gambar */
+    cursor: pointer; /* Menunjukkan bahwa gambar bisa di-klik */
+  }
+  /* Style untuk modal gambar */
+  #imageModal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); /* Latar belakang hitam dengan sedikit transparansi */
+  }
+
+  /* Gambar di dalam modal */
+  #modalImage {
+    margin: auto;
+    display: block;
+    max-width: 80%; /* Gambar maksimal 80% dari lebar layar */
+    max-height: 80%; /* Gambar maksimal 80% dari tinggi layar */
+  }
+
+  /* Tombol untuk menutup modal */
+  #closeModal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  #closeModal:hover,
+  #closeModal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
 <aside class="main-sidebar">
   <section class="sidebar">
     <div class="user-panel">
@@ -187,12 +234,6 @@
                         <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></textarea>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Bukti KTP</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fbukti_ktp" style="text-transform: uppercase;" value="<?php echo $row['bukti_ktp']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
                     <div>
                       <input type="hidden" name="id" value="<?php echo $row['id_slh']; ?>" class="form-control">
                     </div>
@@ -225,56 +266,85 @@
                       </div>
                     </div>
                     <br><br>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Bukti KK</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fbukti_kk" style="text-transform: uppercase;" value="<?php echo $row['bukti_kk']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
-              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Hajatan</b></h5>
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Persyaratan</b></h5>
               <br><hr style="border-bottom: 1px solid #DCDCDC;">
               <div class="row">
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Jenis Hajat</label>
+                      <label class="col-sm-3 control-label">Bukti Saksi 1</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fjenis_hajat" style="text-transform: uppercase;" value="<?php echo $row['jenis_hajat']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                    <?php
-                      $tgl_lhr = date($row['tanggal']);
-                      $tgl = date('d ', strtotime($tgl_lhr));
-                      $bln = date('F', strtotime($tgl_lhr));
-                      $thn = date(' Y', strtotime($tgl_lhr));
-                      $blnIndo = array(
-                          'January' => 'Januari',
-                          'February' => 'Februari',
-                          'March' => 'Maret',
-                          'April' => 'April',
-                          'May' => 'Mei',
-                          'June' => 'Juni',
-                          'July' => 'Juli',
-                          'August' => 'Agustus',
-                          'September' => 'September',
-                          'October' => 'Oktober',
-                          'November' => 'November',
-                          'December' => 'Desember'
-                      );
-                    ?>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Tanggal</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="ftanggal" style="text-transform: capitalize;" value="<?php echo $tgl . $blnIndo[$bln] . $thn; ?>" class="form-control" readonly>
+                        <img src="../../../../../surat/surat_lapor_hajatan/uploads/<?php echo $row['data_saksi1']; ?>" alt="data_saksi1" style="max-width: 300px;" class="zoom">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Pemilik Hiburan</label>
+                      <label class="col-sm-3 control-label">Bukti Saksi 2</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fpemilik" style="text-transform: uppercase;" value="<?php echo $row['pemilik']; ?>" class="form-control" readonly>
+                        <img src="../../../../../surat/surat_lapor_hajatan/uploads/<?php echo $row['data_saksi2']; ?>" alt="data_saksi2" style="max-width: 300px;" class="zoom">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">Bukti Nikah / Akta Perkawinan</label>
+                      <div class="col-sm-9">
+                        <img src="../../../../../surat/surat_lapor_hajatan/uploads/<?php echo $row['data_saksi1']; ?>" alt="bukti_nikah" style="max-width: 300px;" class="zoom">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Orang Tua & Anak</b></h5>
+              <br><hr style="border-bottom: 1px solid #DCDCDC;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nama Ibu</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nama_ibu']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nama Ayah</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nama_ayah']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Umur Ibu</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['umur_ibu']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Umur Ayah</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['umur_ayah']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['alamat']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pekerjaan Ayah</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['pekerjaan_ayah']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Agama</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['agama']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
@@ -282,28 +352,45 @@
                 <div class="col-md-6">
                   <div class="box-body">
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Hari</label>
+                      <label class="col-sm-3 control-label">Nama Anak</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fhari" style="text-transform: capitalize;" value="<?php echo $row['hari']; ?>" class="form-control" readonly>
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nama_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Jenis Hiburan</label>
+                      <label class="col-sm-3 control-label">Anak Ke</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fjenis_hiburan" style="text-transform: capitalize;" value="<?php echo $row['jenis_hiburan']; ?>" class="form-control" readonly>
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nomor_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Alamat Pemilik Hiburan</label>
+                      <label class="col-sm-3 control-label">Tanggal Lahir</label>
                       <div class="col-sm-9">
-                        <textarea rows="3" name="falamat" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['alamat_pemilik']; ?></textarea>
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['tanggal_lahir_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Hari Lahir</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['hari_lahir']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat Lahir</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['alamat_lahir']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body pull-right">
+                    <input type="submit" name="tolak" class="btn btn-danger" value="Tolak" onclick="return confirmReject()">
                   </div>
                   <div class="box-body pull-right">
-                    <input type="submit" name="submit" class="btn btn-success" value="Konfirmasi">
+                    <input type="submit" name="konfirmasi" class="btn btn-success" value="Konfirmasi">
                   </div>
                 </div>
+                <input type="hidden" id="reasonInput" name="alasan_tolak" value="">
               </div>
             </form>
           </div>
@@ -314,6 +401,40 @@
     </div>
   </section>
 </div>
+
+<!-- Modal untuk menampilkan gambar -->
+<div id="imageModal">
+  <span id="closeModal">&times;</span>
+  <img id="modalImage">
+</div>
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- AdminLTE App (untuk treeview, dropdown, dll) -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/js/adminlte.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Ketika gambar diklik
+    $('.zoom').click(function(){
+      var src = $(this).attr('src'); // Ambil sumber gambar
+      $('#modalImage').attr('src', src); // Set modal gambar
+      $('#imageModal').fadeIn(); // Tampilkan modal
+    });
+
+    // Tutup modal saat tombol X diklik
+    $('#closeModal').click(function(){
+      $('#imageModal').fadeOut(); // Sembunyikan modal
+    });
+
+    // Tutup modal jika area di luar gambar diklik
+    $(window).click(function(event) {
+      if (event.target.id === 'imageModal') {
+        $('#imageModal').fadeOut(); // Sembunyikan modal
+      }
+    });
+  });
+</script>
 
 <?php
   }

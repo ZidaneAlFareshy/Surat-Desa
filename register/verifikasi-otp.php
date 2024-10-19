@@ -14,12 +14,6 @@ if (isset($_POST['submit-otp'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Jika OTP benar, update status verifikasi
-        // $sql_update = "UPDATE login SET status_verifikasi = 1 WHERE whatsapp = ?";
-        // $stmt_update = $connect->prepare($sql_update);
-        // $stmt_update->bind_param("s", $whatsapp);
-        // $stmt_update->execute();
-
         // Redirect ke halaman login
         header("Location: ../login/index.php?pesan=register-sukses");
         exit();
