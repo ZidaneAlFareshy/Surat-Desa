@@ -4,9 +4,56 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_keterangan.* FROM penduduk LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik WHERE surat_keterangan.id_sk='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_mati.* FROM penduduk LEFT JOIN surat_mati ON surat_mati.nik = penduduk.nik WHERE surat_mati.id_sm='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
+
+<style>
+  .zoom {
+    transition: transform .2s; /* Animasi untuk zoom */
+    max-width: 300px; /* Lebar default gambar */
+    cursor: pointer; /* Menunjukkan bahwa gambar bisa di-klik */
+  }
+  /* Style untuk modal gambar */
+  #imageModal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); /* Latar belakang hitam dengan sedikit transparansi */
+  }
+
+  /* Gambar di dalam modal */
+  #modalImage {
+    margin: auto;
+    display: block;
+    max-width: 80%; /* Gambar maksimal 80% dari lebar layar */
+    max-height: 80%; /* Gambar maksimal 80% dari tinggi layar */
+  }
+
+  /* Tombol untuk menutup modal */
+  #closeModal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  #closeModal:hover,
+  #closeModal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
 
 <aside class="main-sidebar">
   <section class="sidebar">
@@ -89,7 +136,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Keterangan KTP Sementara</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Kematian</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -188,7 +235,7 @@
                       </div>
                     </div>
                     <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_sk']; ?>" class="form-control">
+                      <input type="hidden" name="id" value="<?php echo $row['id_sm']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -218,7 +265,138 @@
                         <input type="text" name="fkewarganegaraan" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan']; ?>" class="form-control" readonly>
                       </div>
                     </div>
+                    <br><br>
                   </div>
+                </div>
+              </div>
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Persyaratan</b></h5>
+              <br><hr style="border-bottom: 1px solid #DCDCDC;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">KTP Orang Meningal</label>
+                      <div class="col-sm-9">
+                        <img src="../../../../../surat/surat_mati/uploads/<?php echo $row['ktp_meninggal']; ?>" alt="ktp_meninggal" style="max-width: 300px;" class="zoom">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">KK Orang Meninggal</label>
+                      <div class="col-sm-9">
+                        <img src="../../../../../surat/surat_mati/uploads/<?php echo $row['kk_meninggal']; ?>" alt="kk_meninggal" style="max-width: 300px;" class="zoom">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">Surat Keterangan Kematian dari Dokter/Rumah Sakit/Kepolisian</label>
+                      <div class="col-sm-9">
+                        <img src="../../../../../surat/surat_mati/uploads/<?php echo $row['suket_kematian']; ?>" alt="suket_kematian" style="max-width: 300px;" class="zoom">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">Surat Pengantar RT diketahui RW</label>
+                      <div class="col-sm-9">
+                        <img src="../../../../../surat/surat_mati/uploads/<?php echo $row['surat_pengantar']; ?>" alt="surat_pengantar" style="max-width: 300px;" class="zoom">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="box-title pull-right" style="color: #696969;"><i class="fas fa-info-circle"></i> <b>Informasi Meninggal</b></h5>
+              <br><hr style="border-bottom: 1px solid #DCDCDC;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Nama</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fnama_meninggal" style="text-transform: uppercase;" value="<?php echo $row['nama_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">NIK</label>
+                      <div class="col-sm-9">
+                        <input type="number" name="fnama_ayah" style="text-transform: uppercase;" value="<?php echo $row['nik_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Status Perkawinan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fstatus_perkawinan_meninggal" style="text-transform: uppercase;" value="<?php echo $row['status_perkawinan_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Pekerjaan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fumur_ayah" style="text-transform: uppercase;" value="<?php echo $row['pekerjaan_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Jenis Kelamin</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fjenis_kelamin_meninggal" style="text-transform: uppercase;" value="<?php echo $row['jenis_kelamin_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Kewarganegaraan</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fkewarganegaraan_meninggal" style="text-transform: uppercase;" value="<?php echo $row['kewarganegaraan_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alamat</label>
+                      <div class="col-sm-9">
+                        <textarea rows="3" name="falamat_meninggal" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['alamat_meninggal']; ?></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Sebab Meninggal</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fsebab_meninggal" style="text-transform: uppercase;" value="<?php echo $row['sebab_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Hari Meninggal</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fhari_meninggal" style="text-transform: uppercase;" value="<?php echo $row['hari_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tanggal Meninggal</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftanggal_meninggal" style="text-transform: uppercase;" value="<?php echo $row['tanggal_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Hari Meninggal</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="fhari_meninggal" style="text-transform: uppercase;" value="<?php echo $row['hari_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tempat Meninggal</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftempat_meninggal" style="text-transform: uppercase;" value="<?php echo $row['tempat_meninggal']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Tempat Pemakaman</label>
+                      <div class="col-sm-9">
+                        <input type="text" name="ftempat_pemakaman" style="text-transform: uppercase;" value="<?php echo $row['tempat_pemakaman']; ?>" class="form-control" readonly>
+                      </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                   <div class="box-body pull-right">
@@ -239,6 +417,40 @@
     </div>
   </section>
 </div>
+
+<!-- Modal untuk menampilkan gambar -->
+<div id="imageModal">
+  <span id="closeModal">&times;</span>
+  <img id="modalImage">
+</div>
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- AdminLTE App (untuk treeview, dropdown, dll) -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/js/adminlte.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Ketika gambar diklik
+    $('.zoom').click(function(){
+      var src = $(this).attr('src'); // Ambil sumber gambar
+      $('#modalImage').attr('src', src); // Set modal gambar
+      $('#imageModal').fadeIn(); // Tampilkan modal
+    });
+
+    // Tutup modal saat tombol X diklik
+    $('#closeModal').click(function(){
+      $('#imageModal').fadeOut(); // Sembunyikan modal
+    });
+
+    // Tutup modal jika area di luar gambar diklik
+    $(window).click(function(event) {
+      if (event.target.id === 'imageModal') {
+        $('#imageModal').fadeOut(); // Sembunyikan modal
+      }
+    });
+  });
+</script>
 
 <script>
 function confirmReject() {

@@ -47,7 +47,7 @@
 			color: #555;
 		}
 
-		.btn {
+		/* .btn {
 			border-radius: 25px;
 			padding: 10px 20px;
 			background-color: #00A658;
@@ -58,7 +58,7 @@
 		.btn:hover {
 			background-color: #007F45;
 			color: white;
-		}
+		} */
 
 		/* Responsive Styling */
 		@media (max-width: 576px) {
@@ -300,17 +300,45 @@
 
 						if (isset($_SESSION['lvl'])) {
 							if ($_SESSION['lvl'] == 'Administrator') {
-								echo '<a href="surat_lapor_hajatan/" class="btn btn-info">BUAT SURAT</a>';
+								echo '<a href="surat_lahir/" class="btn btn-info">BUAT SURAT</a>';
 							} elseif ($_SESSION['lvl'] == 'User') {
 								// Menyertakan NIK yang ada di session jika sudah login
 								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
-								echo '<form action="surat_lapor_hajatan/info-surat.php" method="post">';
+								echo '<form action="surat_lahir/info-surat.php" method="post">';
 								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
 								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
 								echo '</form>';
 							}
 						} else {
 							echo '<a href="../login.php" class="btn btn-info">LOGIN UNTUK BUAT SURAT</a>';
+						}
+						?>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-3 mt-4">
+		    	<div class="card">
+		      		<img src="../assets/img/list-surat.png" class="card-img-top" alt="...">
+		      		<div class="card-body text-center">
+					  <h5 class="card-title">SURAT KEMATIAN</h5><br>
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
+
+						if (isset($_SESSION['lvl'])) {
+							if ($_SESSION['lvl'] == 'Administrator') {
+								echo '<a href="surat_mati/" class="btn btn-info">BUAT SURAT</a>';
+							} elseif ($_SESSION['lvl'] == 'User') {
+								// Menyertakan NIK yang ada di session jika sudah login
+								$nik = isset($_SESSION['nik']) ? $_SESSION['nik'] : '';
+								echo '<form action="surat_mati/info-surat.php" method="post">';
+								echo '<input type="hidden" name="fnik" value="' . $nik . '">';
+								echo '<button type="submit" class="btn btn-info">BUAT SURAT</button>';
+								echo '</form>';
+							}
+						} else {
+							echo '<a href="../login.php" class="btn btn-primary">LOGIN UNTUK BUAT SURAT</a>';
 						}
 						?>
 		      		</div>

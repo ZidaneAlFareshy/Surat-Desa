@@ -105,7 +105,8 @@
                 UNION SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sktm, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik WHERE surat_keterangan_tidak_mampu.status_surat='pending'
                 UNION SELECT penduduk.nama, surat_keterangan_kehilangan.id_skk, surat_keterangan_kehilangan.no_surat, surat_keterangan_kehilangan.nik, surat_keterangan_kehilangan.jenis_surat, surat_keterangan_kehilangan.status_surat, surat_keterangan_kehilangan.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_kehilangan ON surat_keterangan_kehilangan.nik = penduduk.nik WHERE surat_keterangan_kehilangan.status_surat='pending' 
                 UNION SELECT penduduk.nama, surat_keterangan_usaha.id_sku, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.nik, surat_keterangan_usaha.jenis_surat, surat_keterangan_usaha.status_surat, surat_keterangan_usaha.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik WHERE surat_keterangan_usaha.status_surat='pending'
-                UNION SELECT penduduk.nama, surat_lapor_hajatan.id_slh, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.status_surat='pending' 
+                UNION SELECT penduduk.nama, surat_lahir.id_sl, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.jenis_surat, surat_lahir.status_surat, surat_lahir.tanggal_surat FROM penduduk LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik WHERE surat_lahir.status_surat='pending' 
+                UNION SELECT penduduk.nama, surat_mati.id_sm, surat_mati.no_surat, surat_mati.nik, surat_mati.jenis_surat, surat_mati.status_surat, surat_mati.tanggal_surat FROM penduduk LEFT JOIN surat_mati ON surat_mati.nik = penduduk.nik WHERE surat_mati.status_surat='pending' 
                 UNION SELECT penduduk.nama, surat_keterangan_wali_murid.id_skwm, surat_keterangan_wali_murid.no_surat, surat_keterangan_wali_murid.nik, surat_keterangan_wali_murid.jenis_surat, surat_keterangan_wali_murid.status_surat, surat_keterangan_wali_murid.tanggal_surat FROM penduduk LEFT JOIN surat_keterangan_wali_murid ON surat_keterangan_wali_murid.nik = penduduk.nik WHERE surat_keterangan_wali_murid.status_surat='pending'");
                 if ($qTampil->num_rows > 0){
                   foreach ($qTampil as $row){ 
@@ -164,7 +165,11 @@
                         <?php
                           } else if($row['jenis_surat']=="Surat Kelahiran"){
                         ?>
-                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_lapor_hajatan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
+                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_lahir/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
+                        <?php
+                          } else if($row['jenis_surat']=="Surat Kematian"){
+                        ?>
+                        <a class="btn btn-success btn-sm" href='konfirmasi/surat_mati/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-check"></i><b> KONFIRMASI</b></a>
                         <?php
                           } else if($row['jenis_surat']=="Surat Keterangan Wali Murid"){
                         ?>

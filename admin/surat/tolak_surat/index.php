@@ -150,10 +150,10 @@
 
     UNION 
 
-    SELECT penduduk.nama, surat_lapor_hajatan.id_slh AS id_sk, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, NULL AS telepon, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat, surat_lapor_hajatan.alasan_tolak 
+    SELECT penduduk.nama, surat_lahir.id_sl AS id_sk, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.jenis_surat, surat_lahir.whatsapp, surat_lahir.status_surat, surat_lahir.tanggal_surat, surat_lahir.alasan_tolak 
     FROM penduduk 
-    LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik 
-    WHERE surat_lapor_hajatan.status_surat='tertolak' 
+    LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik 
+    WHERE surat_lahir.status_surat='tertolak' 
 
     UNION 
 

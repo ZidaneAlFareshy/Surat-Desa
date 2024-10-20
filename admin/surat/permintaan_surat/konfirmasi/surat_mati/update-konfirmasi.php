@@ -12,7 +12,7 @@
 		$status_surat = "TERTOLAK";
 	}
 
-	$qUpdate 	= "UPDATE surat_lapor_hajatan SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat' WHERE id_slh='$id'";
+	$qUpdate 	= "UPDATE surat_mati SET no_surat='$no_surat', id_pejabat_desa='$id_pejabat_desa', status_surat='$status_surat', alasan_tolak='$alasan_tolak' WHERE id_sm='$id'";
 	$update 	= mysqli_query($connect, $qUpdate);
 
 	if($update){

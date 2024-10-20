@@ -32,9 +32,9 @@ if (isset($_GET['id']) && isset($_GET['status']) && isset($_GET['jenis_surat']))
             $table = 'surat_keterangan_usaha';
             $id_column = 'id_sku';
             break;
-        case 'Surat Lapor Hajatan':
-            $table = 'surat_lapor_hajatan';
-            $id_column = 'id_slh';
+        case 'Surat Kelahiran':
+            $table = 'surat_lahir';
+            $id_column = 'id_sl';
             break;
         case 'Surat Keterangan Wali Murid':
             $table = 'surat_keterangan_wali_murid';

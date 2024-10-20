@@ -4,7 +4,7 @@
   include ('../part/header.php');
 
   $id = $_GET['id'];
-  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_lapor_hajatan.* FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.id_slh='$id'");
+  $qCek = mysqli_query($connect,"SELECT penduduk.*, surat_lahir.* FROM penduduk LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik WHERE surat_lahir.id_sl='$id'");
   while($row = mysqli_fetch_array($qCek)){
 ?>
 
@@ -136,7 +136,7 @@
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
-            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Lapor Hajatan</h2>
+            <h2 class="box-title"><i class="fas fa-envelope"></i> Konfirmasi Surat Kelahiran</h2>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -235,7 +235,7 @@
                       </div>
                     </div>
                     <div>
-                      <input type="hidden" name="id" value="<?php echo $row['id_slh']; ?>" class="form-control">
+                      <input type="hidden" name="id" value="<?php echo $row['id_sl']; ?>" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -277,13 +277,13 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Bukti Saksi 1</label>
                       <div class="col-sm-9">
-                        <img src="../../../../../surat/surat_lapor_hajatan/uploads/<?php echo $row['data_saksi1']; ?>" alt="data_saksi1" style="max-width: 300px;" class="zoom">
+                        <img src="../../../../../surat/surat_lahir/uploads/<?php echo $row['data_saksi1']; ?>" alt="data_saksi1" style="max-width: 300px;" class="zoom">
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Bukti Saksi 2</label>
                       <div class="col-sm-9">
-                        <img src="../../../../../surat/surat_lapor_hajatan/uploads/<?php echo $row['data_saksi2']; ?>" alt="data_saksi2" style="max-width: 300px;" class="zoom">
+                        <img src="../../../../../surat/surat_lahir/uploads/<?php echo $row['data_saksi2']; ?>" alt="data_saksi2" style="max-width: 300px;" class="zoom">
                       </div>
                     </div>
                   </div>
@@ -293,7 +293,7 @@
                   <div class="form-group">
                       <label class="col-sm-3 control-label">Bukti Nikah / Akta Perkawinan</label>
                       <div class="col-sm-9">
-                        <img src="../../../../../surat/surat_lapor_hajatan/uploads/<?php echo $row['data_saksi1']; ?>" alt="bukti_nikah" style="max-width: 300px;" class="zoom">
+                        <img src="../../../../../surat/surat_lahir/uploads/<?php echo $row['bukti_nikah']; ?>" alt="bukti_nikah" style="max-width: 300px;" class="zoom">
                       </div>
                     </div>
                   </div>
@@ -308,43 +308,31 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Nama Ibu</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nama_ibu']; ?>" class="form-control" readonly>
+                        <input type="text" name="fnama_ibu" style="text-transform: uppercase;" value="<?php echo $row['nama_ibu']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Nama Ayah</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nama_ayah']; ?>" class="form-control" readonly>
+                        <input type="text" name="fnama_ayah" style="text-transform: uppercase;" value="<?php echo $row['nama_ayah']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Umur Ibu</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['umur_ibu']; ?>" class="form-control" readonly>
+                        <input type="number" name="fumur_ibu" style="text-transform: uppercase;" value="<?php echo $row['umur_ibu']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Umur Ayah</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['umur_ayah']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Alamat</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['alamat']; ?>" class="form-control" readonly>
+                        <input type="number" name="fumur_ayah" style="text-transform: uppercase;" value="<?php echo $row['umur_ayah']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Pekerjaan Ayah</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['pekerjaan_ayah']; ?>" class="form-control" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-3 control-label">Agama</label>
-                      <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['agama']; ?>" class="form-control" readonly>
+                        <input type="text" name="fpekerjaan_ayah" style="text-transform: uppercase;" value="<?php echo $row['pekerjaan_ayah']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
@@ -354,31 +342,31 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Nama Anak</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nama_anak']; ?>" class="form-control" readonly>
+                        <input type="text" name="fnama_anak" style="text-transform: uppercase;" value="<?php echo $row['nama_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Anak Ke</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['nomor_anak']; ?>" class="form-control" readonly>
+                        <input type="text" name="fnomor_anak" style="text-transform: uppercase;" value="<?php echo $row['nomor_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Tanggal Lahir</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['tanggal_lahir_anak']; ?>" class="form-control" readonly>
+                        <input type="text" name="ftanggal_lahir_anak" style="text-transform: uppercase;" value="<?php echo $row['tanggal_lahir_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Hari Lahir</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['hari_lahir']; ?>" class="form-control" readonly>
+                        <input type="text" name="fhari_lahir" style="text-transform: uppercase;" value="<?php echo $row['hari_lahir']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Alamat Lahir</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fasal_sekolah" style="text-transform: uppercase;" value="<?php echo $row['alamat_lahir']; ?>" class="form-control" readonly>
+                        <textarea rows="3" name="falamat_lahir" class="form-control" style="text-transform: capitalize;" readonly><?php echo $row['alamat_lahir']; ?></textarea>
                       </div>
                     </div>
                 </div>
@@ -434,6 +422,19 @@
       }
     });
   });
+</script>
+
+<script>
+function confirmReject() {
+    var reason = prompt("Masukkan alasan penolakan surat:");
+    if (reason == null || reason == "") {
+        return false; // Jika tidak ada alasan yang diisi, pembatalan aksi form
+    } else {
+        // Simpan alasan penolakan ke dalam input hidden
+        document.getElementById('reasonInput').value = reason;
+        return true; // Lanjutkan pengiriman form
+    }
+}
 </script>
 
 <?php

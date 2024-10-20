@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="../assets/img/logo-cirebon.png">
-	<title>e-SuratDesa</title>
+	<title>Tentang</title>
 	<link rel="stylesheet" href="../assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="../assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
 	<style type="text/css">
@@ -16,6 +16,43 @@
 		.navbar {
 			background-color: #00A658;
 		}
+		.container-fluid {
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .card-text {
+            line-height: 1.8;
+            color: #333;
+        }
+        label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 5px solid #007bff;
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-style: italic;
+            color: #666;
+        }
+		.icon-info {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+		.footer {
+            padding: 20px 0;
+            margin-top: 40px;
+        }
 	</style>
 </head>
 <body class="bg-light">
@@ -43,7 +80,7 @@
 						?>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="#"><i class="fas fa-info-circle"></i>&nbsp;TENTANG <b>e-SuratDesa</b></a>
+						<a class="nav-link" href="#"><i class="fas fa-info-circle icon-info"></i>&nbsp;TENTANG <b>e-SuratDesa</b></a>
 					</li>
 					<li class="nav-item active ml-5">
 						<?php

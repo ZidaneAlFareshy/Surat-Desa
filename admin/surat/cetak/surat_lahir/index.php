@@ -11,14 +11,14 @@
 	}
 
   	$id = $_GET['id'];
-  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_lapor_hajatan.* FROM penduduk LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik WHERE surat_lapor_hajatan.id_slh='$id'");
+  	$qCek = mysqli_query($connect,"SELECT penduduk.*, surat_lahir.* FROM penduduk LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik WHERE surat_lahir.id_sl='$id'");
   	while($row = mysqli_fetch_array($qCek)){
 
   		$qTampilDesa = mysqli_query($connect, "SELECT * FROM profil_desa WHERE id_profil_desa = '1'");
         foreach($qTampilDesa as $rows){
 
 			$id_pejabat_desa = $row['id_pejabat_desa'];
-		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_lapor_hajatan.id_pejabat_desa = '$id_pejabat_desa' AND surat_lapor_hajatan.id_slh='$id'");
+		  	$qCekPejabatDesa = mysqli_query($connect,"SELECT pejabat_desa.jabatan, pejabat_desa.nama_pejabat_desa FROM pejabat_desa LEFT JOIN surat_lahir ON surat_lahir.id_pejabat_desa = pejabat_desa.id_pejabat_desa WHERE surat_lahir.id_pejabat_desa = '$id_pejabat_desa' AND surat_lahir.id_sl='$id'");
 		  	while($rowss = mysqli_fetch_array($qCekPejabatDesa)){
 ?>
 
@@ -152,7 +152,7 @@
 			<tr>
 				<td class="indentasi">Alamat</td>
 				<td>:</td>
-				<td><?php echo $row['alamat']; ?></td>
+				<td><?php echo $row['jalan'] . ", RT" . $row['rt'] . "/RW" . $row['rw'] . ", Dusun " . $row['dusun'] . ", Desa " . $row['desa'] . ", Kecamatan " . $row['kecamatan'] . ", " . $row['kota']; ?></td>
 			</tr>
 		</table>
 		<br>

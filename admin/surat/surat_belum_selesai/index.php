@@ -152,10 +152,10 @@
 
     UNION 
 
-    SELECT penduduk.nama, surat_lapor_hajatan.id_slh AS id_sk, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.whatsapp, surat_lapor_hajatan.jenis_surat, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat 
+    SELECT penduduk.nama, surat_lahir.id_sl AS id_sk, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.whatsapp, surat_lahir.jenis_surat, surat_lahir.status_surat, surat_lahir.tanggal_surat 
     FROM penduduk 
-    LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik 
-    WHERE surat_lapor_hajatan.status_surat='belum selesai' 
+    LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik 
+    WHERE surat_lahir.status_surat='belum selesai' 
 
     UNION 
 
@@ -163,6 +163,13 @@
     FROM penduduk 
     LEFT JOIN surat_keterangan_wali_murid ON surat_keterangan_wali_murid.nik = penduduk.nik 
     WHERE surat_keterangan_wali_murid.status_surat='belum selesai'
+
+    UNION 
+
+    SELECT penduduk.nama, surat_mati.id_sm AS id_sk, surat_mati.no_surat, surat_mati.nik, surat_mati.whatsapp, surat_mati.jenis_surat, surat_mati.status_surat, surat_mati.tanggal_surat 
+    FROM penduduk 
+    LEFT JOIN surat_mati ON surat_mati.nik = penduduk.nik 
+    WHERE surat_mati.status_surat='belum selesai'
 ");
 
               foreach($qTampil as $row){
@@ -223,11 +230,15 @@
                 <?php
                   } else if($row['jenis_surat']=="Surat Kelahiran"){
                 ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_lapor_hajatan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_lahir/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
                   } else if($row['jenis_surat']=="Surat Keterangan Wali Murid"){
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_wali_murid/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <?php
+                  } else if($row['jenis_surat']=="Surat Kematian"){
+                ?>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_mati/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
                   }
                 ?>

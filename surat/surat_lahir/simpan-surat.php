@@ -20,8 +20,6 @@
         $nama_ibu = $_POST['fnama_ibu'];
         $pekerjaan_ayah = $_POST['fpekerjaan_ayah'];
         $umur_ibu = $_POST['fumur_ibu'];
-        $agama = $_POST['fagama'];
-        $alamat = addslashes($_POST['falamat']);
         $nama_anak = $_POST['fnama_anak'];
         $tanggal_lahir_anak = $_POST['ftanggal_lahir_anak'];
         $nomor_anak = $_POST['fnomor_anak'];
@@ -35,7 +33,7 @@
         $row = mysqli_fetch_assoc($result);
         $whatsapp = $row['whatsapp'];
 
-        $qTambahSurat = "INSERT INTO surat_lapor_hajatan (jenis_surat, nik, whatsapp, bukti_nikah, data_saksi1, data_saksi2, nama_ibu, nama_ayah, nama_anak, umur_ibu, umur_ayah, pekerjaan_ayah, agama, alamat, alamat_lahir, hari_lahir, tanggal_lahir_anak, nomor_anak, status_surat, id_profil_desa) VALUES ('$jenis_surat', '$nik', '$whatsapp', '$bukti_nikah', '$data_saksi1', '$data_saksi2', '$nama_ibu', '$nama_ayah', '$nama_anak', '$umur_ibu', '$umur_ayah', '$pekerjaan_ayah', '$agama', '$alamat', '$alamat_lahir', '$hari_lahir', '$tanggal_lahir_anak', '$nomor_anak', '$status_surat', '$id_profil_desa')";
+        $qTambahSurat = "INSERT INTO surat_lahir (jenis_surat, nik, whatsapp, bukti_nikah, data_saksi1, data_saksi2, nama_ibu, nama_ayah, nama_anak, umur_ibu, umur_ayah, pekerjaan_ayah, alamat_lahir, hari_lahir, tanggal_lahir_anak, nomor_anak, status_surat, id_profil_desa) VALUES ('$jenis_surat', '$nik', '$whatsapp', '$bukti_nikah', '$data_saksi1', '$data_saksi2', '$nama_ibu', '$nama_ayah', '$nama_anak', '$umur_ibu', '$umur_ayah', '$pekerjaan_ayah', '$alamat_lahir', '$hari_lahir', '$tanggal_lahir_anak', '$nomor_anak', '$status_surat', '$id_profil_desa')";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
         header("location:../index.php?pesan=berhasil");
     }

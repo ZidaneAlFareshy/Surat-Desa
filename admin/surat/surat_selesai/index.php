@@ -151,10 +151,10 @@
 
     UNION 
 
-    SELECT penduduk.nama, surat_lapor_hajatan.id_slh AS id_sk, surat_lapor_hajatan.no_surat, surat_lapor_hajatan.nik, surat_lapor_hajatan.jenis_surat, NULL AS telepon, surat_lapor_hajatan.status_surat, surat_lapor_hajatan.tanggal_surat 
+    SELECT penduduk.nama, surat_lahir.id_sl AS id_sk, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.jenis_surat, surat_lahir.whatsapp, surat_lahir.status_surat, surat_lahir.tanggal_surat 
     FROM penduduk 
-    LEFT JOIN surat_lapor_hajatan ON surat_lapor_hajatan.nik = penduduk.nik 
-    WHERE surat_lapor_hajatan.status_surat='selesai' 
+    LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik 
+    WHERE surat_lahir.status_surat='selesai' 
 
     UNION 
 
@@ -220,9 +220,9 @@
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_usaha/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
-                  } else if($row['jenis_surat']=="Surat Lapor Hajatan"){
+                  } else if($row['jenis_surat']=="Surat Kelahiran"){
                 ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_lapor_hajatan/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_lahir/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
                   } else if($row['jenis_surat']=="Surat Keterangan Wali Murid"){
                 ?>
