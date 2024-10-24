@@ -16,8 +16,8 @@
         }
 
         $umur_ayah = $_POST['fumur_ayah'];
-        $nama_ayah = $_POST['fnama_ayah'];
-        $nama_ibu = $_POST['fnama_ibu'];
+        $nama_ayah_anak = $_POST['fnama_ayah_anak'];
+        $nama_ibu_anak = $_POST['fnama_ibu_anak'];
         $pekerjaan_ayah = $_POST['fpekerjaan_ayah'];
         $umur_ibu = $_POST['fumur_ibu'];
         $nama_anak = $_POST['fnama_anak'];
@@ -33,7 +33,7 @@
         $row = mysqli_fetch_assoc($result);
         $whatsapp = $row['whatsapp'];
 
-        $qTambahSurat = "INSERT INTO surat_lahir (jenis_surat, nik, whatsapp, bukti_nikah, data_saksi1, data_saksi2, nama_ibu, nama_ayah, nama_anak, umur_ibu, umur_ayah, pekerjaan_ayah, alamat_lahir, hari_lahir, tanggal_lahir_anak, nomor_anak, status_surat, id_profil_desa) VALUES ('$jenis_surat', '$nik', '$whatsapp', '$bukti_nikah', '$data_saksi1', '$data_saksi2', '$nama_ibu', '$nama_ayah', '$nama_anak', '$umur_ibu', '$umur_ayah', '$pekerjaan_ayah', '$alamat_lahir', '$hari_lahir', '$tanggal_lahir_anak', '$nomor_anak', '$status_surat', '$id_profil_desa')";
+        $qTambahSurat = "INSERT INTO surat_lahir (jenis_surat, nik, whatsapp, bukti_nikah, data_saksi1, data_saksi2, nama_ibu_anak, nama_ayah_anak, nama_anak, umur_ibu, umur_ayah, pekerjaan_ayah, alamat_lahir, hari_lahir, tanggal_lahir_anak, nomor_anak, status_surat, id_profil_desa) VALUES ('$jenis_surat', '$nik', '$whatsapp', '$bukti_nikah', '$data_saksi1', '$data_saksi2', '$nama_ibu_anak', '$nama_ayah_anak', '$nama_anak', '$umur_ibu', '$umur_ayah', '$pekerjaan_ayah', '$alamat_lahir', '$hari_lahir', '$tanggal_lahir_anak', '$nomor_anak', '$status_surat', '$id_profil_desa')";
         $TambahSurat = mysqli_query($connect, $qTambahSurat);
         header("location:../index.php?pesan=berhasil");
     }

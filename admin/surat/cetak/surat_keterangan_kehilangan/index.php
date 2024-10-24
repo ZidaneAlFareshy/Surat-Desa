@@ -120,47 +120,6 @@
 			</tr>
 		</table>
 		<br>
-		<!-- <table width="100%">
-			<tr>
-				<td><b><u>MENERANGKAN BAHWA :</u></b></td>
-			</tr>
-		</table><br>
-		<table width="100%">
-			<tr>
-				<td width="3%"></td>
-				<td width="3%">-</td>
-				<td width="94%">Menurut pengakuannya orang tersebut diatas benar-benar mempunyai sebuah perhiasan <a style="text-transform: capitalize;"><?php echo $row['jenis_perhiasan']; ?></a> yang berupa <a style="text-transform: uppercase;"><?php echo $row['nama_perhiasan']; ?></a> <?php echo $row['jenis_perhiasan']; ?> dengan berat ± <?php echo $row['berat']; ?> Gram, yang berasal dari toko emas <a style="text-transform: uppercase;"><b><?php echo $row['toko_perhiasan']; ?></b></a> di 	<a style="text-transform: uppercase;"><?php echo $row['lokasi_toko_perhiasan']; ?></a>, adapun barang tersebut akan diJual.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>-</td>
-				<td>Surat Keterangan / Nota Pembelian dari toko yang asli telah hilang.</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>-</td>
-				<td>Surat Keterangan ini bukan sebagai pengganti Surat Keterangan / Nota Pembelian Asli dari toko yang telah hilang.</td>
-			</tr>
-		</table><br>
-		<table width="100%">
-			<tr>
-				<td width="31%">Surat ini dipergunakan untuk</td>
-				<td width="2%">:</td>
-				<td width="73%">Menerangkan kebenaran nama diatas sesuai pengakuannya yang sedang menguasai perhiasan tersebut.</td>
-			</tr>
-			<tr>
-				<td>Guna keperluan</td>
-				<td>:</td>
-				<td style="text-transform: capitalize;"><b><?php echo $row['keperluan']; ?></b></td>
-			</tr>
-		</table><br>
-		<table width="100%">
-			<tr>
-				<td class="indentasi">Demikian surat keterangan ini dibuat dengan sebenar-benarnya dan digunakan sebagaimana mestinya.
-				</td>
-			</tr>
-		</table>
-	</div> -->
 	<table width="100%">
 			<tr>
 			<?php
@@ -194,7 +153,7 @@
 				return $hari[$nama_hari] . ', ' . $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
 			}
 			?>
-				<td class="indentasi">Bahwa benar orang tersebut di atas adalah warga penduduk Desa kami, yang mengaku telah kehilangan sebuah <b><?php echo $row['barang']; ?></b> a/n pelapor, diketahui hilang di <b style="text-transform: capitalize;"><?php echo $row['lokasi']; ?></b> pada hari <b style="text-transform: capitalize;"><?php echo tgl_indo($row['tanggal']); ?>.</b></td>
+				<td class="indentasi">Bahwa benar orang tersebut di atas adalah warga penduduk Desa kami, yang mengaku telah kehilangan sebuah <b><?php echo $row['barang_hilang']; ?></b> a/n pelapor, diketahui hilang di <b style="text-transform: capitalize;"><?php echo $row['lokasi_hilang']; ?></b> pada hari <b style="text-transform: capitalize;"><?php echo tgl_indo($row['tanggal_hilang']); ?>.</b></td>
 			</tr>
 		</table><br>
 		<table width="100%">

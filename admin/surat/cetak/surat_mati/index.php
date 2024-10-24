@@ -115,79 +115,56 @@
 		<br>
 		<table width="100%">
 			<tr>
-				<td>Adalah benar orang tua/wali murid dari:
+				<td>Telah meninggal dunia pada :
 				</td>
 			</tr>
 		</table>
 		<table width="100%" style="text-transform: capitalize;">
 			<tr>
-				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
+				<td width="30%" class="indentasi">Hari</td>
 				<td width="2%">:</td>
-				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_anak']; ?></td>
-			</tr>
-			<?php
-				$tgl_lhr = date($row['tanggal_lahir_anak']);
-				$tgl = date('d ', strtotime($tgl_lhr));
-				$bln = date('F', strtotime($tgl_lhr));
-				$thn = date(' Y', strtotime($tgl_lhr));
-				$blnIndo = array(
-				    'January' => 'Januari',
-				    'February' => 'Februari',
-				    'March' => 'Maret',
-				    'April' => 'April',
-				    'May' => 'Mei',
-				    'June' => 'Juni',
-				    'July' => 'Juli',
-				    'August' => 'Agustus',
-				    'September' => 'September',
-				    'October' => 'Oktober',
-				    'November' => 'November',
-				    'December' => 'Desember'
-				);
-			?>
-			<tr>
-				<td class="indentasi">Tempat/Tgl. Lahir</td>
-				<td>:</td>
-				<td><?php echo $row['tempat_lahir_anak'] . ", " . $tgl . $blnIndo[$bln] . $thn; ?></td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['hari_meninggal']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">NIK</td>
+				<td class="indentasi">Tanggal</td>
 				<td>:</td>
-				<td><?php echo $row['nik_anak']; ?></td>
+				<td><?php echo $row['tanggal_meninggal']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Jenis Kelamin</td>
+				<td class="indentasi">Meninggal di</td>
 				<td>:</td>
-				<td><?php echo $row['jenis_kelamin_anak']; ?></td>
+				<td><?php echo $row['tempat_meninggal']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Asal Sekolah</td>
+				<td class="indentasi">Karena/Disebabkan</td>
 				<td>:</td>
-				<td><?php echo $row['asal_sekolah']; ?></td>
+				<td><?php echo $row['sebab_meninggal']; ?></td>
 			</tr>
 			<tr>
-				<td class="indentasi">Kelas</td>
+				<td class="indentasi">Dikebumikan di</td>
 				<td>:</td>
-				<td><?php echo $row['kelas']; ?></td>
+				<td><?php echo $row['tempat_pemakaman']; ?></td>
 			</tr>
 		</table>
 		<br>
 		<table width="100%">
 			<tr>
-				<td class="indentasi">Benar bahwa orang tersebut di atas adalah penduduk Desa kami yang merupakan orang tua/wali murid dari <b style="text-transform: capitalize;"><?php echo $row['nama_anak']; ?></b>.
+				<td>Demikian surat keterangan kami buat atas dasar yang sebenarnya.
 				</td>
 			</tr>
 		</table>
 		<br>
-		<table width="100%">
-			<tr>
-				<td class="indentasi">Demikian surat keterangan ini kami buat dengan sebenar-benarnya dan untuk dapat dipergunakan sesuai dengan keperluannya.
-				</td>
-			</tr>
-		</table>
 	</div>
 	<br>
 	<table width="100%" style="text-transform: capitalize;">
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
 		<tr>
 			<td width="10%"></td>
 			<td width="30%"></td>
@@ -217,7 +194,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td align="center">Tandatangan Wali Murid</td>
+			<td></td>
 			<td></td>
 			<td align="center"><?php echo $rowss['jabatan'] . " " . $rows['nama_desa']; ?></td>
 		</tr>
@@ -263,9 +240,9 @@
 		<tr></tr>
 		<tr>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $row['nama']; ?></u></b></td>
 			<td></td>
-			<td align="center" style="text-transform: uppercase"><b><u><?php echo $rowss['nama_pejabat_desa']; ?></u></b></td>
+			<td></td>
+			<td align="center" style="text-transform: uppercase;"><u><b><?php echo $rowss['nama_pejabat_desa']; ?></b></u></td>
 		</tr>
 	</table>
 </div>

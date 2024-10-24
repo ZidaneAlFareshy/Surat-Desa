@@ -122,19 +122,18 @@ if ($result->num_rows == 0) {
     }
 
     // Simpan data ke tabel login
-    $sql = "INSERT INTO login (nama, username, email, password, level, nik, whatsapp, ktp, kk, status_verifikasi, otp, waktu) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO login (nama, username, password, level, nik, whatsapp, ktp, kk, status_verifikasi, otp, waktu) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $connect->prepare($sql);
 
     // Data yang akan disimpan
     $username = $nik; // Username diisi dengan NIK
-    $email = ''; // Ganti sesuai kebutuhan
     $level = 'user'; // Level user default
     $status_verifikasi = 0; // Status verifikasi default adalah 0 (belum terverifikasi)
     $waktu = time();
 
     // Generate OTP dan waktu
     $otp = rand(100000, 999999);
-    $stmt->bind_param("sssssssssssi", $nama, $username, $email, $hashed_password, $level, $nik, $whatsapp, $ktp_file, $kk_file, $status_verifikasi, $otp, $waktu);
+    $stmt->bind_param("ssssssssssi", $nama, $username, $hashed_password, $level, $nik, $whatsapp, $ktp_file, $kk_file, $status_verifikasi, $otp, $waktu);
 
     if ($stmt->execute()) {
         // Kirim OTP melalui Fonnte
@@ -158,7 +157,7 @@ if ($result->num_rows == 0) {
         header("Location: verifikasi-otp.php?whatsapp=$whatsapp");
         exit();
     } else {
-        echo "Sorry, there was an error saving your data.";
+        echo "Maaf, terjadi kesalahan saat menyimpan data Anda.";
     }
 }
 

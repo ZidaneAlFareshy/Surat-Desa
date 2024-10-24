@@ -40,6 +40,10 @@ if (isset($_GET['id']) && isset($_GET['status']) && isset($_GET['jenis_surat']))
             $table = 'surat_keterangan_wali_murid';
             $id_column = 'id_skwm';
             break;
+        case 'Surat Kematian':
+            $table = 'surat_mati';
+            $id_column = 'id_sm';
+            break;
         default:
             $table = '';
             $id_column = '';

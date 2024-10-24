@@ -161,7 +161,7 @@ include ('../../config/koneksi.php');
                           $tampilDusun = mysqli_query($connect, $qTampilDusun);
                           while($rows = mysqli_fetch_assoc($tampilDusun)){
                             ?>
-                            <option value="<?php echo $rows['nama_dusun']; ?>"><?php echo $rows['nama_dusun']; ?></option>
+                            <option value="<?php echo $row['id_dusun']; ?>"><?php echo $rows['nama_dusun']; ?></option>
                             <?php 
                           }
                           ?>

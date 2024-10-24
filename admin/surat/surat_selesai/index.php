@@ -162,6 +162,13 @@
     FROM penduduk 
     LEFT JOIN surat_keterangan_wali_murid ON surat_keterangan_wali_murid.nik = penduduk.nik 
     WHERE surat_keterangan_wali_murid.status_surat='selesai'
+
+    UNION 
+
+    SELECT penduduk.nama, surat_mati.id_sm AS id_sk, surat_mati.no_surat, surat_mati.nik, surat_mati.jenis_surat, surat_mati.whatsapp, surat_mati.status_surat, surat_mati.tanggal_surat 
+    FROM penduduk 
+    LEFT JOIN surat_mati ON surat_mati.nik = penduduk.nik 
+    WHERE surat_mati.status_surat='selesai' 
 ");
 
               foreach($qTampil as $row){
@@ -223,6 +230,10 @@
                   } else if($row['jenis_surat']=="Surat Kelahiran"){
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_lahir/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <?php
+                  } else if($row['jenis_surat']=="Surat Kematian"){
+                ?>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_mati/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
                   } else if($row['jenis_surat']=="Surat Keterangan Wali Murid"){
                 ?>

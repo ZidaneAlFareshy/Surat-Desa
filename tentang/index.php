@@ -80,7 +80,7 @@
 						?>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="#"><i class="fas fa-info-circle icon-info"></i>&nbsp;TENTANG <b>e-SuratDesa</b></a>
+						<a class="nav-link" href="#"><i class="fas fa-info-circle icon-info"></i>&nbsp;TENTANG <b>SUKET-ON</b></a>
 					</li>
 					<li class="nav-item active ml-5">
 						<?php
@@ -106,7 +106,7 @@
 				<div class="card-body">
 					<div class="card-text">
 						<p>
-							<label style="font-weight: 700;font-size: 25px"><i class="fas fa-info-circle"></i> APA ITU e-SuratDesa?</label>
+							<label style="font-weight: 700;font-size: 25px"><i class="fas fa-info-circle"></i> APA ITU SUKET-ON?</label>
 							<hr>
 							<blockquote>
 								Web Aplikasi untuk pelayanan surat administrasi desa untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.

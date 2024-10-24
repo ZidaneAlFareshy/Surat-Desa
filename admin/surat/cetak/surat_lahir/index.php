@@ -113,7 +113,7 @@
 			<tr>
 				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td width="2%">:</td>
-				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ibu']; ?></td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ibu_anak']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Umur</td>
@@ -132,7 +132,7 @@
 			<tr>
 				<td width="30%" class="indentasi">N&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;M&nbsp;&nbsp;&nbsp;A</td>
 				<td width="2%">:</td>
-				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ayah']; ?></td>
+				<td width="68%" style="text-transform: uppercase; font-weight: bold;"><?php echo $row['nama_ayah_anak']; ?></td>
 			</tr>
 			<tr>
 				<td class="indentasi">Umur</td>

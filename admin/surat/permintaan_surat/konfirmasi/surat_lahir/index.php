@@ -308,13 +308,13 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Nama Ibu</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fnama_ibu" style="text-transform: uppercase;" value="<?php echo $row['nama_ibu']; ?>" class="form-control" readonly>
+                        <input type="text" name="fnama_ibu_anak" style="text-transform: uppercase;" value="<?php echo $row['nama_ibu_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Nama Ayah</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fnama_ayah" style="text-transform: uppercase;" value="<?php echo $row['nama_ayah']; ?>" class="form-control" readonly>
+                        <input type="text" name="fnama_ayah_anak" style="text-transform: uppercase;" value="<?php echo $row['nama_ayah_anak']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                     <div class="form-group">

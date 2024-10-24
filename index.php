@@ -7,6 +7,7 @@
 	<title>SuratDesaOnline</title>
 	<link rel="stylesheet" href="assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<style type="text/css">
 		.separator {
 			width: 100%;
@@ -28,7 +29,7 @@
 	<!-- Navbar -->
 	<div>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand ml-4 mt-1" href="#"><img src="./assets/img/logo-surat.png"></a>
+			<a class="navbar-brand ml-4 mt-1 fw-bold" href="#">SUKET-Online</a>
 			<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -97,6 +98,7 @@
 		</div>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="content-script.js"></script>

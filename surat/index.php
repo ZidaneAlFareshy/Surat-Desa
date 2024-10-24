@@ -60,6 +60,11 @@
 			color: white;
 		} */
 
+		.footer {
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
 		/* Responsive Styling */
 		@media (max-width: 576px) {
 			.card-title {

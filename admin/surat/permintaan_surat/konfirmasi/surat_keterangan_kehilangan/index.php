@@ -229,7 +229,7 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Barang Hilang</label>
                       <div class="col-sm-9">
-                        <input type="text" name="fbarang" style="text-transform: capitalize;" value="<?php echo $row['barang']; ?>" class="form-control" readonly>
+                        <input type="text" name="fbarang_hilang" style="text-transform: capitalize;" value="<?php echo $row['barang_hilang']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
@@ -239,7 +239,7 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Lokasi Hilang</label>
                       <div class="col-sm-9">
-                        <input type="text" name="flokasi" style="text-transform: capitalize;" value="<?php echo $row['lokasi']; ?>" class="form-control" readonly>
+                        <input type="text" name="flokasi_hilang" style="text-transform: capitalize;" value="<?php echo $row['lokasi_hilang']; ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
@@ -249,7 +249,7 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Tanggal Kehilangan</label>
                       <div class="col-sm-9">
-                        <input type="text" name="ftanggal" value="<?php echo date('d-m-Y', strtotime($row['tanggal'])); ?>" class="form-control" readonly>
+                        <input type="text" name="ftanggal_hilang" value="<?php echo date('d-m-Y', strtotime($row['tanggal_hilang'])); ?>" class="form-control" readonly>
                       </div>
                     </div>
                   </div>

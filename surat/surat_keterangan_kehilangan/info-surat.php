@@ -97,7 +97,7 @@
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Barang Hilang</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fbarang" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Barang Hilang" required>
+						               	<input type="text" name="fbarang_hilang" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Barang Hilang" required>
 						           	</div>
 						        </div>
 						  	</div>
@@ -107,7 +107,7 @@
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Lokasi Hilang</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="flokasi" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Lokasi Barang Hilang" required>
+						               	<input type="text" name="flokasi_hilang" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Lokasi Barang Hilang" required>
 						           	</div>
 						        </div>
 						  	</div>
@@ -117,7 +117,7 @@
         						<div class="form-group">
             						<label class="col-sm-12" style="font-weight: 500;">Tanggal Kehilangan</label>
             						<div class="col-sm-12">
-                						<input type="date" name="ftanggal" class="form-control" placeholder="Pilih Tanggal Kehilangan" required>
+                						<input type="date" name="ftanggal_hilang" class="form-control" placeholder="Pilih Tanggal Kehilangan" required>
             						</div>
         						</div>
     						</div>

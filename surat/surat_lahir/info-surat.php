@@ -160,7 +160,7 @@
 						    	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Nama Ibu</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_ibu" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Ibu" required>
+						               	<input type="text" name="fnama_ibu_anak" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Ibu" required>
 						           	</div>
 						        </div>
 						    </div>
@@ -177,7 +177,7 @@
 						      	<div class="form-group">
 						           	<label class="col-sm-12" style="font-weight: 500;">Nama Ayah</label>
 						           	<div class="col-sm-12">
-						               	<input type="text" name="fnama_ayah" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Ayah" required>
+						               	<input type="text" name="fnama_ayah_anak" class="form-control" style="text-transform: capitalize;" placeholder="Masukkan Nama Ayah" required>
 						           	</div>
 						        </div>
 						  	</div>

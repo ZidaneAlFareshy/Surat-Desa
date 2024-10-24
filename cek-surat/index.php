@@ -31,7 +31,7 @@
 	        		<a class="nav-link" href="#"><i class="fas fa-tasks"></i>&nbsp;CEK SURAT</a>
 	      		</li>
 	      		<li class="nav-item">
-	        		<a class="nav-link" href="../tentang/">TENTANG <b>e-SuratDesa</b></a>
+	        		<a class="nav-link" href="../tentang/">TENTANG <b>SUKET-ON</b></a>
 	      		</li>
 	      		<li class="nav-item active ml-5">
 	      			<?php
