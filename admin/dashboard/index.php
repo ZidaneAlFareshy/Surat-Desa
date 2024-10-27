@@ -10,8 +10,6 @@ include ('../part/header.php');
       <?php  
       if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
         echo '<img src="../../assets/img/ava-admin-female.png" class="img-circle" alt="User Image">';
-      }else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
-        echo '<img src="../../assets/img/ava-kades.png" class="img-circle" alt="User Image">';
       }
       ?>
     </div>
@@ -342,7 +340,7 @@ include ('../part/header.php');
               ?>
             </div><br>
             <div style="font-size: 35pt; font-weight: 500;"><p>Halo, <strong><?php echo $_SESSION['lvl']; ?></strong></div>
-              <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Web Aplikasi Pelayanan Surat Administrasi Desa Online.</strong></a></p></div><br><br><br>
+              <div style="font-size: 15pt; font-weight: 500;"><p>Selamat datang di <a href="#" style="text-decoration:none"><strong>Web Aplikasi Pelayanan Surat Keterangan Desa Online.</strong></a></p></div><br><br><br>
               <div style="font-size: 10pt; font-weight: 500;">© <b>Universitas Ahmad Dahlan</b>
             </div>
           </div>

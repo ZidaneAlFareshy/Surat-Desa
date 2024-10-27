@@ -7,7 +7,6 @@
 	<title>SuratDesaOnline</title>
 	<link rel="stylesheet" href="assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<style type="text/css">
 		.separator {
 			width: 100%;
@@ -23,13 +22,24 @@
   			border-radius: 50%;
   			cursor: pointer;
 		}
+		.icon-info {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+		.footer {
+            padding: 20px 0;
+            margin-top: 40px;
+        }
 	</style>
 </head>
 <body class="bg-light">
 	<!-- Navbar -->
 	<div>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand ml-4 mt-1 fw-bold" href="#">SUKET-Online</a>
+			<a class="navbar-brand ml-4 mt-1" style="font-weight:bold; font-style:italic;" href="#">SUKET-Online</a>
 			<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -37,7 +47,7 @@
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 				<ul class="navbar-nav ml-auto mt-lg-3 mr-5 position-relative text-right">
 					<li class="nav-item active">
-						<a style="color: black" class="nav-link" href="#"><i class="fas fa-home"></i>&nbsp;HOME</a>
+						<a style="color: black" class="nav-link" href="#"><i class="fas fa-home icon-info"></i>&nbsp;HOME</a>
 					</li>
 					<li class="nav-item">
 						<?php
@@ -51,19 +61,41 @@
 						?>
 					</li>
 					<li class="nav-item">
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); 
+						}
+
+						if (isset($_SESSION['username'])) {
+							echo '<a style="color: black" class="nav-link" href="status/">STATUS SURAT</a>';
+						}
+						?>
+					</li>
+					<li class="nav-item">
 						<a style="color: black" class="nav-link" href="tentang/">TENTANG </a>
 					</li>
-					<li class="nav-item active ml-5">
+					<li class="nav-item dropdown ml-5">
 						<?php
 						if (session_status() == PHP_SESSION_NONE) {
 							session_start(); // Mulai session hanya jika belum dimulai
 						}
 
-						if(empty($_SESSION['username'])){
+						if (empty($_SESSION['username'])) {
 							echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
-						}else if(isset($_SESSION['lvl'])){
-							echo '<a class="btn btn-transparent text-black" href="admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
-							echo '<a class="btn btn-transparent text-black" href="login/logout.php"><i class="fas fa-power-off"></i></a>';
+						} else if (isset($_SESSION['lvl'])) {
+							echo '<a class="nav-link dropdown-toggle btn btn-transparent text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+							echo '<i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							
+							echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+							
+							// Cek level pengguna, tampilkan "Dashboard" hanya jika level bukan "user"
+							if ($_SESSION['lvl'] != 'User') {
+								echo '<a class="dropdown-item" href="admin/">Dashboard</a>';
+								echo '<div class="dropdown-divider"></div>';
+							}
+							
+							echo '<a class="dropdown-item text-danger" href="login/logout.php"><i class="fas fa-power-off"></i> Logout</a>';
+							echo '</div>';
 						}
 						?>
 					</li>
@@ -98,7 +130,6 @@
 		</div>
 	</body>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="content-script.js"></script>

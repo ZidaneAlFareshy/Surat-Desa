@@ -58,7 +58,7 @@
 <body class="bg-light">
 	<div>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-			<a class="navbar-brand ml-4 mt-1" href="../"><img src="../assets/img/logo-surat.png"></a>
+			<a class="navbar-brand ml-4 mt-1" style="font-weight:bold; font-style:italic;" href="../">SUKET-Online</a>
 			<button class="navbar-toggler mr-4 mt-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -79,20 +79,42 @@
 						}
 						?>
 					</li>
+					<li class="nav-item">
+						<?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); 
+						}
+
+						if (isset($_SESSION['username'])) {
+							echo '<a style="color: black" class="nav-link" href="../status/">STATUS SURAT</a>';
+						}
+						?>
+					</li>
 					<li class="nav-item active">
 						<a class="nav-link" href="#"><i class="fas fa-info-circle icon-info"></i>&nbsp;TENTANG <b>SUKET-ON</b></a>
 					</li>
-					<li class="nav-item active ml-5">
+					<li class="nav-item dropdown ml-5">
 						<?php
 						if (session_status() == PHP_SESSION_NONE) {
 							session_start(); // Mulai session hanya jika belum dimulai
 						}
 
-						if(empty($_SESSION['username'])){
-							echo '<a class="btn btn-dark" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
-						}else if(isset($_SESSION['lvl'])){
-							echo '<a class="btn btn-transparent text-black" href="../admin/"><i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
-							echo '<a class="btn btn-transparent text-black" href="../login/logout.php"><i class="fas fa-power-off"></i></a>';
+						if (empty($_SESSION['username'])) {
+							echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+						} else if (isset($_SESSION['lvl'])) {
+							echo '<a class="nav-link dropdown-toggle btn btn-transparent text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+							echo '<i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
+							
+							echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+							
+							// Cek level pengguna, tampilkan "Dashboard" hanya jika level bukan "user"
+							if ($_SESSION['lvl'] != 'User') {
+								echo '<a class="dropdown-item" href="../admin/">Dashboard</a>';
+								echo '<div class="dropdown-divider"></div>';
+							}
+							
+							echo '<a class="dropdown-item text-danger" href="../login/logout.php"><i class="fas fa-power-off"></i> Logout</a>';
+							echo '</div>';
 						}
 						?>
 					</li>

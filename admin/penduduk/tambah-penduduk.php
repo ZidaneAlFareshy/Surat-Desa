@@ -75,11 +75,9 @@ include ('../../config/koneksi.php');
           <div class="col-md-3">
             <input name="datapenduduk" type="file" required="required">
           </div>
-          <div>
-            <input name="upload" type="submit" class="btn btn-primary" value="Import .XLS">
-          </div>
-          <div class="col-md-3">
+          <div class="col-md-12" style="margin-top: 15px; margin-bottom: 15px;">
             <a href="../../assets/penduduk.xls" class="btn btn-success">Download Format XLS</a>
+            <input name="upload" type="submit" class="btn btn-primary" value="Import .XLS">
           </div><br>
         </form><br>
       </div>

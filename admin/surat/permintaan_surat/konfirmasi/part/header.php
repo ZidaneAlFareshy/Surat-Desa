@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="shortcut icon" href="../../../../../assets/img/mini-logo.png">
-  <title>ADMIN | e-SuratDesa</title>
+  <title>ADMIN | SUKET-ON</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -29,7 +29,7 @@
 	<header class="main-header">
   	<a href="../../../../../" class="logo" style="text-decoration:none">
   		<span class="logo-mini"><img src="../../../../../assets/img/mini-logo.png"></span>
-      <span class="logo-lg"><img src="../../../../../assets/img/e-SuratDesa-mini.png"></span>
+      <span class="logo-lg"><img src="../../../../../assets/img/logo-light.png"></span>
   	</a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">

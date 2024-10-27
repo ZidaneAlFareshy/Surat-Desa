@@ -105,8 +105,8 @@
 						<hr width="97%">
 						<div class="container-fluid">
 							<input type="hidden" name="fnik" value="<?php echo $data['nik']; ?>">
-		                	<input type="reset" class="btn btn-warning" value="Batal">
-		                	<input type="submit" name="submit" class="btn btn-info" value="Submit">
+		                	<input type="reset" class="btn btn-danger" value="Batal">
+		                	<input type="submit" name="submit" class="btn btn-primary" value="Submit">
 		              	</div>
 					</form>
 				</div>

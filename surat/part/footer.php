@@ -1,5 +1,5 @@
-<div class="footer bg-dark text-center">
-    <span class="text-light"><strong>Copyright &copy; 2024 <a href="../../" class="text-decoration-none text-white">Universitas Ahmad Dahlan</a>.</strong>
+<div class="footer text-center">
+    <span class="text-black"><strong>Copyright &copy; 2024 <a href="../../" class="text-decoration-none text-primary">Universitas Ahmad Dahlan</a>.</strong>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
