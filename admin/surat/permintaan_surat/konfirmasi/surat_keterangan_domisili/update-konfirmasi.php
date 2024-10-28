@@ -7,7 +7,7 @@
 	$alasan_tolak      = isset($_POST['alasan_tolak']) ? $_POST['alasan_tolak'] : null;
 	
 	if (isset($_POST['konfirmasi'])) {
-		$status_surat = "BELUM SELESAI";
+		$status_surat = "DALAM PROSES";
 	} elseif (isset($_POST['tolak'])) {
 		$status_surat = "TERTOLAK";
 	}

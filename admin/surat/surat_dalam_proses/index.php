@@ -10,8 +10,6 @@
         <?php  
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
             echo '<img src="../../../assets/img/ava-admin-female.png" class="img-circle" alt="User Image">';
-          }else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
-            echo '<img src="../../../assets/img/ava-kades.png" class="img-circle" alt="User Image">';
           }
         ?>
       </div>
@@ -53,18 +51,17 @@
               <i class="fa fa-circle-notch"></i> Surat Tertolak
             </a>
           </li>
-          <li>
-            <a href="../../surat/surat_belum_selesai/">
-              <i class="fa fa-circle-notch"></i> Surat Dalam Proses
-            </a>
-          </li>
-          <li>
-            <a href="../../surat/surat_belum_selesai/">
-              <i class="fa fa-circle-notch"></i> Surat Dapat Diambil
-            </a>
-          </li>
           <li class="active">
-            <a href="#"><i class="fa fa-circle-notch"></i> Surat Selesai
+            <a href="#"><i class="fa fa-circle-notch"></i> Surat Dalam Proses
+            </a>
+          </li>
+          <li>
+            <a href="../../surat/surat_dapat_diambil/"><i class="fa fa-circle-notch"></i> Surat Dapat Diambil
+            </a>
+          </li>
+          <li>
+            <a href="../../surat/surat_selesai/">
+              <i class="fa fa-circle-notch"></i> Surat Selesai
             </a>
           </li>
         </ul>
@@ -79,10 +76,10 @@
 </aside>
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Surat Selesai</h1>
+    <h1>Surat Dalam Proses</h1>
     <ol class="breadcrumb">
       <li><a href="../../dashboard/"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-      <li class="active">Surat Selesai</li>
+      <li class="active">Surat Dalam Proses</li>
     </ol>
   </section>
   <section class="content">      
@@ -99,6 +96,7 @@
               <th><strong>WhatsApp</strong></th>
               <th><strong>Jenis Surat</strong></th>
               <th><strong>Status</strong></th>
+              <th><strong>Cetak</strong></th>
               <th><strong>Aksi</strong></th>
             </tr>
           </thead>
@@ -108,72 +106,72 @@
 
               $no = 1;
               $qTampil = mysqli_query($connect, "
-    SELECT penduduk.nama, surat_keterangan.id_sk, surat_keterangan.no_surat, surat_keterangan.nik, surat_keterangan.jenis_surat, surat_keterangan.whatsapp, surat_keterangan.status_surat, surat_keterangan.tanggal_surat 
+    SELECT penduduk.nama, surat_keterangan.id_sk, surat_keterangan.no_surat, surat_keterangan.nik, surat_keterangan.whatsapp, surat_keterangan.jenis_surat, surat_keterangan.status_surat, surat_keterangan.tanggal_surat 
     FROM penduduk 
-    LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik
+    LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik 
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan.status_surat='selesai' 
+    WHERE surat_keterangan.status_surat='dalam proses' 
 
     UNION 
 
-    SELECT penduduk.nama, surat_pengantar_kelakuan_baik.id_spkb AS id_sk, surat_pengantar_kelakuan_baik.no_surat, surat_pengantar_kelakuan_baik.nik, surat_pengantar_kelakuan_baik.jenis_surat, surat_pengantar_kelakuan_baik.whatsapp, surat_pengantar_kelakuan_baik.status_surat, surat_pengantar_kelakuan_baik.tanggal_surat 
+    SELECT penduduk.nama, surat_pengantar_kelakuan_baik.id_spkb AS id_sk, surat_pengantar_kelakuan_baik.no_surat, surat_pengantar_kelakuan_baik.nik, surat_pengantar_kelakuan_baik.whatsapp, surat_pengantar_kelakuan_baik.jenis_surat, surat_pengantar_kelakuan_baik.status_surat, surat_pengantar_kelakuan_baik.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_pengantar_kelakuan_baik ON surat_pengantar_kelakuan_baik.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_pengantar_kelakuan_baik.status_surat='selesai' 
+    WHERE surat_pengantar_kelakuan_baik.status_surat='dalam proses' 
 
     UNION 
 
-    SELECT penduduk.nama, surat_keterangan_domisili.id_skd AS id_sk, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.nik, surat_keterangan_domisili.jenis_surat, surat_keterangan_domisili.whatsapp, surat_keterangan_domisili.status_surat, surat_keterangan_domisili.tanggal_surat 
+    SELECT penduduk.nama, surat_keterangan_domisili.id_skd AS id_sk, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.nik, surat_keterangan_domisili.whatsapp, surat_keterangan_domisili.jenis_surat, surat_keterangan_domisili.status_surat, surat_keterangan_domisili.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_domisili.status_surat='selesai' 
+    WHERE surat_keterangan_domisili.status_surat='dalam proses' 
 
     UNION 
 
-    SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sktm AS id_sk, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.whatsapp, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat 
+    SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sktm AS id_sk, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.whatsapp, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_tidak_mampu.status_surat='selesai'
+    WHERE surat_keterangan_tidak_mampu.status_surat='dalam proses'
 
     UNION 
 
-    SELECT penduduk.nama, surat_keterangan_kehilangan.id_skk AS id_sk, surat_keterangan_kehilangan.no_surat, surat_keterangan_kehilangan.nik, surat_keterangan_kehilangan.jenis_surat, surat_keterangan_kehilangan.whatsapp, surat_keterangan_kehilangan.status_surat, surat_keterangan_kehilangan.tanggal_surat 
+    SELECT penduduk.nama, surat_keterangan_kehilangan.id_skk AS id_sk, surat_keterangan_kehilangan.no_surat, surat_keterangan_kehilangan.nik, surat_keterangan_kehilangan.whatsapp, surat_keterangan_kehilangan.jenis_surat, surat_keterangan_kehilangan.status_surat, surat_keterangan_kehilangan.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_kehilangan ON surat_keterangan_kehilangan.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_kehilangan.status_surat='selesai'
+    WHERE surat_keterangan_kehilangan.status_surat='dalam proses'
 
     UNION 
 
-    SELECT penduduk.nama, surat_keterangan_usaha.id_sku AS id_sk, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.nik, surat_keterangan_usaha.jenis_surat, surat_keterangan_usaha.whatsapp, surat_keterangan_usaha.status_surat, surat_keterangan_usaha.tanggal_surat 
+    SELECT penduduk.nama, surat_keterangan_usaha.id_sku AS id_sk, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.nik, surat_keterangan_usaha.whatsapp, surat_keterangan_usaha.jenis_surat, surat_keterangan_usaha.status_surat, surat_keterangan_usaha.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_usaha.status_surat='selesai'
+    WHERE surat_keterangan_usaha.status_surat='dalam proses'
 
     UNION 
 
-    SELECT penduduk.nama, surat_lahir.id_sl AS id_sk, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.jenis_surat, surat_lahir.whatsapp, surat_lahir.status_surat, surat_lahir.tanggal_surat 
+    SELECT penduduk.nama, surat_lahir.id_sl AS id_sk, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.whatsapp, surat_lahir.jenis_surat, surat_lahir.status_surat, surat_lahir.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik 
-    WHERE surat_lahir.status_surat='selesai' 
+    WHERE surat_lahir.status_surat='dalam proses' 
 
     UNION 
 
-    SELECT penduduk.nama, surat_keterangan_wali_murid.id_skwm AS id_sk, surat_keterangan_wali_murid.no_surat, surat_keterangan_wali_murid.nik, surat_keterangan_wali_murid.jenis_surat, surat_keterangan_wali_murid.whatsapp, surat_keterangan_wali_murid.status_surat, surat_keterangan_wali_murid.tanggal_surat 
+    SELECT penduduk.nama, surat_keterangan_wali_murid.id_skwm AS id_sk, surat_keterangan_wali_murid.no_surat, surat_keterangan_wali_murid.nik, surat_keterangan_wali_murid.whatsapp, surat_keterangan_wali_murid.jenis_surat, surat_keterangan_wali_murid.status_surat, surat_keterangan_wali_murid.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_wali_murid ON surat_keterangan_wali_murid.nik = penduduk.nik 
-    WHERE surat_keterangan_wali_murid.status_surat='selesai'
+    WHERE surat_keterangan_wali_murid.status_surat='dalam proses'
 
     UNION 
 
-    SELECT penduduk.nama, surat_mati.id_sm AS id_sk, surat_mati.no_surat, surat_mati.nik, surat_mati.jenis_surat, surat_mati.whatsapp, surat_mati.status_surat, surat_mati.tanggal_surat 
+    SELECT penduduk.nama, surat_mati.id_sm AS id_sk, surat_mati.no_surat, surat_mati.nik, surat_mati.whatsapp, surat_mati.jenis_surat, surat_mati.status_surat, surat_mati.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_mati ON surat_mati.nik = penduduk.nik 
-    WHERE surat_mati.status_surat='selesai' 
+    WHERE surat_mati.status_surat='dalam proses'
 ");
 
               foreach($qTampil as $row){
@@ -205,7 +203,7 @@
               <td style="text-transform: capitalize;"><?php echo $row['nama']; ?></td>
               <td><?php echo $row['whatsapp']; ?></td>
               <td><?php echo $row['jenis_surat']; ?></td>
-              <td><a class="btn btn-success btn-sm" href='#'><i class="fa fa-check"></i><b> <?php echo $row['status_surat']; ?></b></a></td>
+              <td><a class="btn btn-danger btn-sm" href='#'><i class="fa fa-spinner"></i><b> <?php echo $row['status_surat']; ?></b></a></td>
               <td>
                 <?php  
                   if($row['jenis_surat']=="Surat Keterangan KTP Sementara"){
@@ -236,17 +234,19 @@
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_lahir/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
-                  } else if($row['jenis_surat']=="Surat Kematian"){
-                ?>
-                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_mati/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
-                <?php
                   } else if($row['jenis_surat']=="Surat Keterangan Wali Murid"){
                 ?>
                 <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_keterangan_wali_murid/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
                 <?php
+                  } else if($row['jenis_surat']=="Surat Kematian"){
+                ?>
+                <a name="cetak" target="output" class="btn btn-primary btn-sm" href='../cetak/surat_mati/index.php?id=<?php echo $row['id_sk']; ?>'><i class="fa fa-print"></i><b> CETAK</b></a>
+                <?php
                   }
                 ?>
               </td>
+              <td><a class="btn btn-success btn-sm" href="update_status.php?id=<?php echo $row['id_sk']; ?>&status=dapat diambil&jenis_surat=<?php echo $row['jenis_surat']; ?>"><i class="fa fa-check"></i><b> SERAHKAN</b></a></td>
+
             </tr>
             <?php
               }
@@ -257,6 +257,7 @@
     </div>
   </section>
 </div>
+
 
 <?php 
   include ('../part/footer.php');

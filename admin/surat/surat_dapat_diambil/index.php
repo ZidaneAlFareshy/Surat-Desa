@@ -53,8 +53,12 @@
               <i class="fa fa-circle-notch"></i> Surat Tertolak
             </a>
           </li>
+          <li>
+            <a href="../../surat/surat_dalam_proses/"><i class="fa fa-circle-notch"></i> Surat Dalam Proses
+            </a>
+          </li>
           <li class="active">
-            <a href="#"><i class="fa fa-circle-notch"></i> Surat Belum Selesai
+            <a href="#"><i class="fa fa-circle-notch"></i> Surat Dapat Diambil
             </a>
           </li>
           <li>
@@ -74,10 +78,10 @@
 </aside>
 <div class="content-wrapper">
   <section class="content-header">
-    <h1>Surat Belum Selesai</h1>
+    <h1>Surat Dapat Diambil</h1>
     <ol class="breadcrumb">
       <li><a href="../../dashboard/"><i class="fa fa-tachometer-alt"></i> Dashboard</a></li>
-      <li class="active">Surat Belum Selesai</li>
+      <li class="active">Surat Dapat Diambil</li>
     </ol>
   </section>
   <section class="content">      
@@ -108,7 +112,7 @@
     FROM penduduk 
     LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik 
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan.status_surat='belum selesai' 
+    WHERE surat_keterangan.status_surat='dapat diambil' 
 
     UNION 
 
@@ -116,7 +120,7 @@
     FROM penduduk 
     LEFT JOIN surat_pengantar_kelakuan_baik ON surat_pengantar_kelakuan_baik.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_pengantar_kelakuan_baik.status_surat='belum selesai' 
+    WHERE surat_pengantar_kelakuan_baik.status_surat='dapat diambil' 
 
     UNION 
 
@@ -124,7 +128,7 @@
     FROM penduduk 
     LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_domisili.status_surat='belum selesai' 
+    WHERE surat_keterangan_domisili.status_surat='dapat diambil' 
 
     UNION 
 
@@ -132,7 +136,7 @@
     FROM penduduk 
     LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_tidak_mampu.status_surat='belum selesai'
+    WHERE surat_keterangan_tidak_mampu.status_surat='dapat diambil'
 
     UNION 
 
@@ -140,7 +144,7 @@
     FROM penduduk 
     LEFT JOIN surat_keterangan_kehilangan ON surat_keterangan_kehilangan.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_kehilangan.status_surat='belum selesai'
+    WHERE surat_keterangan_kehilangan.status_surat='dapat diambil'
 
     UNION 
 
@@ -148,28 +152,28 @@
     FROM penduduk 
     LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik
     LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_usaha.status_surat='belum selesai'
+    WHERE surat_keterangan_usaha.status_surat='dapat diambil'
 
     UNION 
 
     SELECT penduduk.nama, surat_lahir.id_sl AS id_sk, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.whatsapp, surat_lahir.jenis_surat, surat_lahir.status_surat, surat_lahir.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik 
-    WHERE surat_lahir.status_surat='belum selesai' 
+    WHERE surat_lahir.status_surat='dapat diambil' 
 
     UNION 
 
     SELECT penduduk.nama, surat_keterangan_wali_murid.id_skwm AS id_sk, surat_keterangan_wali_murid.no_surat, surat_keterangan_wali_murid.nik, surat_keterangan_wali_murid.whatsapp, surat_keterangan_wali_murid.jenis_surat, surat_keterangan_wali_murid.status_surat, surat_keterangan_wali_murid.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_keterangan_wali_murid ON surat_keterangan_wali_murid.nik = penduduk.nik 
-    WHERE surat_keterangan_wali_murid.status_surat='belum selesai'
+    WHERE surat_keterangan_wali_murid.status_surat='dapat diambil'
 
     UNION 
 
     SELECT penduduk.nama, surat_mati.id_sm AS id_sk, surat_mati.no_surat, surat_mati.nik, surat_mati.whatsapp, surat_mati.jenis_surat, surat_mati.status_surat, surat_mati.tanggal_surat 
     FROM penduduk 
     LEFT JOIN surat_mati ON surat_mati.nik = penduduk.nik 
-    WHERE surat_mati.status_surat='belum selesai'
+    WHERE surat_mati.status_surat='dapat diambil'
 ");
 
               foreach($qTampil as $row){

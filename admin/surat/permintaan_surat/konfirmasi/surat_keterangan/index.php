@@ -57,7 +57,11 @@
             </a>
           </li>
           <li>
-            <a href="../../../surat_belum_selesai/"><i class="fa fa-circle-notch"></i> Surat Belum Selesai
+            <a href="../../../surat_dalam_proses/"><i class="fa fa-circle-notch"></i> Surat Dalam Proses
+            </a>
+          </li>
+          <li>
+            <a href="../../../surat_dapat_diambil/"><i class="fa fa-circle-notch"></i> Surat Dapat Diambil
             </a>
           </li>
           <li>

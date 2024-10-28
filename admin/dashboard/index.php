@@ -53,8 +53,11 @@ include ('../part/header.php');
          <a href="../surat/tolak_surat/"><i class="fa fa-circle-notch"></i> Surat Tertolak</a>
        </li>
        <li>
-        <a href="../surat/surat_belum_selesai/"><i class="fa fa-circle-notch"></i> Surat Belum Selesai</a>
-      </li>
+        <a href="../surat/surat_dalam_proses/"><i class="fa fa-circle-notch"></i> Surat Dalam Proses</a>
+       </li>
+       <li>
+        <a href="../surat/surat_dapat_diambil/"><i class="fa fa-circle-notch"></i> Surat Dapat Diambil</a>
+       </li>
        <li>
          <a href="../surat/surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai</a>
        </li>
@@ -115,6 +118,7 @@ include ('../part/header.php');
               UNION SELECT tanggal_surat FROM surat_keterangan_kehilangan WHERE status_surat='pending'
               UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='pending'
               UNION SELECT tanggal_surat FROM surat_lahir WHERE status_surat='pending'
+              UNION SELECT tanggal_surat FROM surat_mati WHERE status_surat='pending'
               UNION SELECT tanggal_surat FROM surat_keterangan_wali_murid WHERE status_surat='pending'");
             $jumlahPermintaanSurat = mysqli_num_rows($qTampil);
             echo $jumlahPermintaanSurat;
@@ -140,6 +144,7 @@ include ('../part/header.php');
         UNION SELECT tanggal_surat FROM surat_keterangan_kehilangan WHERE status_surat='tertolak'
         UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='tertolak'
         UNION SELECT tanggal_surat FROM surat_lahir WHERE status_surat='tertolak'
+        UNION SELECT tanggal_surat FROM surat_mati WHERE status_surat='tertolak'
         UNION SELECT tanggal_surat FROM surat_keterangan_wali_murid WHERE status_surat='tertolak'");
         $jumlahSuratTertolak = mysqli_num_rows($qTolak);
         echo $jumlahSuratTertolak;
@@ -158,24 +163,51 @@ include ('../part/header.php');
     <div class="inner">
       <h3>
         <?php
-        $qBelumSelesai = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='belum selesai' 
-        UNION SELECT tanggal_surat FROM surat_pengantar_kelakuan_baik WHERE status_surat='belum selesai' 
-        UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='belum selesai'
-        UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='belum selesai'
-        UNION SELECT tanggal_surat FROM surat_keterangan_kehilangan WHERE status_surat='belum selesai'
-        UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='belum selesai'
-        UNION SELECT tanggal_surat FROM surat_lahir WHERE status_surat='belum selesai'
-        UNION SELECT tanggal_surat FROM surat_keterangan_wali_murid WHERE status_surat='belum selesai'");
-        $jumlahSuratBelumSelesai = mysqli_num_rows($qBelumSelesai);
-        echo $jumlahSuratBelumSelesai;
+        $qDalamProses = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='dalam proses' 
+        UNION SELECT tanggal_surat FROM surat_pengantar_kelakuan_baik WHERE status_surat='dalam proses' 
+        UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='dalam proses'
+        UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='dalam proses'
+        UNION SELECT tanggal_surat FROM surat_keterangan_kehilangan WHERE status_surat='dalam proses'
+        UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='dalam proses'
+        UNION SELECT tanggal_surat FROM surat_lahir WHERE status_surat='dalam proses'
+        UNION SELECT tanggal_surat FROM surat_mati WHERE status_surat='dalam proses'
+        UNION SELECT tanggal_surat FROM surat_keterangan_wali_murid WHERE status_surat='dalam proses'");
+        $jumlahSuratDalamProses = mysqli_num_rows($qDalamProses);
+        echo $jumlahSuratDalamProses;
         ?>
       </h3>
-      <p>Surat Belum Selesai</p>
+      <p>Surat Dalam Proses</p>
     </div>
     <div class="icon">
       <i class="fas fa-hourglass-half" style="font-size:70px"></i>
     </div>
-    <a href="../surat/surat_belum_selesai/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="../surat/surat_dapat_diambil/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+  </div>
+</div>
+<div class="col-lg-4 col-xs-6">
+  <div class="small-box bg-purple">
+    <div class="inner">
+      <h3>
+        <?php
+        $qDapatDiambil = mysqli_query($connect, "SELECT tanggal_surat FROM surat_keterangan WHERE status_surat='dapat diambil' 
+          UNION SELECT tanggal_surat FROM surat_pengantar_kelakuan_baik WHERE status_surat='dapat diambil' 
+          UNION SELECT tanggal_surat FROM surat_keterangan_domisili WHERE status_surat='dapat diambil'
+          UNION SELECT tanggal_surat FROM surat_keterangan_tidak_mampu WHERE status_surat='dapat diambil'
+          UNION SELECT tanggal_surat FROM surat_keterangan_kehilangan WHERE status_surat='dapat diambil'
+          UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='dapat diambil'
+          UNION SELECT tanggal_surat FROM surat_lahir WHERE status_surat='dapat diambil'
+          UNION SELECT tanggal_surat FROM surat_mati WHERE status_surat='dapat diambil'
+          UNION SELECT tanggal_surat FROM surat_keterangan_wali_murid WHERE status_surat='dapat diambil'");
+        $jumlahSuratDapatDiambil = mysqli_num_rows($qDapatDiambil);
+        echo $jumlahSuratDapatDiambil;
+        ?>
+      </h3>
+      <p>Surat Dapat Diambil</p>
+    </div>
+    <div class="icon">
+      <i class="fas fa-check-circle" style="font-size:70px"></i>
+    </div>
+    <a href="../surat/surat_dapat_diambil/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
   </div>
 </div>
 <div class="col-lg-4 col-xs-6">
@@ -215,6 +247,7 @@ include ('../part/header.php');
               UNION SELECT tanggal_surat FROM surat_keterangan_kehilangan WHERE status_surat='selesai'
               UNION SELECT tanggal_surat FROM surat_keterangan_usaha WHERE status_surat='selesai'
               UNION SELECT tanggal_surat FROM surat_lahir WHERE status_surat='selesai'
+              UNION SELECT tanggal_surat FROM surat_mati WHERE status_surat='selesai'
               UNION SELECT tanggal_surat FROM surat_keterangan_wali_murid WHERE status_surat='selesai'");
             $jumlahLaporanSurat = mysqli_num_rows($qTampil);
             echo $jumlahLaporanSurat;

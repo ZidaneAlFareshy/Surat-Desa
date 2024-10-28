@@ -51,7 +51,10 @@
             <a href="../surat/tolak_surat/"><i class="fa fa-circle-notch"></i> Surat Tertolak</a>
           </li>
           <li>
-            <a href="../surat/surat_belum_selesai/"><i class="fa fa-circle-notch"></i> Surat Belum Selesai</a>
+            <a href="../surat/surat_dalam_proses/"><i class="fa fa-circle-notch"></i> Surat Dalam Proses</a>
+          </li>
+          <li>
+            <a href="../surat/surat_dapat_diambil/"><i class="fa fa-circle-notch"></i> Surat Dapat Diambil</a>
           </li>
           <li>
             <a href="../surat/surat_selesai/"><i class="fa fa-circle-notch"></i> Surat Selesai</a>

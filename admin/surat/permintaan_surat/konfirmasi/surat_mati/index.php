@@ -62,8 +62,6 @@
         <?php  
           if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Administrator')){
             echo '<img src="../../../../../assets/img/ava-admin-female.png" class="img-circle" alt="User Image">';
-          }else if(isset($_SESSION['lvl']) && ($_SESSION['lvl'] == 'Kepala Desa')){
-            echo '<img src="../../../../../assets/img/ava-kades.png" class="img-circle" alt="User Image">';
           }
         ?>
       </div>
@@ -106,7 +104,11 @@
             </a>
           </li>
           <li>
-            <a href="../../../surat_belum_selesai/"><i class="fa fa-circle-notch"></i> Surat Belum Selesai
+            <a href="../../../surat_dalam_proses/"><i class="fa fa-circle-notch"></i> Surat Dalam Proses
+            </a>
+          </li>
+          <li>
+            <a href="../../../surat_dapat_diambil/"><i class="fa fa-circle-notch"></i> Surat Dapat Diambil
             </a>
           </li>
           <li>
