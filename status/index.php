@@ -9,8 +9,26 @@ if (!isset($_SESSION['nik'])) {
 
 $nik = $_SESSION['nik'];
 
-// Query untuk mengambil data surat berdasarkan NIK pengguna
-$query = "SELECT * FROM surat_keterangan WHERE nik='$nik'";
+// Query untuk mengambil data surat berdasarkan NIK pengguna dan mengecualikan status 'Selesai'
+$query = "
+    SELECT 'Surat Keterangan' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Keterangan Domisili' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_domisili WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Keterangan Usaha' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_usaha WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Keterangan Kehilangan' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_kehilangan WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Keterangan Tidak Mampu' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_tidak_mampu WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Keterangan Wali Murid' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_wali_murid WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Pengantar Kelakuan Baik' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_pengantar_kelakuan_baik WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Kelahiran' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_lahir WHERE nik='$nik' AND status_surat != 'Selesai'
+    UNION
+    SELECT 'Surat Kematian' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_mati WHERE nik='$nik' AND status_surat != 'Selesai'
+";
 $result = mysqli_query($connect, $query);
 
 ?>
@@ -36,27 +54,33 @@ $result = mysqli_query($connect, $query);
             padding: 0;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
+            padding-top: 2rem;
         }
-        .card-body {
-            padding: 2rem;
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .card-text {
-            line-height: 1.8;
-            color: #333;
+        .table th, .table td {
+            vertical-align: middle;
         }
-        label {
-            font-size: 1.5rem;
+        .table thead th {
+            background-color: #007bff;
+            color: #fff;
             font-weight: bold;
-            color: #333;
         }
-        blockquote {
-            background: #f9f9f9;
-            border-left: 5px solid #007bff;
-            margin: 20px 0;
-            padding: 10px 20px;
-            font-style: italic;
-            color: #666;
+        .status-diterima {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .status-ditolak {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .status-menunggu {
+            color: #ffc107;
+            font-weight: bold;
         }
 		.icon-info {
             animation: bounce 2s infinite;
@@ -69,6 +93,23 @@ $result = mysqli_query($connect, $query);
             padding: 20px 0;
             margin-top: 40px;
         }
+
+		.status-menunggu {
+        color: #ffc107;
+        font-weight: bold;
+		}
+		.status-dalam-proses {
+			color: #17a2b8;
+			font-weight: bold;
+		}
+		.status-dapat-diambil {
+			color: #28a745;
+			font-weight: bold;
+		}
+		.status-ditolak {
+			color: #dc3545;
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body class="bg-light">
@@ -138,36 +179,69 @@ $result = mysqli_query($connect, $query);
 			</div>
 		</nav>
 	</div>
-	<div class="container-fluid">
-        <h3 class="text-center">Status Surat yang Anda Ajukan</h3>
-        <table class="table table-bordered mt-4">
-            <thead class="thead-dark">
-                <tr>
-                    <th>No. Surat</th>
-                    <th>Jenis Surat</th>
-                    <th>Tanggal Surat</th>
-                    <th>Status Surat</th>
-                    <th>Alasan Penolakan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>";
-                        echo "<td>" . ($row['no_surat'] ? $row['no_surat'] : 'Belum Diberikan') . "</td>";
-                        echo "<td>" . $row['jenis_surat'] . "</td>";
-                        echo "<td>" . $row['tanggal_surat'] . "</td>";
-                        echo "<td>" . $row['status_surat'] . "</td>";
-                        echo "<td>" . ($row['status_surat'] == 'Ditolak' ? $row['alasan_tolak'] : '-') . "</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='5' class='text-center'>Belum ada surat yang diajukan</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+	<div class="container">
+        <h3 class="text-center mb-4">Status Surat yang Anda Ajukan</h3>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No. Surat</th>
+                            <th>Jenis Surat</th>
+                            <th>Tanggal Surat</th>
+                            <th>Status Surat</th>
+                            <th>Alasan Penolakan</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+						<?php if (mysqli_num_rows($result) > 0): ?>
+							<?php while ($row = mysqli_fetch_assoc($result)): ?>
+								<tr>
+									<td><?= $row['no_surat'] ?: 'Belum Diberikan' ?></td>
+									<td><?= $row['jenis_surat'] ?></td>
+									<td><?= $row['tanggal_surat'] ?></td>
+									<td class="<?php
+										switch ($row['status_surat']) {
+											case 'Pending':
+												echo 'status-menunggu';
+												break;
+											case 'Dalam Proses':
+												echo 'status-dalam-proses';
+												break;
+											case 'Dapat Diambil':
+												echo 'status-dapat-diambil';
+												break;
+											case 'Tertolak':
+												echo 'status-ditolak';
+												break;
+											default:
+												echo 'status-unknown';
+										}
+									?>">
+										<?= $row['status_surat'] ?>
+									</td>
+									<td><?= $row['status_surat'] == 'TERTOLAK' ? $row['alasan_tolak'] : '-' ?></td>
+									<td>
+										<?php
+											if ($row['status_surat'] == 'DALAM PROSES') {
+												echo "Surat sedang dalam proses tanda tangan";
+											} elseif ($row['status_surat'] == 'DAPAT DIAMBIL') {
+												echo "Surat sudah selesai. Harap mengambil surat di kantor desa dengan membawa KTP, KK, dan persyaratan yang ada";
+											} else {
+												echo "-";
+											}
+										?>
+									</td>
+								</tr>
+							<?php endwhile; ?>
+						<?php else: ?>
+							<tr><td colspan="6" class="text-center">Belum ada surat yang diajukan</td></tr>
+						<?php endif; ?>
+					</tbody>
+                </table>
+            </div>
+        </div>
     </div>
 		<div class="footer text-center">
 			<span class="text-black"><strong>Copyright &copy; 2024 <a href="#" class="text-decoration-none">Universitas Ahmad Dahlan</a>.</strong>

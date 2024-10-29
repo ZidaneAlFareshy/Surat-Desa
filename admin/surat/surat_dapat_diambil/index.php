@@ -247,7 +247,7 @@
                   }
                 ?>
               </td>
-              <td><a class="btn btn-success btn-sm" href="update_status.php?id=<?php echo $row['id_sk']; ?>&status=selesai&jenis_surat=<?php echo $row['jenis_surat']; ?>"><i class="fa fa-check"></i><b> SELESAIKAN</b></a></td>
+              <td><a class="btn btn-success btn-sm" href="update_status.php?id=<?php echo $row['id_sk']; ?>&status=SELESAI&jenis_surat=<?php echo $row['jenis_surat']; ?>"><i class="fa fa-check"></i><b> SELESAIKAN</b></a></td>
 
             </tr>
             <?php

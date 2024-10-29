@@ -107,6 +107,24 @@ include ('../part/header.php');
         </div>
       </div>
       <div class="col-lg-4 col-xs-6">
+        <div class="small-box bg-primary">
+          <div class="inner">
+            <h3>
+              <?php
+              $qBelumVerifikasi = mysqli_query($connect, "SELECT id FROM login WHERE status_verifikasi = 0");
+              $jumlahAkunBelumVerifikasi = mysqli_num_rows($qBelumVerifikasi);
+              echo $jumlahAkunBelumVerifikasi;
+              ?>
+            </h3>
+            <p>Akun Belum Diverifikasi</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-user-clock" style="font-size:70px"></i>
+          </div>
+          <a href="../verifikasi/" class="small-box-footer">Lihat detail <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-xs-6">
         <div class="small-box bg-green">
           <div class="inner">
            <h3>
