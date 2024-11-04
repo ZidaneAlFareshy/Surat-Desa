@@ -104,67 +104,31 @@
               include ('../../../config/koneksi.php');
 
               $no = 1;
-  $qTampil = mysqli_query($connect, "
-    SELECT penduduk.nama, surat_keterangan.id_sk, surat_keterangan.no_surat, surat_keterangan.nik, surat_keterangan.jenis_surat, surat_keterangan.whatsapp, surat_keterangan.status_surat, surat_keterangan.tanggal_surat, surat_keterangan.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_keterangan ON surat_keterangan.nik = penduduk.nik
-    LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan.status_surat='tertolak' 
+              $surat_types = [
+                  'surat_keterangan' => 'id_sk',
+                  'surat_pengantar_kelakuan_baik' => 'id_spkb',
+                  'surat_keterangan_domisili' => 'id_skd',
+                  'surat_keterangan_tidak_mampu' => 'id_sktm',
+                  'surat_keterangan_kehilangan' => 'id_skk',
+                  'surat_keterangan_usaha' => 'id_sku',
+                  'surat_lahir' => 'id_sl',
+                  'surat_keterangan_wali_murid' => 'id_skwm',
+                  'surat_mati' => 'id_sm',
+              ];
 
-    UNION 
+              $subqueries = [];
+              foreach ($surat_types as $table => $id_field) {
+                  $subqueries[] = "
+                      SELECT penduduk.nama, $table.$id_field AS id_sk, $table.no_surat, 
+                          $table.nik, $table.jenis_surat, $table.whatsapp, 
+                          $table.status_surat, $table.tanggal_surat, $table.alasan_tolak 
+                      FROM penduduk 
+                      LEFT JOIN $table ON $table.nik = penduduk.nik 
+                      WHERE $table.status_surat='tertolak'
+                  ";
+              }
 
-    SELECT penduduk.nama, surat_pengantar_kelakuan_baik.id_spkb AS id_sk, surat_pengantar_kelakuan_baik.no_surat, surat_pengantar_kelakuan_baik.nik, surat_pengantar_kelakuan_baik.jenis_surat, surat_pengantar_kelakuan_baik.whatsapp, surat_pengantar_kelakuan_baik.status_surat, surat_pengantar_kelakuan_baik.tanggal_surat, surat_pengantar_kelakuan_baik.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_pengantar_kelakuan_baik ON surat_pengantar_kelakuan_baik.nik = penduduk.nik
-    LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_pengantar_kelakuan_baik.status_surat='tertolak' 
-
-    UNION 
-
-    SELECT penduduk.nama, surat_keterangan_domisili.id_skd AS id_sk, surat_keterangan_domisili.no_surat, surat_keterangan_domisili.nik, surat_keterangan_domisili.jenis_surat, surat_keterangan_domisili.whatsapp, surat_keterangan_domisili.status_surat, surat_keterangan_domisili.tanggal_surat, surat_keterangan_domisili.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_keterangan_domisili ON surat_keterangan_domisili.nik = penduduk.nik
-    LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_domisili.status_surat='tertolak' 
-
-    UNION 
-
-    SELECT penduduk.nama, surat_keterangan_tidak_mampu.id_sktm AS id_sk, surat_keterangan_tidak_mampu.no_surat, surat_keterangan_tidak_mampu.nik, surat_keterangan_tidak_mampu.jenis_surat, surat_keterangan_tidak_mampu.whatsapp, surat_keterangan_tidak_mampu.status_surat, surat_keterangan_tidak_mampu.tanggal_surat, surat_keterangan_tidak_mampu.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_keterangan_tidak_mampu ON surat_keterangan_tidak_mampu.nik = penduduk.nik
-    LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_tidak_mampu.status_surat='tertolak'
-
-    UNION 
-
-    SELECT penduduk.nama, surat_keterangan_kehilangan.id_skk AS id_sk, surat_keterangan_kehilangan.no_surat, surat_keterangan_kehilangan.nik, surat_keterangan_kehilangan.jenis_surat, surat_keterangan_kehilangan.whatsapp, surat_keterangan_kehilangan.status_surat, surat_keterangan_kehilangan.tanggal_surat, surat_keterangan_kehilangan.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_keterangan_kehilangan ON surat_keterangan_kehilangan.nik = penduduk.nik
-    LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_kehilangan.status_surat='tertolak'
-
-    UNION 
-
-    SELECT penduduk.nama, surat_keterangan_usaha.id_sku AS id_sk, surat_keterangan_usaha.no_surat, surat_keterangan_usaha.nik, surat_keterangan_usaha.jenis_surat, surat_keterangan_usaha.whatsapp, surat_keterangan_usaha.status_surat, surat_keterangan_usaha.tanggal_surat, surat_keterangan_usaha.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_keterangan_usaha ON surat_keterangan_usaha.nik = penduduk.nik
-    LEFT JOIN login ON login.nik = penduduk.nik 
-    WHERE surat_keterangan_usaha.status_surat='tertolak'
-
-    UNION 
-
-    SELECT penduduk.nama, surat_lahir.id_sl AS id_sk, surat_lahir.no_surat, surat_lahir.nik, surat_lahir.jenis_surat, surat_lahir.whatsapp, surat_lahir.status_surat, surat_lahir.tanggal_surat, surat_lahir.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_lahir ON surat_lahir.nik = penduduk.nik 
-    WHERE surat_lahir.status_surat='tertolak' 
-
-    UNION 
-
-    SELECT penduduk.nama, surat_keterangan_wali_murid.id_skwm AS id_sk, surat_keterangan_wali_murid.no_surat, surat_keterangan_wali_murid.nik, surat_keterangan_wali_murid.jenis_surat, surat_keterangan_wali_murid.whatsapp, surat_keterangan_wali_murid.status_surat, surat_keterangan_wali_murid.tanggal_surat, surat_keterangan_wali_murid.alasan_tolak 
-    FROM penduduk 
-    LEFT JOIN surat_keterangan_wali_murid ON surat_keterangan_wali_murid.nik = penduduk.nik 
-    WHERE surat_keterangan_wali_murid.status_surat='tertolak'
-");
+              $qTampil = mysqli_query($connect, implode(' UNION ', $subqueries));
 
               foreach($qTampil as $row){
             ?>

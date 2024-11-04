@@ -9,26 +9,28 @@ if (!isset($_SESSION['nik'])) {
 
 $nik = $_SESSION['nik'];
 
-// Query untuk mengambil data surat berdasarkan NIK pengguna dan mengecualikan status 'Selesai'
-$query = "
-    SELECT 'Surat Keterangan' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Keterangan Domisili' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_domisili WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Keterangan Usaha' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_usaha WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Keterangan Kehilangan' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_kehilangan WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Keterangan Tidak Mampu' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_tidak_mampu WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Keterangan Wali Murid' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_keterangan_wali_murid WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Pengantar Kelakuan Baik' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_pengantar_kelakuan_baik WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Kelahiran' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_lahir WHERE nik='$nik' AND status_surat != 'Selesai'
-    UNION
-    SELECT 'Surat Kematian' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak FROM surat_mati WHERE nik='$nik' AND status_surat != 'Selesai'
-";
+$surat_types = [
+    'surat_keterangan' => 'Surat Keterangan',
+    'surat_keterangan_domisili' => 'Surat Keterangan Domisili',
+    'surat_keterangan_usaha' => 'Surat Keterangan Usaha',
+    'surat_keterangan_kehilangan' => 'Surat Keterangan Kehilangan',
+    'surat_keterangan_tidak_mampu' => 'Surat Keterangan Tidak Mampu',
+    'surat_keterangan_wali_murid' => 'Surat Keterangan Wali Murid',
+    'surat_pengantar_kelakuan_baik' => 'Surat Pengantar Kelakuan Baik',
+    'surat_lahir' => 'Surat Kelahiran',
+    'surat_mati' => 'Surat Kematian',
+];
+
+$subqueries = [];
+foreach ($surat_types as $table => $jenis_surat) {
+    $subqueries[] = "
+        SELECT '$jenis_surat' AS jenis_surat, no_surat, tanggal_surat, status_surat, alasan_tolak 
+        FROM $table 
+        WHERE nik='$nik' AND status_surat != 'Selesai'
+    ";
+}
+
+$query = implode(' UNION ', $subqueries);
 $result = mysqli_query($connect, $query);
 
 ?>

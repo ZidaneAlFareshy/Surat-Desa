@@ -85,9 +85,10 @@
 							session_start(); 
 						}
 
-						if (isset($_SESSION['username'])) {
+						if (isset($_SESSION['username']) && isset($_SESSION['lvl']) && $_SESSION['lvl'] == 'User') {
 							echo '<a style="color: black" class="nav-link" href="../status/">STATUS SURAT</a>';
 						}
+
 						?>
 					</li>
 					<li class="nav-item active">
@@ -100,7 +101,7 @@
 						}
 
 						if (empty($_SESSION['username'])) {
-							echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
+							echo '<a class="btn btn-dark" href="../login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';
 						} else if (isset($_SESSION['lvl'])) {
 							echo '<a class="nav-link dropdown-toggle btn btn-transparent text-black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 							echo '<i class="fa fa-user-cog"></i> '; echo $_SESSION['lvl']; echo '</a>';
@@ -127,11 +128,14 @@
 			<div style="max-height:cover; padding-top:30px; padding-bottom:60px; position:relative; min-height: 100%;">
 				<div class="card-body">
 					<div class="card-text">
+						<div align="center">
+							<img src="../assets/img/logo-cirebon2.png" alt="logo" style="max-width: 200px;">
+						</div>
 						<p>
 							<label style="font-weight: 700;font-size: 25px"><i class="fas fa-info-circle"></i> APA ITU SUKET-ON?</label>
 							<hr>
 							<blockquote>
-								Web Aplikasi untuk pelayanan surat administrasi desa untuk mempermudah penduduk dalam pembuatan surat administrasi desa secara online.
+								SUKET-ON atau Surat Keterangan Online adalah Web Aplikasi untuk pelayanan surat keterangan desa Grogol untuk mempermudah penduduk dalam pembuatan surat keterangan desa secara online.
 								<br>
 								<br>
 							</blockquote>
@@ -143,17 +147,14 @@
 						<hr>
 						
 						<blockquote>
-							Klik tombol atau menu BUAT SURAT<br>
-							Tampil halaman pilihan jenis surat<br>
-							Klik tombol BUAT SURAT<br>
-							Masukkan NIK<br>
-							Klik tombol CEK NIK<br>
-							Bila NIK sesuia tampil data identitas<br>
-							Bila NIK sesuia tampil data identitas<br>
-							Isi baris Keperluan Surat<br>
-							Klik Submit<br>
-							Setelah berhasil akan tampil pesan<br>
+							1. Klik tombol atau menu BUAT SURAT<br>
+							2. Pilih jenis surat<br>
+							3. Klik tombol BUAT SURAT<br>
+							4. Isi form persyaratan surat<br>
+							5. Klik Submit<br>
+							6. Setelah berhasil akan tampil pesan<br>
 							Berhasil membuat surat. Silahkan ambil surat di Kantor Desa dalam 2-3 hari kerja!<br>
+							7. Status surat dapat dicek di menu STATUS SURAT<br>
 							<br>
 							<br>
 						</blockquote>

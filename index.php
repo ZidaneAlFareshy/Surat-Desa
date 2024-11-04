@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="assets/img/logo-cirebon.png">
-	<title>SuratDesaOnline</title>
+	<title>SUKET-ON</title>
 	<link rel="stylesheet" href="assets/fontawesome-5.10.2/css/all.css">
 	<link rel="stylesheet" href="assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
 	<style type="text/css">
@@ -66,9 +66,13 @@
 							session_start(); 
 						}
 
-						if (isset($_SESSION['username'])) {
+						if (isset($_SESSION['username']) && isset($_SESSION['lvl']) && $_SESSION['lvl'] == 'User') {
 							echo '<a style="color: black" class="nav-link" href="status/">STATUS SURAT</a>';
 						}
+
+						// if (isset($_SESSION['username'])) {
+						// 	echo '<a style="color: black" class="nav-link" href="status/">STATUS SURAT</a>';
+						// }
 						?>
 					</li>
 					<li class="nav-item">

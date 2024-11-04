@@ -52,6 +52,14 @@
             margin-top: 40px;
         }
 
+		.icon-info {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
 		/* Responsive Styling */
 		@media (max-width: 576px) {
 			.card-title {
@@ -79,17 +87,27 @@
 	        		<a class="nav-link" href="../">HOME</a>
 	      		</li>
 	      		<li class="nav-item active">
-	        		<a class="nav-link" href="#"><i class="fas fa-envelope"></i>&nbsp;BUAT SURAT</a>
+	        		<a class="nav-link" href="#"><i class="fas fa-envelope icon-info"></i>&nbsp;BUAT SURAT</a>
 	      		</li>
 				  <li class="nav-item">
-	        		<a class="nav-link" href="../status/">STATUS SURAT</a>
+				  <?php
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); 
+						}
+
+						if (isset($_SESSION['username']) && isset($_SESSION['lvl']) && $_SESSION['lvl'] == 'User') {
+							echo '<a style="color: black" class="nav-link" href="../status/">STATUS SURAT</a>';
+						}
+						?>
 	      		</li>
 	      		<li class="nav-item">
 	        		<a class="nav-link" href="../tentang/">TENTANG</a>
 	      		</li>
 				<li class="nav-item dropdown ml-5">
 					<?php
-						session_start();
+						if (session_status() == PHP_SESSION_NONE) {
+							session_start(); // Mulai session hanya jika belum dimulai
+						}
 
 						if (empty($_SESSION['username'])) {
 							echo '<a class="btn btn-dark" href="login/"><i class="fas fa-sign-in-alt"></i>&nbsp;LOGIN</a>';

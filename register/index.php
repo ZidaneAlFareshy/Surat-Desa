@@ -11,7 +11,7 @@ if (isset($_SESSION['pesan'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../assets/img/mini-logo.png">
-    <title>Register Page</title>
+    <title>Register SUKET-ON</title>
     <link rel="stylesheet" href="../assets/bootstrap-4.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -209,6 +209,15 @@ if (isset($_SESSION['pesan'])) {
                     icon: 'error',
                     title: 'Tipe File Bukan Gambar',
                     text: 'Gunakan file gambar jpg, jpeg atau png',
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'index.php';
+                });
+            <?php elseif($_GET['pesan'] == 'ukuran-file-ktp-terlalu-besar'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ukuran Terlalu Besar',
+                    text: 'Ukuran gambar maksimal 2mb',
                     showConfirmButton: false
                 }).then(function() {
                     window.location.href = 'index.php';
