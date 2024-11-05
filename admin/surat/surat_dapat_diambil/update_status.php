@@ -50,25 +50,44 @@ if (isset($_GET['id']) && isset($_GET['status']) && isset($_GET['jenis_surat']))
             break;
     }
 
+    // if ($table != '' && $id_column != '') {
+    //     $query = "UPDATE $table SET status_surat = '$status' WHERE $id_column = '$id'";
+        
+    //     if (mysqli_query($connect, $query)) {
+    //         echo "<script>
+    //         alert('Status surat berhasil diubah menjadi SELESAI.');
+    //         window.location.href = 'index.php';
+    //         </script>";
+    //     } else {
+    //         echo "<script>
+    //         alert('Gagal mengubah status surat.');
+    //         window.location.href = 'index.php';
+    //         </script>";
+    //     }
+    // } else {
+    //     echo "<script>
+    //     alert('Jenis surat tidak valid.');
+    //     window.location.href = 'index.php';
+    //     </script>";
+    // }
+
     if ($table != '' && $id_column != '') {
         $query = "UPDATE $table SET status_surat = '$status' WHERE $id_column = '$id'";
-        
+    
         if (mysqli_query($connect, $query)) {
-            echo "<script>
-            alert('Status surat berhasil diubah menjadi SELESAI.');
-            window.location.href = 'index.php';
-            </script>";
+            // Redirect ke index.php dengan pesan sukses
+            header("Location: index.php?pesan=update-sukses");
+            exit();
         } else {
-            echo "<script>
-            alert('Gagal mengubah status surat.');
-            window.location.href = 'index.php';
-            </script>";
+            // Redirect ke index.php dengan pesan gagal
+            header("Location: index.php?pesan=update-gagal");
+            exit();
         }
     } else {
-        echo "<script>
-        alert('Jenis surat tidak valid.');
-        window.location.href = 'index.php';
-        </script>";
+        // Redirect ke index.php dengan pesan tipe surat tidak valid
+        header("Location: index.php?pesan=jenis-tidak-valid");
+        exit();
     }
+    
 }
 ?>

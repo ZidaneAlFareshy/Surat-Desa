@@ -2,8 +2,9 @@
 session_start();
 include('../../config/koneksi.php');
 
-// Ambil NIK dari form atau URL
-$nik = $_POST['nik'];
+
+// Ambil NIK dari form POST
+$nik = isset($_POST['nik']) ? $_POST['nik'] : null;
 
 // Update status verifikasi di database
 $sql = "UPDATE login SET status_verifikasi = 1 WHERE nik = ?";

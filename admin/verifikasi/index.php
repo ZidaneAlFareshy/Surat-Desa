@@ -2,15 +2,15 @@
 include ('../part/akses.php');
 include ('../part/header.php');
 
-if (isset($_GET['pesan'])) {
-  if ($_GET['pesan'] == "akun-berhasil-diverifikasi") {
-      echo "<div class='alert alert-success'>Akun berhasil diverifikasi dan pesan telah dikirim ke WhatsApp pengguna.</div>";
-  } else if ($_GET['pesan'] == "akun-berhasil-ditolak") {
-      echo "<div class='alert alert-success'>Akun berhasil ditolak dan pesan telah dikirim ke WhatsApp pengguna.</div>";
-  } else if ($_GET['pesan'] == "error-verifikasi-akun" || $_GET['pesan'] == "error-menghapus-akun") {
-      echo "<div class='alert alert-danger'>Terjadi kesalahan saat memproses akun.</div>";
-  }
-}
+// if (isset($_GET['pesan'])) {
+//   if ($_GET['pesan'] == "akun-berhasil-diverifikasi") {
+//       echo "<div class='alert alert-success'>Akun berhasil diverifikasi dan pesan telah dikirim ke WhatsApp pengguna.</div>";
+//   } else if ($_GET['pesan'] == "akun-berhasil-ditolak") {
+//       echo "<div class='alert alert-success'>Akun berhasil ditolak dan pesan telah dikirim ke WhatsApp pengguna.</div>";
+//   } else if ($_GET['pesan'] == "error-verifikasi-akun" || $_GET['pesan'] == "error-menghapus-akun") {
+//       echo "<div class='alert alert-danger'>Terjadi kesalahan saat memproses akun.</div>";
+//   }
+// }
 ?>
 
 <aside class="main-sidebar">
@@ -125,6 +125,41 @@ if (isset($_GET['pesan'])) {
     </div>
   </section>
 </div>
+
+<?php
+if (isset($_GET['pesan'])) {
+
+    echo "<script>";
+    if ($_GET['pesan'] == "akun-berhasil-diverifikasi") {
+        echo "Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Akun berhasil diverifikasi dan pesan telah dikirim ke WhatsApp pengguna.'
+            }).then(() => {
+                window.history.replaceState(null, null, window.location.pathname);
+            });";
+    } else if ($_GET['pesan'] == "akun-berhasil-ditolak") {
+        echo "Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Akun berhasil ditolak dan pesan telah dikirim ke WhatsApp pengguna.'
+            }).then(() => {
+                window.history.replaceState(null, null, window.location.pathname);
+            });";
+    } else if ($_GET['pesan'] == "error-verifikasi-akun" || $_GET['pesan'] == "error-menghapus-akun") {
+        echo "Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: 'Terjadi kesalahan saat memproses akun.'
+            }).then(() => {
+                window.history.replaceState(null, null, window.location.pathname);
+            });";
+    }
+    echo "</script>";
+}
+?>
+
+
 
 <?php 
 include ('../part/footer.php');

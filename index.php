@@ -69,10 +69,6 @@
 						if (isset($_SESSION['username']) && isset($_SESSION['lvl']) && $_SESSION['lvl'] == 'User') {
 							echo '<a style="color: black" class="nav-link" href="status/">STATUS SURAT</a>';
 						}
-
-						// if (isset($_SESSION['username'])) {
-						// 	echo '<a style="color: black" class="nav-link" href="status/">STATUS SURAT</a>';
-						// }
 						?>
 					</li>
 					<li class="nav-item">

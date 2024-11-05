@@ -46,7 +46,7 @@ if ($stmt_delete->affected_rows > 0) {
     // Kirim pesan penolakan melalui Fonnte
     $data = [
         'target' => $whatsapp,
-        'message' => "Halo $nama, pendaftaran Anda ditolak karena foto KTP atau KK tidak sesuai. Silakan coba mendaftar ulang dengan foto KTP yang valid."
+        'message' => "Halo $nama, pendaftaran Anda ditolak karena foto KTP atau KK tidak sesuai. Silakan coba mendaftar ulang dengan foto KTP atau KK yang valid."
     ];
 
     $curl = curl_init();

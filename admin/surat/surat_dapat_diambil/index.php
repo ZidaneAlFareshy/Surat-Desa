@@ -217,6 +217,47 @@
   </section>
 </div>
 
+<?php
+if (isset($_GET['pesan'])) {
+    if ($_GET['pesan'] == "update-sukses") {
+        echo "
+        <script>
+        Swal.fire({
+            title: 'Berhasil!',
+            text: 'Status surat berhasil diubah menjadi SELESAI.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(function() {
+            window.location.href = 'index.php'; // Redirect untuk menghapus parameter
+        });
+        </script>";
+    } elseif ($_GET['pesan'] == "update-gagal") {
+        echo "
+        <script>
+        Swal.fire({
+            title: 'Gagal!',
+            text: 'Gagal mengubah status surat.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        }).then(function() {
+            window.location.href = 'index.php'; // Redirect untuk menghapus parameter
+        });
+        </script>";
+    } elseif ($_GET['pesan'] == "jenis-tidak-valid") {
+        echo "
+        <script>
+        Swal.fire({
+            title: 'Error!',
+            text: 'Jenis surat tidak valid.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        }).then(function() {
+            window.location.href = 'index.php'; // Redirect untuk menghapus parameter
+        });
+        </script>";
+    }
+}
+?>
 
 <?php 
   include ('../part/footer.php');

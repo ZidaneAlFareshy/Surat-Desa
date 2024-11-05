@@ -4,7 +4,8 @@
  	<meta charset="utf-8">
  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="shortcut icon" href="../../assets/img/logo-cirebon.png">
+  	<link rel="shortcut icon" href="../../assets/img/logo-cirebon.png">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  	<title>ADMIN | SUKET-ON</title>
  	<!-- Tell the browser to be responsive to screen width -->
  	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

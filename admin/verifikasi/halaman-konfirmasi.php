@@ -164,8 +164,8 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" formaction="proses_konfirmasi.php" class="btn btn-success">Konfirmasi</button>
-                  <a href="proses_tolak.php?nik=<?php echo $data['nik']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menolak akun ini?')">Tolak</a>
+                  <button type="button" class="btn btn-success" onclick="confirmSubmit('<?php echo $data['nik']; ?>')">Konfirmasi</button>
+                  <a href="#" class="btn btn-danger" onclick="confirmReject('<?php echo $data['nik']; ?>')">Tolak</a>
                 </div>
               </div>
             </form>
@@ -205,6 +205,51 @@
       }
     });
   });
+</script>
+
+<script>
+function confirmReject(nik) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: 'Anda tidak dapat membatalkan tindakan ini!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Tolak',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Arahkan ke proses tolak jika dikonfirmasi
+            window.location.href = `proses_tolak.php?nik=${nik}`;
+        }
+    });
+}
+
+function confirmSubmit(nik) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: 'Anda akan mengonfirmasi tindakan ini!',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Konfirmasi',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Membuat form dinamis untuk mengirimkan data NIK ke proses_konfirmasi.php
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'proses_konfirmasi.php';
+
+            const inputNik = document.createElement('input');
+            inputNik.type = 'hidden';
+            inputNik.name = 'nik';
+            inputNik.value = nik;
+
+            form.appendChild(inputNik);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    });
+}
 </script>
 
 <?php 
