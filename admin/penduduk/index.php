@@ -170,7 +170,7 @@
               ?>
               <td>
                 <a class="btn btn-success btn-sm" href='edit-penduduk.php?id=<?php echo $row['id_penduduk']; ?>'><i class="fa fa-edit"></i></a>
-                <a class="btn btn-danger btn-sm" href='hapus-penduduk.php?id=<?php echo $row['id_penduduk']; ?>' onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
+                <a class="btn btn-danger btn-sm" onclick="konfirmasiHapus('<?php echo $row['id_penduduk']; ?>')"><i class="fa fa-trash"></i></a>
               </td>
               <?php  
                 } else {
@@ -187,6 +187,57 @@
     </div>
   </section>
 </div>
+
+<script>
+  function konfirmasiHapus(id) {
+        // Menampilkan SweetAlert konfirmasi
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: 'Data yang dihapus tidak dapat dikembalikan!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect ke halaman hapus jika konfirmasi
+                window.location.href = 'hapus-penduduk.php?id=' + id;
+            }
+        });
+    }
+    
+  // Cek apakah URL memiliki parameter pesan error
+  const urlParams = new URLSearchParams(window.location.search);
+  const pesan = urlParams.get('pesan');
+
+  if (pesan === 'berhasil-menghapus') {
+    Swal.fire({
+      icon: 'success',
+      title: 'Berhasil Menghapus',
+      text: 'Data telah berhasil dihapus.',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      // Hapus parameter 'pesan' dari URL setelah alert ditutup
+      urlParams.delete('pesan');
+      const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+      window.history.replaceState(null, '', newUrl);
+    });
+  } else if (pesan === 'gagal-menghapus') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal Menghapus',
+      text: 'Data tidak dapat dihapus karena data tersebut sudah pernah membuat surat.',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      // Hapus parameter 'pesan' dari URL setelah alert ditutup
+      urlParams.delete('pesan');
+      const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+      window.history.replaceState(null, '', newUrl);
+    });
+  }
+</script>
 
 <?php 
   include ('../part/footer.php');
