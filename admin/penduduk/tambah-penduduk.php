@@ -85,7 +85,7 @@ include ('../../config/koneksi.php');
   </section>
   <section class="content">      
     <div class="row">
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         <form method="post" enctype="multipart/form-data" action="import-penduduk.php">
           <div class="col-md-3">
             <input name="datapenduduk" type="file" required="required">
@@ -95,7 +95,7 @@ include ('../../config/koneksi.php');
             <input name="upload" type="submit" class="btn btn-primary" value="Import .XLS">
           </div><br>
         </form><br>
-      </div>
+      </div> -->
       <div class="col-md-12">
         <div class="box box-default">
           <div class="box-header with-border">
