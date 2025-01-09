@@ -6,7 +6,8 @@
 1. Manajemen Surat Keterangan
    - Pembuatan Surat: Pengguna (staf desa) dapat membuat berbagai jenis surat keterangan seperti surat keterangan domisili, surat keterangan usaha, dan surat keterangan lainnya.
    - Template Surat: Aplikasi menyediakan template surat yang dapat disesuaikan dengan kebutuhan desa, sehingga mempermudah proses pembuatan surat.
-2. ssdsds
+2. Pendataan Penduduk
+   - dsdsdsd
 3. sdsdsd
 4. sdsdsds
 
